@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Color Waves by 2358</title>
+<style>
+@import url("https://unpkg.com/tachyons/css/tachyons.min.css");
+.container {
+    width: 85%;
+    margin: 2rem auto;
+}
+
+input {
+  float: left;
+  width: 10em;
+  margin-right: 1em;
+  text-align: right;
+}
+
+.color-scheme,
+.color-scale,
+.three-color-scale,
+.five-color-scale,
+.light-cast-color-scale,
+.dark-cast-color-scale {
+    margin: 3rem auto;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+[class$="-scheme"] li {
+    width: 10rem;
+    height: 10rem;
+    float: left;
+    position: relative;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+[class$="-scale"] li {
+    width: 10rem;
+    height: 10rem;
+    float: left;
+    position: relative;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+[class*="color-scale"] li:hover {
+    opacity: 0.8;
+}
+[class*="color-scheme"] li:hover {
+    opacity: 0.8;
+}
+
+.color-info {
+    position: absolute;
+    padding: .3rem;
+    background-color: rgba(255, 255, 255, .1);
+    color: #fff;
+    mix-blend-mode: difference;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    font-size: 66%;
+    text-align: center;
+}
+
+.color-info span {
+    display: block;
+    line-height: 1.75em;
+}
+</style>
+</head>
+<body class="code">
+
+  <div class="container">
+    <header class="pt4 w-50-ns pr4-ns">
+      <h1 class="f1 lh-title ttc fw9 mb3 mt0 pt3 bt bw2">
+        Color Waves by 2358
+      </h1>
+    </header>
+  </div>
+
+  <div class="container">
+    <header class="pt4 w-50-ns pr4-ns">
+      <h1 class="f2 lh-title ttc fw9 mb3 mt0 pt3 bt bw2">
+        monchromatic
+      </h1>
+    </header>
+    <div class="db pt4">
+      <div>
+        <label for="user-color">Select color:</label>
+        <input type="color" id="user-color" value="#eb564b" />
+      </div>
+
+      <button class="pa2 mv4" id="generate-color-scheme">Generate Monchromatic</button>
+
+      <ol class="color-scheme"></ol>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="pt4 w-50-ns pr4-ns">
+      <h1 class="f2 lh-title ttc fw9 mb3 mt0 pt3 bt bw2">
+        2 color blend
+      </h1>
+    </header>
+    <div class="db pt4">
+      <div>
+        <label for="scale-color-1">Select color 1:</label>
+        <input type="color" id="scale-color-1" value="#ffe478" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-color-2">Select color 2:</label>
+        <input type="color" id="scale-color-2" value="#001b87" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-count">Enter the number of colors:</label>
+        <input type="number" id="scale-count" value="9" />
+      </div>
+
+      <button class="pa2 mv4" id="generate-color-scale">Generate 2 Color Blend</button>
+
+      <ol class="color-scale"></ol>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="pt4 w-50-ns pr4-ns">
+      <h1 class="f2 lh-title ttc fw9 mb3 mt0 pt3 bt bw2">
+        3 color blend
+      </h1>
+    </header>
+    <div class="db pt4">
+      <div>
+        <label for="scale-three-color-1">Select color 1:</label>
+        <input type="color" id="scale-three-color-1" value="#ffe478" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-three-color-2">Select color 2:</label>
+        <input type="color" id="scale-three-color-2" value="#ff6b97" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-three-color-3">Select color 3:</label>
+        <input type="color" id="scale-three-color-3" value="#001b87" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-three-count">Enter the number of colors:</label>
+        <input type="number" id="scale-three-count" value="5" />
+      </div>
+
+      <button class="pa2 mv4" id="generate-three-color-scale">Generate 3 Color Blend</button>
+
+      <ol class="three-color-scale"></ol>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="pt4 w-50-ns pr4-ns">
+      <h1 class="f2 lh-title ttc fw9 mb3 mt0 pt3 bt bw2">
+        5 color blend
+      </h1>
+    </header>
+    <div class="db pt4">
+      <div>
+        <label for="scale-five-color-1">Select color 1:</label>
+        <input type="color" id="scale-five-color-1" value="#ffffff" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-five-color-2">Select color 2:</label>
+        <input type="color" id="scale-five-color-2" value="#ffe478" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-five-color-3">Select color 3:</label>
+        <input type="color" id="scale-five-color-3" value="#ff6b97" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-five-color-4">Select color 4:</label>
+        <input type="color" id="scale-five-color-4" value="#001b87" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-five-color-5">Select color 5:</label>
+        <input type="color" id="scale-five-color-5" value="#000000" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-five-count">Enter the number of colors:</label>
+        <input type="number" id="scale-five-count" value="9" />
+      </div>
+
+      <button class="pa2 mv4" id="generate-five-color-scale">Generate 5 Color Blend</button>
+
+      <ol class="five-color-scale"></ol>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="pt4 w-50-ns pr4-ns">
+      <h1 class="f2 lh-title ttc fw9 mb3 mt0 pt3 bt bw2">
+        light cast
+      </h1>
+    </header>
+    <div class="db pt4">
+      <div>
+        <label for="scale-light-cast-color-1">Select color 1: <span class="black-30">(peak light color)</span></label>
+        <input type="color" id="scale-light-cast-color-1" value="#ffffff" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-light-cast-color-2">Select color 2: <span class="black-30">(light influence color)</span></label>
+        <input type="color" id="scale-light-cast-color-2" value="#ffe478" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-light-cast-color-3">Select color 3: <span class="black-30">(object color)</span></label>
+        <input type="color" id="scale-light-cast-color-3" value="#ff6b97" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-light-cast-color-4">color 4: <span class="black-30">(shadow color will automatically be generated from light color)</span></label>
+        <input type="color" id="scale-light-cast-color-4" value="#000000" disabled />
+      </div>
+      <br>
+      <div>
+        <label for="scale-light-cast-color-5">Select color 5: <span class="black-30">(peak shadow color)</span></label>
+        <input type="color" id="scale-light-cast-color-5" value="#000000" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-light-cast-count">Enter the number of colors:</label>
+        <input type="number" id="scale-light-cast-count" value="9" />
+      </div>
+
+      <button class="pa2 mv4" id="generate-light-cast-color-scale">Generate Light Cast</button>
+
+      <ol class="light-cast-color-scale"></ol>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="pt4 w-50-ns pr4-ns">
+      <h1 class="f2 lh-title ttc fw9 mb3 mt0 pt3 bt bw2">
+        shadow cast
+      </h1>
+    </header>
+    <div class="db pt4">
+      <div>
+        <label for="scale-dark-cast-color-1">Select color 1: <span class="black-30">(peak light color)</span></label>
+        <input type="color" id="scale-dark-cast-color-1" value="#ffffff" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-dark-cast-color-2">color 2: <span class="black-30">(light color will automatically be generated from shadow color)</span></label>
+        <input type="color" id="scale-dark-cast-color-2" value="#ffffff" disabled />
+      </div>
+      <br>
+      <div>
+        <label for="scale-dark-cast-color-3">Select color 3: <span class="black-30">(object color)</span></label>
+        <input type="color" id="scale-dark-cast-color-3" value="#ff6b97" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-dark-cast-color-4">Select color 4: <span class="black-30">(shadow influence color)</span></label>
+        <input type="color" id="scale-dark-cast-color-4" value="#001b87" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-dark-cast-color-5">Select color 5: <span class="black-30">(peak shadow color)</span></label>
+        <input type="color" id="scale-dark-cast-color-5" value="#000000" />
+      </div>
+      <br>
+      <div>
+        <label for="scale-dark-cast-count">Enter the number of colors:</label>
+        <input type="number" id="scale-dark-cast-count" value="9" />
+      </div>
+
+      <button class="pa2 mv4" id="generate-dark-cast-color-scale">Generate Shadow Cast</button>
+
+      <ol class="dark-cast-color-scale"></ol>
+    </div>
+  </div>
+
+  <footer class="pv4 ph3 ph5-m ph6-l near-white bg-near-black">
+    <small class="f6 db tc"><script>new Date().getFullYear()>2010&&document.write(""+new Date().getFullYear());</script>
+      <b class="ttu">
+        <a href="https://github.com/git2358"
+          title="My other Projects on Github"
+          class="f6 dib ph2 blue dim link"
+          target="_blank" rel="noopener" rel="noreferrer">
+          2358
+        </a>
+      </b>
+    </small>
+  </footer>
+
+  <script src="https://unpkg.com/chroma-js@3.1.2/dist/chroma.min.cjs"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btnGenerateColorScheme = document.querySelector('#generate-color-scheme'),
+            btnGenerateColorScale = document.querySelector('#generate-color-scale'),
+            btnGenerateThreeColorScale = document.querySelector('#generate-three-color-scale'),
+            btnGenerateFiveColorScale = document.querySelector('#generate-five-color-scale'),
+            btnGenerateLightCastColorScale = document.querySelector('#generate-light-cast-color-scale'),
+            btnGenerateDarkCastColorScale = document.querySelector('#generate-dark-cast-color-scale'),
+            colorScheme = document.querySelector('.color-scheme'),
+            colorScale = document.querySelector('.color-scale'),
+            colorThreeScale = document.querySelector('.three-color-scale'),
+            colorFiveScale = document.querySelector('.five-color-scale'),
+            colorLightCastScale = document.querySelector('.light-cast-color-scale'),
+            colorDarkCastScale = document.querySelector('.dark-cast-color-scale'),
+            steps = 13, // is preferably an odd number
+            chromaColor, userColor, colorList, scaleColors, scaleCount, scaleList;
+
+        btnGenerateColorScheme.addEventListener('click', function() {
+            // Reinitialize the color list.
+            colorList = [];
+
+            // Get the color value.
+            userColor = document.querySelector('#user-color').value;
+
+            // Reset the content of the color scheme list.
+            colorScheme.innerHTML = '';
+
+            // Initialize Chroma.
+            chromaColor = chroma(userColor);
+
+            // Create a monchromatic color scheme.
+            for (var i = 0; i < steps; i++) {
+                colorList[i] = chromaColor.darken(i - Math.floor(steps / 2));
+            }
+
+            // Generate some elements.
+            for (var j = 0; j < colorList.length; j++) {
+                var newItem = document.createElement('li');
+
+                newItem.style.backgroundColor = colorList[j];
+                newItem.innerHTML = '<div class="color-info">' +
+                    '<span>' + colorList[j] + '</span>' +
+                    '<span>' + chroma(colorList[j]).css() + '</span>' +
+                    '</div>';
+
+                colorScheme.appendChild(newItem);
+            }
+        });
+
+        btnGenerateColorScale.addEventListener('click', function() {
+            scaleList = [];
+            scaleColors = [];
+
+            // Get the color values and scale count.
+            scaleColors[0] = document.querySelector('#scale-color-1').value;
+            scaleColors[1] = document.querySelector('#scale-color-2').value;
+            scaleCount = document.querySelector("#scale-count").value;
+
+            // Reset the content of the color scale list.
+            colorScale.innerHTML = '';
+
+            // Create the color scale.
+            scaleList = chroma.scale(scaleColors).colors(scaleCount);
+
+            // Generate some elements.
+            for (var x = 0; x < scaleList.length; x++) {
+                // Generate some elements.
+                var newItem = document.createElement('li');
+
+                newItem.style.backgroundColor = scaleList[x];
+
+                newItem.innerHTML = '<div class="color-info">' +
+                    '<span>' + scaleList[x] + '</span>' +
+                    '<span>' + chroma(scaleList[x]).css() + '</span>' +
+                    '</div>';
+
+                colorScale.appendChild(newItem);
+            }
+        });
+
+        btnGenerateThreeColorScale.addEventListener('click', function() {
+            scaleThreeList = [];
+            scaleThreeColors = [];
+
+            // Get the color values and scale count.
+            scaleThreeColors[0] = document.querySelector('#scale-three-color-1').value;
+            scaleThreeColors[1] = document.querySelector('#scale-three-color-2').value;
+            scaleThreeColors[2] = document.querySelector('#scale-three-color-3').value;
+            scaleThreeCount = document.querySelector("#scale-three-count").value;
+
+            // Reset the content of the color scale list.
+            colorThreeScale.innerHTML = '';
+
+            // Create the color scale.
+            scaleThreeList = chroma.scale(scaleThreeColors).colors(scaleThreeCount);
+
+            // Generate some elements.
+            for (var x = 0; x < scaleThreeList.length; x++) {
+                // Generate some elements.
+                var newItem = document.createElement('li');
+
+                newItem.style.backgroundColor = scaleThreeList[x];
+
+                newItem.innerHTML = '<div class="color-info">' +
+                    '<span>' + scaleThreeList[x] + '</span>' +
+                    '<span>' + chroma(scaleThreeList[x]).css() + '</span>' +
+                    '</div>';
+
+                colorThreeScale.appendChild(newItem);
+            }
+        });
+
+        btnGenerateFiveColorScale.addEventListener('click', function() {
+            scaleFiveList = [];
+            scaleFiveColors = [];
+
+            function invertColor(hex) {
+                if (hex.indexOf('#') === 0) {
+                    hex = hex.slice(1);
+                }
+                // convert 3-digit hex to 6-digits.
+                if (hex.length === 3) {
+                    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                }
+                if (hex.length !== 6) {
+                    throw new Error('Invalid HEX color.');
+                }
+                // invert color components
+                var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+                    g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+                    b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+                // pad each with zeros and return
+                return '#' + padZero(r) + padZero(g) + padZero(b);
+            }
+
+            function padZero(str, len) {
+                len = len || 2;
+                var zeros = new Array(len).join('0');
+                return (zeros + str).slice(-len);
+            }
+
+            // Get the color values and scale count.
+            scaleFiveColors[0] = document.querySelector('#scale-five-color-1').value;
+            scaleFiveColors[1] = document.querySelector('#scale-five-color-2').value;
+            scaleFiveColors[2] = document.querySelector('#scale-five-color-3').value;
+            scaleFiveColors[3] = document.querySelector('#scale-five-color-4').value;
+            scaleFiveColors[4] = document.querySelector('#scale-five-color-5').value;
+            scaleFiveCount = document.querySelector("#scale-five-count").value;
+
+            // Reset the content of the color scale list.
+            colorFiveScale.innerHTML = '';
+
+            // Create the color scale.
+            scaleFiveList = chroma.scale(scaleFiveColors).colors(scaleFiveCount);
+
+            // Generate some elements.
+            for (var x = 0; x < scaleFiveList.length; x++) {
+                // Generate some elements.
+                var newItem = document.createElement('li');
+
+                newItem.style.backgroundColor = scaleFiveList[x];
+
+                newItem.innerHTML = '<div class="color-info">' +
+                    '<span>' + scaleFiveList[x] + '</span>' +
+                    '<span>' + chroma(scaleFiveList[x]).css() + '</span>' +
+                    '</div>';
+
+                colorFiveScale.appendChild(newItem);
+            }
+        });
+
+        btnGenerateLightCastColorScale.addEventListener('click', function() {
+            scaleLightCastList = [];
+            scaleLightCastColors = [];
+
+            function invertColor(hex) {
+                if (hex.indexOf('#') === 0) {
+                    hex = hex.slice(1);
+                }
+                // convert 3-digit hex to 6-digits.
+                if (hex.length === 3) {
+                    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                }
+                if (hex.length !== 6) {
+                    throw new Error('Invalid HEX color.');
+                }
+                // invert color components
+                var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+                    g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+                    b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+                // pad each with zeros and return
+                return '#' + padZero(r) + padZero(g) + padZero(b);
+            }
+
+            function padZero(str, len) {
+                len = len || 2;
+                var zeros = new Array(len).join('0');
+                return (zeros + str).slice(-len);
+            }
+
+            var sfc2 = document.querySelector('#scale-light-cast-color-2').value;
+            var sfc4 = document.querySelector('#scale-light-cast-color-4').value;
+            console.log(sfc2)
+            console.log(sfc4)
+            // var light = invertColor(sfc4);
+            var light = sfc2;
+            console.log(light)
+            var dark = invertColor(sfc2);
+            console.log(dark)
+
+            // Get the color values and scale count.
+            scaleLightCastColors[0] = document.querySelector('#scale-light-cast-color-1').value;
+            scaleLightCastColors[1] = light;
+            scaleLightCastColors[2] = document.querySelector('#scale-light-cast-color-3').value;
+            scaleLightCastColors[3] = dark;
+            scaleLightCastColors[4] = document.querySelector('#scale-light-cast-color-5').value;
+            scaleLightCastCount = document.querySelector("#scale-light-cast-count").value;
+
+            // Reset the content of the color scale list.
+            colorLightCastScale.innerHTML = '';
+
+            // Create the color scale.
+            scaleLightCastList = chroma.scale(scaleLightCastColors).colors(scaleLightCastCount);
+
+            // Generate some elements.
+            for (var x = 0; x < scaleLightCastList.length; x++) {
+                // Generate some elements.
+                var newItem = document.createElement('li');
+
+                newItem.style.backgroundColor = scaleLightCastList[x];
+
+                newItem.innerHTML = '<div class="color-info">' +
+                    '<span>' + scaleLightCastList[x] + '</span>' +
+                    '<span>' + chroma(scaleLightCastList[x]).css() + '</span>' +
+                    '</div>';
+
+                colorLightCastScale.appendChild(newItem);
+            }
+        });
+
+        btnGenerateDarkCastColorScale.addEventListener('click', function() {
+            scaleDarkCastList = [];
+            scaleDarkCastColors = [];
+
+            function invertColor(hex) {
+                if (hex.indexOf('#') === 0) {
+                    hex = hex.slice(1);
+                }
+                // convert 3-digit hex to 6-digits.
+                if (hex.length === 3) {
+                    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                }
+                if (hex.length !== 6) {
+                    throw new Error('Invalid HEX color.');
+                }
+                // invert color components
+                var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+                    g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+                    b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+                // pad each with zeros and return
+                return '#' + padZero(r) + padZero(g) + padZero(b);
+            }
+
+            function padZero(str, len) {
+                len = len || 2;
+                var zeros = new Array(len).join('0');
+                return (zeros + str).slice(-len);
+            }
+
+            var sfc2 = document.querySelector('#scale-dark-cast-color-2').value;
+            var sfc4 = document.querySelector('#scale-dark-cast-color-4').value;
+            console.log(sfc2)
+            console.log(sfc4)
+            var light = invertColor(sfc4);
+            // var light = sfc2;
+            console.log(light)
+            // var dark = invertColor(sfc2);
+            var dark = sfc4;
+            console.log(dark)
+
+            // Get the color values and scale count.
+            scaleDarkCastColors[0] = document.querySelector('#scale-dark-cast-color-1').value;
+            scaleDarkCastColors[1] = light;
+            scaleDarkCastColors[2] = document.querySelector('#scale-dark-cast-color-3').value;
+            scaleDarkCastColors[3] = dark;
+            scaleDarkCastColors[4] = document.querySelector('#scale-dark-cast-color-5').value;
+            scaleDarkCastCount = document.querySelector("#scale-dark-cast-count").value;
+
+            // Reset the content of the color scale list.
+            colorDarkCastScale.innerHTML = '';
+
+            // Create the color scale.
+            scaleDarkCastList = chroma.scale(scaleDarkCastColors).colors(scaleDarkCastCount);
+
+            // Generate some elements.
+            for (var x = 0; x < scaleDarkCastList.length; x++) {
+                // Generate some elements.
+                var newItem = document.createElement('li');
+
+                newItem.style.backgroundColor = scaleDarkCastList[x];
+
+                newItem.innerHTML = '<div class="color-info">' +
+                    '<span>' + scaleDarkCastList[x] + '</span>' +
+                    '<span>' + chroma(scaleDarkCastList[x]).css() + '</span>' +
+                    '</div>';
+
+                colorDarkCastScale.appendChild(newItem);
+            }
+        });
+    });
+
+    // .hex()
+
+  </script>
+</body>
+</html>
