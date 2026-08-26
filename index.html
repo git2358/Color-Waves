@@ -167,7 +167,8 @@ button {
   transition:
     opacity .15s ease,
     transform .15s ease,
-    background .15s ease;
+    background .15s ease,
+    box-shadow .15s ease;
 }
 
 button:hover {
@@ -190,9 +191,9 @@ button:focus-visible,
   outline-offset: 2px;
 }
 
-/* --------------------------------------------------
+/* =====================================================
    PALETTE PREVIEW
--------------------------------------------------- */
+===================================================== */
 
 .palette {
   display: grid;
@@ -220,6 +221,12 @@ button:focus-visible,
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
   opacity: .96;
+}
+
+.swatch.copied {
+  box-shadow:
+    inset 0 0 0 4px rgba(255,255,255,.9),
+    0 8px 24px rgba(0,0,0,.2);
 }
 
 .swatch-info {
@@ -300,8 +307,13 @@ footer a {
 
 <main class="container">
 
+  <!-- ==================================================
+       HEADER
+  =================================================== -->
+
   <header class="site-header">
     <h1>Color Waves</h1>
+
     <p class="subtitle">
       Generate, explore and export colour palettes.
     </p>
@@ -313,6 +325,7 @@ footer a {
   =================================================== -->
 
   <section class="generator">
+
     <h2>Monochromatic</h2>
 
     <p class="description">
@@ -324,20 +337,30 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-          <label for="mono-color">Base colour</label>
+
+          <label for="mono-color">
+            Base colour
+          </label>
+
           <input
             type="color"
             id="mono-color"
             value="#eb564b"
           >
+
         </div>
 
       </div>
 
+
       <div class="control">
-        <label for="mono-steps">Colours</label>
+
+        <label for="mono-steps">
+          Colours
+        </label>
 
         <div class="range-row">
+
           <input
             type="range"
             id="mono-steps"
@@ -350,10 +373,14 @@ footer a {
             class="range-value"
             id="mono-steps-value"
           >13</span>
+
         </div>
+
       </div>
 
+
       <div class="actions">
+
         <button data-generate="mono">
           Generate
         </button>
@@ -364,31 +391,56 @@ footer a {
         >
           Randomise
         </button>
+
       </div>
 
-      <div class="palette" id="palette-mono"></div>
+
+      <div
+        class="palette"
+        id="palette-mono"
+      ></div>
+
 
       <div class="export-bar">
-        <button class="secondary" data-copy="mono">
+
+        <button
+          class="secondary"
+          data-copy="mono"
+        >
           Copy HEX
         </button>
 
-        <button class="secondary" data-css="mono">
+        <button
+          class="secondary"
+          data-css="mono"
+        >
           Copy CSS
         </button>
 
-        <button class="secondary" data-json="mono">
+        <button
+          class="secondary"
+          data-json="mono"
+        >
           Copy JSON
         </button>
 
-        <button class="secondary" data-download="mono">
+        <button
+          class="secondary"
+          data-download="mono"
+        >
           Download
         </button>
+
       </div>
 
-      <div class="status" id="status-mono"></div>
+
+      <div
+        class="status"
+        id="status-mono"
+      ></div>
 
     </div>
+
   </section>
 
 
@@ -410,26 +462,35 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-          <label for="blend2-1">Colour 1</label>
+
+          <label for="blend2-1">
+            Colour 1
+          </label>
 
           <input
             type="color"
             id="blend2-1"
             value="#ffe478"
           >
+
         </div>
 
         <div class="control">
-          <label for="blend2-2">Colour 2</label>
+
+          <label for="blend2-2">
+            Colour 2
+          </label>
 
           <input
             type="color"
             id="blend2-2"
             value="#001b87"
           >
+
         </div>
 
       </div>
+
 
       <div class="control">
 
@@ -438,13 +499,27 @@ footer a {
         </label>
 
         <select id="blend2-mode">
-          <option value="rgb">RGB</option>
-          <option value="hsl">HSL</option>
-          <option value="lab">LAB</option>
-          <option value="lch">LCH</option>
+
+          <option value="rgb">
+            RGB
+          </option>
+
+          <option value="hsl">
+            HSL
+          </option>
+
+          <option value="lab">
+            LAB
+          </option>
+
+          <option value="lch">
+            LCH
+          </option>
+
         </select>
 
       </div>
+
 
       <div class="control">
 
@@ -471,6 +546,7 @@ footer a {
 
       </div>
 
+
       <div class="actions">
 
         <button data-generate="blend2">
@@ -486,29 +562,50 @@ footer a {
 
       </div>
 
-      <div class="palette" id="palette-blend2"></div>
+
+      <div
+        class="palette"
+        id="palette-blend2"
+      ></div>
+
 
       <div class="export-bar">
 
-        <button class="secondary" data-copy="blend2">
+        <button
+          class="secondary"
+          data-copy="blend2"
+        >
           Copy HEX
         </button>
 
-        <button class="secondary" data-css="blend2">
+        <button
+          class="secondary"
+          data-css="blend2"
+        >
           Copy CSS
         </button>
 
-        <button class="secondary" data-json="blend2">
+        <button
+          class="secondary"
+          data-json="blend2"
+        >
           Copy JSON
         </button>
 
-        <button class="secondary" data-download="blend2">
+        <button
+          class="secondary"
+          data-download="blend2"
+        >
           Download
         </button>
 
       </div>
 
-      <div class="status" id="status-blend2"></div>
+
+      <div
+        class="status"
+        id="status-blend2"
+      ></div>
 
     </div>
 
@@ -532,36 +629,49 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-          <label for="blend3-1">Colour 1</label>
+
+          <label for="blend3-1">
+            Colour 1
+          </label>
 
           <input
             type="color"
             id="blend3-1"
             value="#ffe478"
           >
+
         </div>
 
         <div class="control">
-          <label for="blend3-2">Colour 2</label>
+
+          <label for="blend3-2">
+            Colour 2
+          </label>
 
           <input
             type="color"
             id="blend3-2"
             value="#ff6b97"
           >
+
         </div>
 
         <div class="control">
-          <label for="blend3-3">Colour 3</label>
+
+          <label for="blend3-3">
+            Colour 3
+          </label>
 
           <input
             type="color"
             id="blend3-3"
             value="#001b87"
           >
+
         </div>
 
       </div>
+
 
       <div class="control">
 
@@ -571,14 +681,26 @@ footer a {
 
         <select id="blend3-mode">
 
-          <option value="rgb">RGB</option>
-          <option value="hsl">HSL</option>
-          <option value="lab">LAB</option>
-          <option value="lch">LCH</option>
+          <option value="rgb">
+            RGB
+          </option>
+
+          <option value="hsl">
+            HSL
+          </option>
+
+          <option value="lab">
+            LAB
+          </option>
+
+          <option value="lch">
+            LCH
+          </option>
 
         </select>
 
       </div>
+
 
       <div class="control">
 
@@ -605,6 +727,7 @@ footer a {
 
       </div>
 
+
       <div class="actions">
 
         <button data-generate="blend3">
@@ -620,29 +743,50 @@ footer a {
 
       </div>
 
-      <div class="palette" id="palette-blend3"></div>
+
+      <div
+        class="palette"
+        id="palette-blend3"
+      ></div>
+
 
       <div class="export-bar">
 
-        <button class="secondary" data-copy="blend3">
+        <button
+          class="secondary"
+          data-copy="blend3"
+        >
           Copy HEX
         </button>
 
-        <button class="secondary" data-css="blend3">
+        <button
+          class="secondary"
+          data-css="blend3"
+        >
           Copy CSS
         </button>
 
-        <button class="secondary" data-json="blend3">
+        <button
+          class="secondary"
+          data-json="blend3"
+        >
           Copy JSON
         </button>
 
-        <button class="secondary" data-download="blend3">
+        <button
+          class="secondary"
+          data-download="blend3"
+        >
           Download
         </button>
 
       </div>
 
-      <div class="status" id="status-blend3"></div>
+
+      <div
+        class="status"
+        id="status-blend3"
+      ></div>
 
     </div>
 
@@ -666,56 +810,77 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-          <label for="blend5-1">Colour 1</label>
+
+          <label for="blend5-1">
+            Colour 1
+          </label>
 
           <input
             type="color"
             id="blend5-1"
             value="#ffffff"
           >
+
         </div>
 
         <div class="control">
-          <label for="blend5-2">Colour 2</label>
+
+          <label for="blend5-2">
+            Colour 2
+          </label>
 
           <input
             type="color"
             id="blend5-2"
             value="#ffe478"
           >
+
         </div>
 
         <div class="control">
-          <label for="blend5-3">Colour 3</label>
+
+          <label for="blend5-3">
+            Colour 3
+          </label>
 
           <input
             type="color"
             id="blend5-3"
             value="#ff6b97"
           >
+
         </div>
 
         <div class="control">
-          <label for="blend5-4">Colour 4</label>
+
+          <label for="blend5-4">
+            Colour 4
+          </label>
 
           <input
             type="color"
             id="blend5-4"
             value="#001b87"
           >
+
         </div>
 
         <div class="control">
-          <label for="blend5-5">Colour 5</label>
+
+          <label for="blend5-5">
+            Colour 5
+          </label>
 
           <input
             type="color"
             id="blend5-5"
             value="#000000"
           >
+
         </div>
 
       </div>
+
 
       <div class="control">
 
@@ -725,14 +890,26 @@ footer a {
 
         <select id="blend5-mode">
 
-          <option value="lch">LCH</option>
-          <option value="lab">LAB</option>
-          <option value="rgb">RGB</option>
-          <option value="hsl">HSL</option>
+          <option value="lch">
+            LCH
+          </option>
+
+          <option value="lab">
+            LAB
+          </option>
+
+          <option value="rgb">
+            RGB
+          </option>
+
+          <option value="hsl">
+            HSL
+          </option>
 
         </select>
 
       </div>
+
 
       <div class="control">
 
@@ -759,6 +936,7 @@ footer a {
 
       </div>
 
+
       <div class="actions">
 
         <button data-generate="blend5">
@@ -774,29 +952,50 @@ footer a {
 
       </div>
 
-      <div class="palette" id="palette-blend5"></div>
+
+      <div
+        class="palette"
+        id="palette-blend5"
+      ></div>
+
 
       <div class="export-bar">
 
-        <button class="secondary" data-copy="blend5">
+        <button
+          class="secondary"
+          data-copy="blend5"
+        >
           Copy HEX
         </button>
 
-        <button class="secondary" data-css="blend5">
+        <button
+          class="secondary"
+          data-css="blend5"
+        >
           Copy CSS
         </button>
 
-        <button class="secondary" data-json="blend5">
+        <button
+          class="secondary"
+          data-json="blend5"
+        >
           Copy JSON
         </button>
 
-        <button class="secondary" data-download="blend5">
+        <button
+          class="secondary"
+          data-download="blend5"
+        >
           Download
         </button>
 
       </div>
 
-      <div class="status" id="status-blend5"></div>
+
+      <div
+        class="status"
+        id="status-blend5"
+      ></div>
 
     </div>
 
@@ -821,46 +1020,63 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-          <label for="light-1">Peak light</label>
+
+          <label for="light-1">
+            Peak light
+          </label>
 
           <input
             type="color"
             id="light-1"
             value="#ffffff"
           >
+
         </div>
 
         <div class="control">
-          <label for="light-2">Light influence</label>
+
+          <label for="light-2">
+            Light influence
+          </label>
 
           <input
             type="color"
             id="light-2"
             value="#ffe478"
           >
+
         </div>
 
         <div class="control">
-          <label for="light-3">Object colour</label>
+
+          <label for="light-3">
+            Object colour
+          </label>
 
           <input
             type="color"
             id="light-3"
             value="#ff6b97"
           >
+
         </div>
 
         <div class="control">
-          <label for="light-5">Peak shadow</label>
+
+          <label for="light-5">
+            Peak shadow
+          </label>
 
           <input
             type="color"
             id="light-5"
             value="#000000"
           >
+
         </div>
 
       </div>
+
 
       <div class="control">
 
@@ -887,6 +1103,7 @@ footer a {
 
       </div>
 
+
       <div class="control">
 
         <label for="light-shadow-strength">
@@ -911,6 +1128,7 @@ footer a {
         </div>
 
       </div>
+
 
       <div class="control">
 
@@ -937,6 +1155,7 @@ footer a {
 
       </div>
 
+
       <div class="actions">
 
         <button data-generate="light">
@@ -952,29 +1171,50 @@ footer a {
 
       </div>
 
-      <div class="palette" id="palette-light"></div>
+
+      <div
+        class="palette"
+        id="palette-light"
+      ></div>
+
 
       <div class="export-bar">
 
-        <button class="secondary" data-copy="light">
+        <button
+          class="secondary"
+          data-copy="light"
+        >
           Copy HEX
         </button>
 
-        <button class="secondary" data-css="light">
+        <button
+          class="secondary"
+          data-css="light"
+        >
           Copy CSS
         </button>
 
-        <button class="secondary" data-json="light">
+        <button
+          class="secondary"
+          data-json="light"
+        >
           Copy JSON
         </button>
 
-        <button class="secondary" data-download="light">
+        <button
+          class="secondary"
+          data-download="light"
+        >
           Download
         </button>
 
       </div>
 
-      <div class="status" id="status-light"></div>
+
+      <div
+        class="status"
+        id="status-light"
+      ></div>
 
     </div>
 
@@ -999,46 +1239,63 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-          <label for="shadow-1">Peak light</label>
+
+          <label for="shadow-1">
+            Peak light
+          </label>
 
           <input
             type="color"
             id="shadow-1"
             value="#ffffff"
           >
+
         </div>
 
         <div class="control">
-          <label for="shadow-3">Object colour</label>
+
+          <label for="shadow-3">
+            Object colour
+          </label>
 
           <input
             type="color"
             id="shadow-3"
             value="#ff6b97"
           >
+
         </div>
 
         <div class="control">
-          <label for="shadow-4">Shadow influence</label>
+
+          <label for="shadow-4">
+            Shadow influence
+          </label>
 
           <input
             type="color"
             id="shadow-4"
             value="#001b87"
           >
+
         </div>
 
         <div class="control">
-          <label for="shadow-5">Peak shadow</label>
+
+          <label for="shadow-5">
+            Peak shadow
+          </label>
 
           <input
             type="color"
             id="shadow-5"
             value="#000000"
           >
+
         </div>
 
       </div>
+
 
       <div class="control">
 
@@ -1065,6 +1322,7 @@ footer a {
 
       </div>
 
+
       <div class="control">
 
         <label for="shadow-light-strength">
@@ -1089,6 +1347,7 @@ footer a {
         </div>
 
       </div>
+
 
       <div class="control">
 
@@ -1115,6 +1374,7 @@ footer a {
 
       </div>
 
+
       <div class="actions">
 
         <button data-generate="shadow">
@@ -1130,29 +1390,50 @@ footer a {
 
       </div>
 
-      <div class="palette" id="palette-shadow"></div>
+
+      <div
+        class="palette"
+        id="palette-shadow"
+      ></div>
+
 
       <div class="export-bar">
 
-        <button class="secondary" data-copy="shadow">
+        <button
+          class="secondary"
+          data-copy="shadow"
+        >
           Copy HEX
         </button>
 
-        <button class="secondary" data-css="shadow">
+        <button
+          class="secondary"
+          data-css="shadow"
+        >
           Copy CSS
         </button>
 
-        <button class="secondary" data-json="shadow">
+        <button
+          class="secondary"
+          data-json="shadow"
+        >
           Copy JSON
         </button>
 
-        <button class="secondary" data-download="shadow">
+        <button
+          class="secondary"
+          data-download="shadow"
+        >
           Download
         </button>
 
       </div>
 
-      <div class="status" id="status-shadow"></div>
+
+      <div
+        class="status"
+        id="status-shadow"
+      ></div>
 
     </div>
 
@@ -1161,16 +1442,23 @@ footer a {
 </main>
 
 
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
 <footer>
 
   <small>
+
     Color Waves by
 
     <a
       href="https://github.com/git2358"
       target="_blank"
       rel="noopener noreferrer"
-    >2358</a>
+    >
+      2358
+    </a>
 
     ·
 
@@ -1178,7 +1466,10 @@ footer a {
       href="https://github.com/git2358/Color-Waves"
       target="_blank"
       rel="noopener noreferrer"
-    >GitHub</a>
+    >
+      GitHub
+    </a>
+
   </small>
 
 </footer>
@@ -1187,1023 +1478,1531 @@ footer a {
 <script>
 (() => {
 
-  "use strict";
+"use strict";
 
 
-  /* =====================================================
-     STATE
-  ====================================================== */
+/* =====================================================
+   GLOBAL STATE / HELPERS
+===================================================== */
 
-  const palettes = {};
+const palettes = {};
 
+const $ = id =>
+  document.getElementById(id);
 
-  const $ = id =>
-    document.getElementById(id);
-
-
-  const value = id =>
-    $(id).value;
+const value = id =>
+  $(id).value;
 
 
-  /* =====================================================
-     BASIC HELPERS
-  ====================================================== */
+function clamp(value, min, max) {
 
-  function clamp(n, min, max) {
-    return Math.min(max, Math.max(min, n));
+  return Math.min(
+    max,
+    Math.max(min, value)
+  );
+
+}
+
+
+function lerp(a, b, t) {
+
+  return a + (b - a) * t;
+
+}
+
+
+function randomHex() {
+
+  return "#" +
+    Math.floor(
+      Math.random() * 0xffffff
+    )
+    .toString(16)
+    .padStart(6, "0");
+
+}
+
+
+/* =====================================================
+   HEX / RGB
+===================================================== */
+
+function parseHex(hex) {
+
+  hex = String(hex)
+    .trim()
+    .replace("#", "");
+
+  if (hex.length === 3) {
+
+    hex =
+      hex[0] + hex[0] +
+      hex[1] + hex[1] +
+      hex[2] + hex[2];
+
   }
 
+  if (!/^[0-9a-fA-F]{6}$/.test(hex)) {
 
-  function lerp(a, b, t) {
-    return a + (b - a) * t;
-  }
-
-
-  function randomHex() {
-
-    return "#" +
-      Math.floor(Math.random() * 0xffffff)
-        .toString(16)
-        .padStart(6, "0");
+    throw new Error(
+      "Invalid HEX colour: " + hex
+    );
 
   }
 
+  return {
 
-  function parseHex(hex) {
+    r: parseInt(
+      hex.substring(0, 2),
+      16
+    ),
 
-    hex = hex.replace("#", "");
+    g: parseInt(
+      hex.substring(2, 4),
+      16
+    ),
 
-    if (hex.length === 3) {
-      hex =
-        hex[0] + hex[0] +
-        hex[1] + hex[1] +
-        hex[2] + hex[2];
-    }
+    b: parseInt(
+      hex.substring(4, 6),
+      16
+    )
 
-    return {
-      r: parseInt(hex.substring(0, 2), 16),
-      g: parseInt(hex.substring(2, 4), 16),
-      b: parseInt(hex.substring(4, 6), 16)
-    };
+  };
 
-  }
+}
 
 
-  function rgbToHex(r, g, b) {
+function rgbToHex(r, g, b) {
 
-    return "#" +
-      [r, g, b]
-        .map(v =>
-          Math.round(clamp(v, 0, 255))
-            .toString(16)
-            .padStart(2, "0")
+  return "#" +
+    [r, g, b]
+      .map(v =>
+        Math.round(
+          clamp(v, 0, 255)
         )
-        .join("");
+        .toString(16)
+        .padStart(2, "0")
+      )
+      .join("");
 
-  }
-
-
-  /* =====================================================
-     RGB
-  ====================================================== */
-
-  function hexToRgb(hex) {
-
-    const c = parseHex(hex);
-
-    return [
-      c.r,
-      c.g,
-      c.b
-    ];
-
-  }
+}
 
 
-  function rgbMix(a, b, t) {
+function hexToRgb(hex) {
 
-    return [
-      lerp(a[0], b[0], t),
-      lerp(a[1], b[1], t),
-      lerp(a[2], b[2], t)
-    ];
+  const c =
+    parseHex(hex);
 
-  }
+  return [
+    c.r,
+    c.g,
+    c.b
+  ];
 
-
-  /* =====================================================
-     HSL
-  ====================================================== */
-
-  function rgbToHsl(rgb) {
-
-    let r = rgb[0] / 255;
-    let g = rgb[1] / 255;
-    let b = rgb[2] / 255;
-
-    const max = Math.max(r, g, b);
-    const min = Math.min(r, g, b);
-
-    let h = 0;
-    let s = 0;
-
-    const l = (max + min) / 2;
-
-    if (max !== min) {
-
-      const d = max - min;
-
-      s =
-        l > .5
-          ? d / (2 - max - min)
-          : d / (max + min);
-
-      switch (max) {
-
-        case r:
-          h =
-            (g - b) / d +
-            (g < b ? 6 : 0);
-          break;
-
-        case g:
-          h =
-            (b - r) / d +
-            2;
-          break;
-
-        case b:
-          h =
-            (r - g) / d +
-            4;
-          break;
-
-      }
-
-      h /= 6;
-
-    }
-
-    return [
-      h * 360,
-      s,
-      l
-    ];
-
-  }
+}
 
 
-  function hue2rgb(p, q, t) {
+function rgbMix(a, b, t) {
 
-    if (t < 0) t += 1;
-    if (t > 1) t -= 1;
+  return [
 
-    if (t < 1 / 6)
-      return p + (q - p) * 6 * t;
+    lerp(
+      a[0],
+      b[0],
+      t
+    ),
 
-    if (t < 1 / 2)
-      return q;
+    lerp(
+      a[1],
+      b[1],
+      t
+    ),
 
-    if (t < 2 / 3)
-      return p + (q - p) * (2 / 3 - t) * 6;
+    lerp(
+      a[2],
+      b[2],
+      t
+    )
 
-    return p;
+  ];
 
-  }
+}
 
 
-  function hslToRgb(hsl) {
+/* =====================================================
+   HSL
+===================================================== */
 
-    let h = hsl[0] / 360;
-    const s = hsl[1];
-    const l = hsl[2];
+function rgbToHsl(rgb) {
 
-    let r;
-    let g;
-    let b;
+  let r = rgb[0] / 255;
+  let g = rgb[1] / 255;
+  let b = rgb[2] / 255;
 
-    if (s === 0) {
+  const max =
+    Math.max(r, g, b);
 
-      r = g = b = l;
+  const min =
+    Math.min(r, g, b);
 
-    } else {
+  let h = 0;
+  let s = 0;
 
-      const q =
-        l < .5
-          ? l * (1 + s)
-          : l + s - l * s;
+  const l =
+    (max + min) / 2;
 
-      const p = 2 * l - q;
+  if (max !== min) {
 
-      r = hue2rgb(p, q, h + 1 / 3);
-      g = hue2rgb(p, q, h);
-      b = hue2rgb(p, q, h - 1 / 3);
+    const d =
+      max - min;
+
+    s =
+      l > .5
+        ? d / (2 - max - min)
+        : d / (max + min);
+
+    switch (max) {
+
+      case r:
+
+        h =
+          (g - b) / d +
+          (g < b ? 6 : 0);
+
+        break;
+
+      case g:
+
+        h =
+          (b - r) / d +
+          2;
+
+        break;
+
+      case b:
+
+        h =
+          (r - g) / d +
+          4;
+
+        break;
 
     }
 
-    return [
-      r * 255,
-      g * 255,
-      b * 255
-    ];
+    h /= 6;
 
   }
 
+  return [
+    h * 360,
+    s,
+    l
+  ];
 
-  /* =====================================================
-     RGB -> XYZ
-  ====================================================== */
-
-  function rgbToXyz(rgb) {
-
-    let r = rgb[0] / 255;
-    let g = rgb[1] / 255;
-    let b = rgb[2] / 255;
-
-    r = r > .04045
-      ? Math.pow((r + .055) / 1.055, 2.4)
-      : r / 12.92;
-
-    g = g > .04045
-      ? Math.pow((g + .055) / 1.055, 2.4)
-      : g / 12.92;
-
-    b = b > .04045
-      ? Math.pow((b + .055) / 1.055, 2.4)
-      : b / 12.92;
-
-    return [
-
-      (r * .4124564 +
-       g * .3575761 +
-       b * .1804375) * 100,
-
-      (r * .2126729 +
-       g * .7151522 +
-       b * .0721750) * 100,
-
-      (r * .0193339 +
-       g * .1191920 +
-       b * .9503041) * 100
-
-    ];
-
-  }
+}
 
 
-  /* =====================================================
-     XYZ -> RGB
-  ====================================================== */
+function hue2rgb(p, q, t) {
 
-  function xyzToRgb(xyz) {
+  if (t < 0)
+    t += 1;
 
-    let x = xyz[0] / 100;
-    let y = xyz[1] / 100;
-    let z = xyz[2] / 100;
+  if (t > 1)
+    t -= 1;
 
-    let r =
-      x * 3.2404542 +
-      y * -1.5371385 +
-      z * -0.4985314;
+  if (t < 1 / 6)
+    return p +
+      (q - p) *
+      6 *
+      t;
 
-    let g =
-      x * -.9692660 +
-      y * 1.8760108 +
-      z * .0415560;
+  if (t < 1 / 2)
+    return q;
 
-    let b =
-      x * .0556434 +
-      y * -.2040259 +
-      z * 1.0572252;
+  if (t < 2 / 3)
+    return p +
+      (q - p) *
+      (2 / 3 - t) *
+      6;
+
+  return p;
+
+}
+
+
+function hslToRgb(hsl) {
+
+  let h =
+    hsl[0] / 360;
+
+  const s =
+    hsl[1];
+
+  const l =
+    hsl[2];
+
+  let r;
+  let g;
+  let b;
+
+  if (s === 0) {
+
+    r = g = b = l;
+
+  } else {
+
+    const q =
+      l < .5
+        ? l * (1 + s)
+        : l + s - l * s;
+
+    const p =
+      2 * l - q;
 
     r =
-      r > .0031308
-        ? 1.055 * Math.pow(r, 1 / 2.4) - .055
-        : 12.92 * r;
+      hue2rgb(
+        p,
+        q,
+        h + 1 / 3
+      );
 
     g =
-      g > .0031308
-        ? 1.055 * Math.pow(g, 1 / 2.4) - .055
-        : 12.92 * g;
+      hue2rgb(
+        p,
+        q,
+        h
+      );
 
     b =
-      b > .0031308
-        ? 1.055 * Math.pow(b, 1 / 2.4) - .055
-        : 12.92 * b;
-
-    return [
-      clamp(r * 255, 0, 255),
-      clamp(g * 255, 0, 255),
-      clamp(b * 255, 0, 255)
-    ];
-
-  }
-
-
-  /* =====================================================
-     XYZ -> LAB
-  ====================================================== */
-
-  function xyzToLab(xyz) {
-
-    const refX = 95.047;
-    const refY = 100.000;
-    const refZ = 108.883;
-
-    let x = xyz[0] / refX;
-    let y = xyz[1] / refY;
-    let z = xyz[2] / refZ;
-
-    const f = n =>
-      n > .008856
-        ? Math.cbrt(n)
-        : (7.787 * n) + (16 / 116);
-
-    x = f(x);
-    y = f(y);
-    z = f(z);
-
-    return [
-      (116 * y) - 16,
-      500 * (x - y),
-      200 * (y - z)
-    ];
-
-  }
-
-
-  /* =====================================================
-     LAB -> XYZ
-  ====================================================== */
-
-  function labToXyz(lab) {
-
-    const refX = 95.047;
-    const refY = 100.000;
-    const refZ = 108.883;
-
-    const fy = (lab[0] + 16) / 116;
-    const fx = lab[1] / 500 + fy;
-    const fz = fy - lab[2] / 200;
-
-    const finv = n => {
-
-      const n3 = n * n * n;
-
-      return n3 > .008856
-        ? n3
-        : (n - 16 / 116) / 7.787;
-
-    };
-
-    return [
-      refX * finv(fx),
-      refY * finv(fy),
-      refZ * finv(fz)
-    ];
-
-  }
-
-
-  function rgbToLab(rgb) {
-
-    return xyzToLab(rgbToXyz(rgb));
-
-  }
-
-
-  function labToRgb(lab) {
-
-    return xyzToRgb(labToXyz(lab));
-
-  }
-
-
-  /* =====================================================
-     LAB <-> LCH
-  ====================================================== */
-
-  function labToLch(lab) {
-
-    const L = lab[0];
-    const a = lab[1];
-    const b = lab[2];
-
-    const C =
-      Math.sqrt(a * a + b * b);
-
-    let H =
-      Math.atan2(b, a) * 180 / Math.PI;
-
-    if (H < 0) H += 360;
-
-    return [
-      L,
-      C,
-      H
-    ];
-
-  }
-
-
-  function lchToLab(lch) {
-
-    const L = lch[0];
-    const C = lch[1];
-    const H = lch[2] * Math.PI / 180;
-
-    return [
-      L,
-      C * Math.cos(H),
-      C * Math.sin(H)
-    ];
-
-  }
-
-
-  function rgbToLch(rgb) {
-
-    return labToLch(rgbToLab(rgb));
-
-  }
-
-
-  function lchToRgb(lch) {
-
-    return labToRgb(lchToLab(lch));
-
-  }
-
-
-  /* =====================================================
-     COLOUR INTERPOLATION
-  ====================================================== */
-
-  function interpolateHsl(a, b, t) {
-
-    const A = rgbToHsl(a);
-    const B = rgbToHsl(b);
-
-    let h1 = A[0];
-    let h2 = B[0];
-
-    let dh = h2 - h1;
-
-    if (dh > 180) {
-      dh -= 360;
-    }
-
-    if (dh < -180) {
-      dh += 360;
-    }
-
-    let h =
-      h1 + dh * t;
-
-    if (h < 0) h += 360;
-    if (h >= 360) h -= 360;
-
-    return hslToRgb([
-      h,
-      lerp(A[1], B[1], t),
-      lerp(A[2], B[2], t)
-    ]);
-
-  }
-
-
-  function interpolateLab(a, b, t) {
-
-    const A = rgbToLab(a);
-    const B = rgbToLab(b);
-
-    return labToRgb([
-      lerp(A[0], B[0], t),
-      lerp(A[1], B[1], t),
-      lerp(A[2], B[2], t)
-    ]);
-
-  }
-
-
-  function interpolateLch(a, b, t) {
-
-    const A = rgbToLch(a);
-    const B = rgbToLch(b);
-
-    let h1 = A[2];
-    let h2 = B[2];
-
-    let dh = h2 - h1;
-
-    if (dh > 180) {
-      dh -= 360;
-    }
-
-    if (dh < -180) {
-      dh += 360;
-    }
-
-    let h =
-      h1 + dh * t;
-
-    if (h < 0) h += 360;
-    if (h >= 360) h -= 360;
-
-    return lchToRgb([
-      lerp(A[0], B[0], t),
-      lerp(A[1], B[1], t),
-      h
-    ]);
-
-  }
-
-
-  function interpolate(a, b, t, mode) {
-
-    if (mode === "rgb") {
-      return rgbMix(a, b, t);
-    }
-
-    if (mode === "hsl") {
-      return interpolateHsl(a, b, t);
-    }
-
-    if (mode === "lab") {
-      return interpolateLab(a, b, t);
-    }
-
-    if (mode === "lch") {
-      return interpolateLch(a, b, t);
-    }
-
-    return rgbMix(a, b, t);
-
-  }
-
-
-  /* =====================================================
-     SCALE
-  ====================================================== */
-
-  function generateScale(colors, count, mode) {
-
-    const parsed =
-      colors.map(hexToRgb);
-
-    const n =
-      Number(count);
-
-    if (n === 1) {
-      return [
-        rgbToHex(...parsed[0])
-      ];
-    }
-
-    const result = [];
-
-    for (let i = 0; i < n; i++) {
-
-      const globalT =
-        i / (n - 1);
-
-      const segmentCount =
-        parsed.length - 1;
-
-      const scaled =
-        globalT * segmentCount;
-
-      let segment =
-        Math.floor(scaled);
-
-      if (segment >= segmentCount) {
-        segment = segmentCount - 1;
-      }
-
-      const localT =
-        scaled - segment;
-
-      const rgb =
-        interpolate(
-          parsed[segment],
-          parsed[segment + 1],
-          localT,
-          mode
-        );
-
-      result.push(
-        rgbToHex(...rgb)
+      hue2rgb(
+        p,
+        q,
+        h - 1 / 3
       );
 
-    }
+  }
 
-    return result;
+  return [
+    r * 255,
+    g * 255,
+    b * 255
+  ];
+
+}
+
+
+/* =====================================================
+   RGB -> XYZ
+===================================================== */
+
+function rgbToXyz(rgb) {
+
+  let r =
+    rgb[0] / 255;
+
+  let g =
+    rgb[1] / 255;
+
+  let b =
+    rgb[2] / 255;
+
+
+  r =
+    r > .04045
+      ? Math.pow(
+          (r + .055) / 1.055,
+          2.4
+        )
+      : r / 12.92;
+
+
+  g =
+    g > .04045
+      ? Math.pow(
+          (g + .055) / 1.055,
+          2.4
+        )
+      : g / 12.92;
+
+
+  b =
+    b > .04045
+      ? Math.pow(
+          (b + .055) / 1.055,
+          2.4
+        )
+      : b / 12.92;
+
+
+  return [
+
+    (
+      r * .4124564 +
+      g * .3575761 +
+      b * .1804375
+    ) * 100,
+
+    (
+      r * .2126729 +
+      g * .7151522 +
+      b * .0721750
+    ) * 100,
+
+    (
+      r * .0193339 +
+      g * .1191920 +
+      b * .9503041
+    ) * 100
+
+  ];
+
+}
+
+
+/* =====================================================
+   XYZ -> RGB
+===================================================== */
+
+function xyzToRgb(xyz) {
+
+  let x =
+    xyz[0] / 100;
+
+  let y =
+    xyz[1] / 100;
+
+  let z =
+    xyz[2] / 100;
+
+
+  let r =
+    x * 3.2404542 +
+    y * -1.5371385 +
+    z * -0.4985314;
+
+
+  let g =
+    x * -.9692660 +
+    y * 1.8760108 +
+    z * .0415560;
+
+
+  let b =
+    x * .0556434 +
+    y * -.2040259 +
+    z * 1.0572252;
+
+
+  r =
+    r > .0031308
+      ? 1.055 *
+        Math.pow(
+          r,
+          1 / 2.4
+        ) - .055
+      : 12.92 * r;
+
+
+  g =
+    g > .0031308
+      ? 1.055 *
+        Math.pow(
+          g,
+          1 / 2.4
+        ) - .055
+      : 12.92 * g;
+
+
+  b =
+    b > .0031308
+      ? 1.055 *
+        Math.pow(
+          b,
+          1 / 2.4
+        ) - .055
+      : 12.92 * b;
+
+
+  return [
+
+    clamp(
+      r * 255,
+      0,
+      255
+    ),
+
+    clamp(
+      g * 255,
+      0,
+      255
+    ),
+
+    clamp(
+      b * 255,
+      0,
+      255
+    )
+
+  ];
+
+}
+
+
+/* =====================================================
+   XYZ -> LAB
+===================================================== */
+
+function xyzToLab(xyz) {
+
+  const refX = 95.047;
+  const refY = 100.000;
+  const refZ = 108.883;
+
+  let x =
+    xyz[0] / refX;
+
+  let y =
+    xyz[1] / refY;
+
+  let z =
+    xyz[2] / refZ;
+
+
+  const f = n =>
+
+    n > .008856
+      ? Math.cbrt(n)
+      : (7.787 * n) +
+        (16 / 116);
+
+
+  x = f(x);
+  y = f(y);
+  z = f(z);
+
+
+  return [
+
+    (116 * y) - 16,
+
+    500 *
+      (x - y),
+
+    200 *
+      (y - z)
+
+  ];
+
+}
+
+
+/* =====================================================
+   LAB -> XYZ
+===================================================== */
+
+function labToXyz(lab) {
+
+  const refX = 95.047;
+  const refY = 100.000;
+  const refZ = 108.883;
+
+  const fy =
+    (lab[0] + 16) / 116;
+
+  const fx =
+    lab[1] / 500 +
+    fy;
+
+  const fz =
+    fy -
+    lab[2] / 200;
+
+
+  const finv = n => {
+
+    const n3 =
+      n * n * n;
+
+    return n3 > .008856
+
+      ? n3
+
+      : (
+          n - 16 / 116
+        ) / 7.787;
+
+  };
+
+
+  return [
+
+    refX * finv(fx),
+
+    refY * finv(fy),
+
+    refZ * finv(fz)
+
+  ];
+
+}
+
+
+function rgbToLab(rgb) {
+
+  return xyzToLab(
+    rgbToXyz(rgb)
+  );
+
+}
+
+
+function labToRgb(lab) {
+
+  return xyzToRgb(
+    labToXyz(lab)
+  );
+
+}
+
+
+/* =====================================================
+   LAB <-> LCH
+===================================================== */
+
+function labToLch(lab) {
+
+  const L =
+    lab[0];
+
+  const a =
+    lab[1];
+
+  const b =
+    lab[2];
+
+
+  const C =
+    Math.sqrt(
+      a * a +
+      b * b
+    );
+
+
+  let H =
+    Math.atan2(
+      b,
+      a
+    ) *
+    180 /
+    Math.PI;
+
+
+  if (H < 0)
+    H += 360;
+
+
+  return [
+    L,
+    C,
+    H
+  ];
+
+}
+
+
+function lchToLab(lch) {
+
+  const L =
+    lch[0];
+
+  const C =
+    lch[1];
+
+  const H =
+    lch[2] *
+    Math.PI /
+    180;
+
+
+  return [
+
+    L,
+
+    C *
+      Math.cos(H),
+
+    C *
+      Math.sin(H)
+
+  ];
+
+}
+
+
+function rgbToLch(rgb) {
+
+  return labToLch(
+    rgbToLab(rgb)
+  );
+
+}
+
+
+function lchToRgb(lch) {
+
+  return labToRgb(
+    lchToLab(lch)
+  );
+
+}
+
+
+/* =====================================================
+   COLOUR INTERPOLATION
+===================================================== */
+
+function interpolateHsl(a, b, t) {
+
+  const A =
+    rgbToHsl(a);
+
+  const B =
+    rgbToHsl(b);
+
+
+  let h1 =
+    A[0];
+
+  let h2 =
+    B[0];
+
+
+  let dh =
+    h2 - h1;
+
+
+  if (dh > 180)
+    dh -= 360;
+
+  if (dh < -180)
+    dh += 360;
+
+
+  let h =
+    h1 +
+    dh * t;
+
+
+  if (h < 0)
+    h += 360;
+
+  if (h >= 360)
+    h -= 360;
+
+
+  return hslToRgb([
+
+    h,
+
+    lerp(
+      A[1],
+      B[1],
+      t
+    ),
+
+    lerp(
+      A[2],
+      B[2],
+      t
+    )
+
+  ]);
+
+}
+
+
+function interpolateLab(a, b, t) {
+
+  const A =
+    rgbToLab(a);
+
+  const B =
+    rgbToLab(b);
+
+
+  return labToRgb([
+
+    lerp(
+      A[0],
+      B[0],
+      t
+    ),
+
+    lerp(
+      A[1],
+      B[1],
+      t
+    ),
+
+    lerp(
+      A[2],
+      B[2],
+      t
+    )
+
+  ]);
+
+}
+
+
+function interpolateLch(a, b, t) {
+
+  const A =
+    rgbToLch(a);
+
+  const B =
+    rgbToLch(b);
+
+
+  let h1 =
+    A[2];
+
+  let h2 =
+    B[2];
+
+
+  let dh =
+    h2 - h1;
+
+
+  if (dh > 180)
+    dh -= 360;
+
+  if (dh < -180)
+    dh += 360;
+
+
+  let h =
+    h1 +
+    dh * t;
+
+
+  if (h < 0)
+    h += 360;
+
+  if (h >= 360)
+    h -= 360;
+
+
+  return lchToRgb([
+
+    lerp(
+      A[0],
+      B[0],
+      t
+    ),
+
+    lerp(
+      A[1],
+      B[1],
+      t
+    ),
+
+    h
+
+  ]);
+
+}
+
+
+function interpolate(
+  a,
+  b,
+  t,
+  mode
+) {
+
+  if (mode === "rgb") {
+
+    return rgbMix(
+      a,
+      b,
+      t
+    );
+
+  }
+
+  if (mode === "hsl") {
+
+    return interpolateHsl(
+      a,
+      b,
+      t
+    );
+
+  }
+
+  if (mode === "lab") {
+
+    return interpolateLab(
+      a,
+      b,
+      t
+    );
+
+  }
+
+  if (mode === "lch") {
+
+    return interpolateLch(
+      a,
+      b,
+      t
+    );
+
+  }
+
+  return rgbMix(
+    a,
+    b,
+    t
+  );
+
+}
+
+
+/* =====================================================
+   SCALE
+===================================================== */
+
+function generateScale(
+  colors,
+  count,
+  mode
+) {
+
+  const parsed =
+    colors.map(hexToRgb);
+
+  const n =
+    Number(count);
+
+
+  if (!Number.isFinite(n) ||
+      n < 1) {
+
+    throw new Error(
+      "Invalid colour count."
+    );
 
   }
 
 
-  /* =====================================================
-     MONOCHROMATIC
-  ====================================================== */
+  if (n === 1) {
 
-  function generateMono() {
+    return [
+      rgbToHex(
+        ...parsed[0]
+      )
+    ];
+
+  }
+
+
+  const result = [];
+
+
+  for (
+    let i = 0;
+    i < n;
+    i++
+  ) {
+
+    const globalT =
+      i / (n - 1);
+
+
+    const segmentCount =
+      parsed.length - 1;
+
+
+    const scaled =
+      globalT *
+      segmentCount;
+
+
+    let segment =
+      Math.floor(scaled);
+
+
+    if (
+      segment >=
+      segmentCount
+    ) {
+
+      segment =
+        segmentCount - 1;
+
+    }
+
+
+    const localT =
+      scaled - segment;
+
 
     const rgb =
-      hexToRgb(value("mono-color"));
-
-    const lab =
-      rgbToLab(rgb);
-
-    const count =
-      Number(value("mono-steps"));
-
-    const midpoint =
-      Math.floor(count / 2);
-
-    const colors = [];
-
-    for (let i = 0; i < count; i++) {
-
-      const delta =
-        i - midpoint;
-
-      const L =
-        clamp(
-          lab[0] - delta * 6,
-          0,
-          100
-        );
-
-      const rgb =
-        labToRgb([
-          L,
-          lab[1],
-          lab[2]
-        ]);
-
-      colors.push(
-        rgbToHex(...rgb)
+      interpolate(
+        parsed[segment],
+        parsed[segment + 1],
+        localT,
+        mode
       );
 
-    }
 
-    createSwatches("mono", colors);
+    result.push(
+      rgbToHex(...rgb)
+    );
 
   }
 
 
-  /* =====================================================
-     BLENDS
-  ====================================================== */
+  return result;
 
-  function generateBlend(mode, numberOfColors) {
+}
 
-    const colors = [];
 
-    for (
-      let i = 1;
-      i <= numberOfColors;
-      i++
-    ) {
-      colors.push(
-        value(`${mode}-${i}`)
+/* =====================================================
+   MONOCHROMATIC
+===================================================== */
+
+function generateMono() {
+
+  const rgb =
+    hexToRgb(
+      value("mono-color")
+    );
+
+
+  const lab =
+    rgbToLab(rgb);
+
+
+  const count =
+    Number(
+      value("mono-steps")
+    );
+
+
+  const midpoint =
+    Math.floor(
+      count / 2
+    );
+
+
+  const colors = [];
+
+
+  for (
+    let i = 0;
+    i < count;
+    i++
+  ) {
+
+    const delta =
+      i - midpoint;
+
+
+    const L =
+      clamp(
+        lab[0] -
+        delta * 6,
+        0,
+        100
       );
-    }
 
-    const interpolation =
-      value(`${mode}-mode`);
 
-    const count =
-      Number(value(`${mode}-steps`));
+    const rgb =
+      labToRgb([
 
-    createSwatches(
-      mode,
-      generateScale(
-        colors,
-        count,
-        interpolation
+        L,
+
+        lab[1],
+
+        lab[2]
+
+      ]);
+
+
+    colors.push(
+      rgbToHex(...rgb)
+    );
+
+  }
+
+
+  createSwatches(
+    "mono",
+    colors
+  );
+
+}
+
+
+/* =====================================================
+   BLENDS
+===================================================== */
+
+function generateBlend(
+  mode,
+  numberOfColors
+) {
+
+  const colors = [];
+
+
+  for (
+    let i = 1;
+    i <= numberOfColors;
+    i++
+  ) {
+
+    colors.push(
+      value(
+        `${mode}-${i}`
       )
     );
 
   }
 
 
-  /* =====================================================
-     LCH INFLUENCE
-  ====================================================== */
-
-  function influencedLch(
-    objectHex,
-    influenceHex,
-    amount,
-    lightnessDelta = 0
-  ) {
-
-    const object =
-      rgbToLch(hexToRgb(objectHex));
-
-    const influence =
-      rgbToLch(hexToRgb(influenceHex));
-
-    const t =
-      clamp(amount, 0, 1);
-
-    let hue;
-
-    let hueDifference =
-      influence[2] - object[2];
-
-    if (hueDifference > 180) {
-      hueDifference -= 360;
-    }
-
-    if (hueDifference < -180) {
-      hueDifference += 360;
-    }
-
-    hue =
-      object[2] +
-      hueDifference * t;
-
-    if (hue < 0) hue += 360;
-    if (hue >= 360) hue -= 360;
-
-    const L =
-      clamp(
-        object[0] +
-        lightnessDelta,
-        0,
-        100
-      );
-
-    const C =
-      clamp(
-        object[1] * (1 - t) +
-        influence[1] * t,
-        0,
-        150
-      );
-
-    return lchToRgb([
-      L,
-      C,
-      hue
-    ]);
-
-  }
-
-
-  /* =====================================================
-     LIGHT CAST
-  ====================================================== */
-
-  function generateLight() {
-
-    const peakLight =
-      value("light-1");
-
-    const lightInfluence =
-      value("light-2");
-
-    const object =
-      value("light-3");
-
-    const peakShadow =
-      value("light-5");
-
-    const lightAmount =
-      Number(value("light-strength")) / 100;
-
-    const shadowAmount =
-      Number(value("light-shadow-strength")) / 100;
-
-    const count =
-      Number(value("light-steps"));
-
-
-    const lightSide =
-      rgbToHex(
-        ...influencedLch(
-          object,
-          lightInfluence,
-          lightAmount,
-          20 * lightAmount
-        )
-      );
-
-
-    const shadowInfluenced =
-      rgbToHex(
-        ...influencedLch(
-          object,
-          lightInfluence,
-          shadowAmount * .45,
-          -15 * shadowAmount
-        )
-      );
-
-
-    const shadowSide =
-      rgbToHex(
-        ...interpolate(
-          hexToRgb(shadowInfluenced),
-          hexToRgb(peakShadow),
-          shadowAmount,
-          "lch"
-        )
-      );
-
-
-    const colors =
-      generateScale(
-        [
-          peakLight,
-          lightSide,
-          object,
-          shadowSide,
-          peakShadow
-        ],
-        count,
-        "lch"
-      );
-
-
-    createSwatches(
-      "light",
-      colors
+  const interpolation =
+    value(
+      `${mode}-mode`
     );
 
-  }
 
-
-  /* =====================================================
-     SHADOW CAST
-  ====================================================== */
-
-  function generateShadow() {
-
-    const peakLight =
-      value("shadow-1");
-
-    const object =
-      value("shadow-3");
-
-    const shadowInfluence =
-      value("shadow-4");
-
-    const peakShadow =
-      value("shadow-5");
-
-    const shadowAmount =
-      Number(value("shadow-strength")) / 100;
-
-    const lightAmount =
-      Number(value("shadow-light-strength")) / 100;
-
-    const count =
-      Number(value("shadow-steps"));
-
-
-    const lightSide =
-      rgbToHex(
-        ...influencedLch(
-          object,
-          peakLight,
-          lightAmount,
-          20 * lightAmount
-        )
-      );
-
-
-    const colouredShadow =
-      rgbToHex(
-        ...influencedLch(
-          object,
-          shadowInfluence,
-          shadowAmount,
-          -25 * shadowAmount
-        )
-      );
-
-
-    const shadowSide =
-      rgbToHex(
-        ...interpolate(
-          hexToRgb(colouredShadow),
-          hexToRgb(peakShadow),
-          shadowAmount,
-          "lch"
-        )
-      );
-
-
-    const colors =
-      generateScale(
-        [
-          peakLight,
-          lightSide,
-          object,
-          shadowSide,
-          peakShadow
-        ],
-        count,
-        "lch"
-      );
-
-
-    createSwatches(
-      "shadow",
-      colors
+  const count =
+    Number(
+      value(
+        `${mode}-steps`
+      )
     );
 
-  }
+
+  createSwatches(
+
+    mode,
+
+    generateScale(
+      colors,
+      count,
+      interpolation
+    )
+
+  );
+
+}
 
 
-  /* =====================================================
-     GENERATOR ROUTER
-  ====================================================== */
+/* =====================================================
+   LCH INFLUENCE
+===================================================== */
 
-  function generate(mode) {
+function influencedLch(
+  objectHex,
+  influenceHex,
+  amount,
+  lightnessDelta = 0
+) {
 
-    try {
-
-      if (mode === "mono") {
-        generateMono();
-      }
-
-      if (mode === "blend2") {
-        generateBlend("blend2", 2);
-      }
-
-      if (mode === "blend3") {
-        generateBlend("blend3", 3);
-      }
-
-      if (mode === "blend5") {
-        generateBlend("blend5", 5);
-      }
-
-      if (mode === "light") {
-        generateLight();
-      }
-
-      if (mode === "shadow") {
-        generateShadow();
-      }
-
-    } catch (error) {
-
-      console.error(
-        "Color Waves generation error:",
-        error
-      );
-
-      setStatus(
-        mode,
-        "Unable to generate palette."
-      );
-
-    }
-
-  }
+  const object =
+    rgbToLch(
+      hexToRgb(objectHex)
+    );
 
 
-  /* =====================================================
-     PREVIEW / SWATCHES
-  ====================================================== */
-
-  function createSwatches(mode, colors) {
-
-    palettes[mode] =
-      colors.map(color =>
-        color.toLowerCase()
-      );
-
-    const output =
-      $("palette-" + mode);
-
-    output.innerHTML = "";
+  const influence =
+    rgbToLch(
+      hexToRgb(influenceHex)
+    );
 
 
-    palettes[mode].forEach(hex => {
+  const t =
+    clamp(
+      amount,
+      0,
+      1
+    );
+
+
+  let hueDifference =
+    influence[2] -
+    object[2];
+
+
+  if (hueDifference > 180)
+    hueDifference -= 360;
+
+  if (hueDifference < -180)
+    hueDifference += 360;
+
+
+  let hue =
+    object[2] +
+    hueDifference * t;
+
+
+  if (hue < 0)
+    hue += 360;
+
+  if (hue >= 360)
+    hue -= 360;
+
+
+  const L =
+    clamp(
+      object[0] +
+      lightnessDelta,
+      0,
+      100
+    );
+
+
+  const C =
+    clamp(
+
+      object[1] *
+        (1 - t) +
+
+      influence[1] *
+        t,
+
+      0,
+      150
+
+    );
+
+
+  return lchToRgb([
+
+    L,
+
+    C,
+
+    hue
+
+  ]);
+
+}
+
+
+/* =====================================================
+   LIGHT CAST
+===================================================== */
+
+function generateLight() {
+
+  const peakLight =
+    value("light-1");
+
+
+  const lightInfluence =
+    value("light-2");
+
+
+  const object =
+    value("light-3");
+
+
+  const peakShadow =
+    value("light-5");
+
+
+  const lightAmount =
+    Number(
+      value("light-strength")
+    ) / 100;
+
+
+  const shadowAmount =
+    Number(
+      value(
+        "light-shadow-strength"
+      )
+    ) / 100;
+
+
+  const count =
+    Number(
+      value("light-steps")
+    );
+
+
+  const lightSide =
+    rgbToHex(
+
+      ...influencedLch(
+
+        object,
+
+        lightInfluence,
+
+        lightAmount,
+
+        20 *
+        lightAmount
+
+      )
+
+    );
+
+
+  const shadowInfluenced =
+    rgbToHex(
+
+      ...influencedLch(
+
+        object,
+
+        lightInfluence,
+
+        shadowAmount * .45,
+
+        -15 *
+        shadowAmount
+
+      )
+
+    );
+
+
+  const shadowSide =
+    rgbToHex(
+
+      ...interpolate(
+
+        hexToRgb(
+          shadowInfluenced
+        ),
+
+        hexToRgb(
+          peakShadow
+        ),
+
+        shadowAmount,
+
+        "lch"
+
+      )
+
+    );
+
+
+  const colors =
+    generateScale(
+
+      [
+        peakLight,
+        lightSide,
+        object,
+        shadowSide,
+        peakShadow
+      ],
+
+      count,
+
+      "lch"
+
+    );
+
+
+  createSwatches(
+    "light",
+    colors
+  );
+
+}
+
+
+/* =====================================================
+   SHADOW CAST
+===================================================== */
+
+function generateShadow() {
+
+  const peakLight =
+    value("shadow-1");
+
+
+  const object =
+    value("shadow-3");
+
+
+  const shadowInfluence =
+    value("shadow-4");
+
+
+  const peakShadow =
+    value("shadow-5");
+
+
+  const shadowAmount =
+    Number(
+      value("shadow-strength")
+    ) / 100;
+
+
+  const lightAmount =
+    Number(
+      value(
+        "shadow-light-strength"
+      )
+    ) / 100;
+
+
+  const count =
+    Number(
+      value("shadow-steps")
+    );
+
+
+  const lightSide =
+    rgbToHex(
+
+      ...influencedLch(
+
+        object,
+
+        peakLight,
+
+        lightAmount,
+
+        20 *
+        lightAmount
+
+      )
+
+    );
+
+
+  const colouredShadow =
+    rgbToHex(
+
+      ...influencedLch(
+
+        object,
+
+        shadowInfluence,
+
+        shadowAmount,
+
+        -25 *
+        shadowAmount
+
+      )
+
+    );
+
+
+  const shadowSide =
+    rgbToHex(
+
+      ...interpolate(
+
+        hexToRgb(
+          colouredShadow
+        ),
+
+        hexToRgb(
+          peakShadow
+        ),
+
+        shadowAmount,
+
+        "lch"
+
+      )
+
+    );
+
+
+  const colors =
+    generateScale(
+
+      [
+        peakLight,
+        lightSide,
+        object,
+        shadowSide,
+        peakShadow
+      ],
+
+      count,
+
+      "lch"
+
+    );
+
+
+  createSwatches(
+    "shadow",
+    colors
+  );
+
+}
+
+
+/* =====================================================
+   PREVIEW / SWATCHES
+===================================================== */
+
+function createSwatches(
+  mode,
+  colors
+) {
+
+  palettes[mode] =
+    colors.map(color =>
+      String(color)
+        .toLowerCase()
+    );
+
+
+  const output =
+    $("palette-" + mode);
+
+
+  output.innerHTML = "";
+
+
+  palettes[mode]
+    .forEach(hex => {
 
       const rgb =
         hexToRgb(hex);
 
+
       const hsl =
         rgbToHsl(rgb);
 
+
       const swatch =
-        document.createElement("button");
+        document.createElement(
+          "button"
+        );
+
 
       swatch.type =
         "button";
 
+
       swatch.className =
         "swatch";
 
+
       swatch.style.backgroundColor =
         hex;
+
 
       swatch.setAttribute(
         "aria-label",
@@ -2212,18 +3011,27 @@ footer a {
 
 
       const hue =
-        Number.isFinite(hsl[0])
+        Number.isFinite(
+          hsl[0]
+        )
           ? Math.round(hsl[0])
           : 0;
 
+
       const saturation =
-        Math.round(hsl[1] * 100);
+        Math.round(
+          hsl[1] * 100
+        );
+
 
       const lightness =
-        Math.round(hsl[2] * 100);
+        Math.round(
+          hsl[2] * 100
+        );
 
 
       swatch.innerHTML = `
+
         <span class="swatch-info">
 
           <strong>
@@ -2244,19 +3052,43 @@ footer a {
           </span>
 
         </span>
+
       `;
 
 
       swatch.addEventListener(
         "click",
-        () => {
+        async () => {
 
-          copyText(
-            hex,
-            mode,
-            "Copied " +
-            hex.toUpperCase()
-          );
+          const copied =
+            await copyText(
+
+              hex,
+
+              mode,
+
+              "Copied " +
+              hex.toUpperCase()
+
+            );
+
+
+          if (copied) {
+
+            swatch.classList.add(
+              "copied"
+            );
+
+
+            setTimeout(() => {
+
+              swatch.classList.remove(
+                "copied"
+              );
+
+            }, 500);
+
+          }
 
         }
       );
@@ -2268,82 +3100,104 @@ footer a {
 
     });
 
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+function setStatus(
+  mode,
+  message
+) {
+
+  const status =
+    $("status-" + mode);
+
+
+  status.textContent =
+    message;
+
+
+  if (!setStatus.timers) {
+
+    setStatus.timers = {};
+
   }
 
 
-  /* =====================================================
-     STATUS
-  ====================================================== */
+  clearTimeout(
+    setStatus.timers[mode]
+  );
 
-  function setStatus(
-    mode,
-    message
+
+  setStatus.timers[mode] =
+    setTimeout(() => {
+
+      status.textContent =
+        "";
+
+    }, 2200);
+
+}
+
+
+/* =====================================================
+   CLIPBOARD
+===================================================== */
+
+/*
+ * Clipboard handling deliberately uses two methods:
+ *
+ * 1. navigator.clipboard.writeText()
+ * 2. document.execCommand("copy") fallback
+ *
+ * The fallback is important for browsers/devices where
+ * Clipboard API permissions are unavailable.
+ */
+
+async function copyText(
+  text,
+  mode,
+  message = "Copied"
+) {
+
+  if (
+    !text ||
+    !String(text).trim()
   ) {
 
-    const status =
-      $("status-" + mode);
-
-    status.textContent =
-      message;
-
-
-    clearTimeout(
-      setStatus.timers?.[mode]
+    setStatus(
+      mode,
+      "Generate a palette first."
     );
 
-
-    setStatus.timers ??= {};
-
-
-    setStatus.timers[mode] =
-      setTimeout(() => {
-
-        status.textContent =
-          "";
-
-      }, 1800);
+    return false;
 
   }
 
 
-  /* =====================================================
-     CLIPBOARD
-  ====================================================== */
+  text =
+    String(text);
 
-  async function copyText(
-    text,
-    mode,
-    message = "Copied"
+
+  /*
+   * Modern Clipboard API
+   */
+
+  if (
+    navigator.clipboard &&
+    typeof navigator.clipboard.writeText ===
+      "function" &&
+    window.isSecureContext
   ) {
-
-    if (!text) {
-
-      setStatus(
-        mode,
-        "Generate a palette first."
-      );
-
-      return;
-
-    }
-
 
     try {
 
-      if (
-        navigator.clipboard &&
-        window.isSecureContext
-      ) {
-
-        await navigator.clipboard.writeText(
-          text
-        );
-
-      } else {
-
-        fallbackCopy(text);
-
-      }
+      await navigator.clipboard.writeText(
+        text
+      );
 
 
       setStatus(
@@ -2351,508 +3205,707 @@ footer a {
         message
       );
 
+
+      return true;
+
     } catch (error) {
 
-      console.error(
-        "Clipboard error:",
+      console.warn(
+        "Clipboard API failed; trying fallback.",
         error
       );
-
-      try {
-
-        fallbackCopy(text);
-
-        setStatus(
-          mode,
-          message
-        );
-
-      } catch {
-
-        setStatus(
-          mode,
-          "Copy failed."
-        );
-
-      }
 
     }
 
   }
 
 
-  function fallbackCopy(text) {
+  /*
+   * Legacy / compatibility fallback
+   */
 
-    const textarea =
-      document.createElement("textarea");
+  try {
 
-    textarea.value =
-      text;
+    const copied =
+      fallbackCopy(text);
 
-    textarea.style.position =
-      "fixed";
 
-    textarea.style.left =
-      "-9999px";
+    if (copied) {
 
-    textarea.style.top =
-      "0";
+      setStatus(
+        mode,
+        message
+      );
 
-    document.body.appendChild(
-      textarea
+
+      return true;
+
+    }
+
+  } catch (error) {
+
+    console.error(
+      "Fallback clipboard error:",
+      error
     );
 
-    textarea.focus();
+  }
 
-    textarea.select();
 
-    textarea.setSelectionRange(
-      0,
-      textarea.value.length
+  setStatus(
+    mode,
+    "Copy failed — please copy manually."
+  );
+
+
+  return false;
+
+}
+
+
+function fallbackCopy(text) {
+
+  const textarea =
+    document.createElement(
+      "textarea"
     );
 
-    const successful =
+
+  textarea.value =
+    text;
+
+
+  /*
+   * Do not position the textarea at -9999px.
+   *
+   * Some Safari/iOS versions will not allow the
+   * selection/copy operation to work correctly when
+   * the element is completely outside the viewport.
+   */
+
+  textarea.style.position =
+    "fixed";
+
+  textarea.style.top =
+    "0";
+
+  textarea.style.left =
+    "0";
+
+  textarea.style.width =
+    "1px";
+
+  textarea.style.height =
+    "1px";
+
+  textarea.style.padding =
+    "0";
+
+  textarea.style.border =
+    "0";
+
+  textarea.style.margin =
+    "0";
+
+  textarea.style.opacity =
+    "0";
+
+  textarea.style.pointerEvents =
+    "none";
+
+  textarea.style.zIndex =
+    "-1";
+
+
+  textarea.setAttribute(
+    "readonly",
+    ""
+  );
+
+
+  document.body.appendChild(
+    textarea
+  );
+
+
+  textarea.focus({
+    preventScroll: true
+  });
+
+
+  textarea.select();
+
+
+  textarea.setSelectionRange(
+    0,
+    textarea.value.length
+  );
+
+
+  let successful =
+    false;
+
+
+  try {
+
+    successful =
       document.execCommand(
         "copy"
       );
 
-    textarea.remove();
+  } catch (error) {
 
-
-    if (!successful) {
-      throw new Error(
-        "Fallback copy failed"
-      );
-    }
-
-  }
-
-
-  /* =====================================================
-     EXPORT FORMATS
-  ====================================================== */
-
-  function cssVariables(colors) {
-
-    return colors
-      .map(
-        (color, i) =>
-          `--color-${i + 1}: ${color};`
-      )
-      .join("\n");
-
-  }
-
-
-  function jsonPalette(colors) {
-
-    return JSON.stringify(
-      {
-        colors: colors
-      },
-      null,
-      2
+    console.warn(
+      "document.execCommand('copy') failed.",
+      error
     );
 
   }
 
 
-  /* =====================================================
-     DOWNLOAD
-  ====================================================== */
-
-  function download(mode) {
-
-    const colors =
-      palettes[mode] || [];
+  textarea.remove();
 
 
-    if (!colors.length) {
+  return successful;
 
-      setStatus(
-        mode,
-        "Generate a palette first."
-      );
-
-      return;
-
-    }
+}
 
 
-    const text =
-      colors.join("\n");
+/* =====================================================
+   EXPORT FORMATS
+===================================================== */
+
+function cssVariables(colors) {
+
+  return colors
+
+    .map(
+      (color, i) =>
+        `--color-${i + 1}: ${color};`
+    )
+
+    .join("\n");
+
+}
 
 
-    const blob =
-      new Blob(
-        [text],
-        {
-          type: "text/plain;charset=utf-8"
-        }
-      );
+function jsonPalette(colors) {
+
+  return JSON.stringify(
+
+    {
+      colors
+    },
+
+    null,
+
+    2
+
+  );
+
+}
 
 
-    const url =
-      URL.createObjectURL(
-        blob
-      );
+/* =====================================================
+   DOWNLOAD
+===================================================== */
+
+function download(mode) {
+
+  const colors =
+    palettes[mode] || [];
 
 
-    const link =
-      document.createElement("a");
-
-
-    link.href =
-      url;
-
-    link.download =
-      `color-waves-${mode}.txt`;
-
-
-    document.body.appendChild(
-      link
-    );
-
-
-    link.click();
-
-
-    link.remove();
-
-
-    setTimeout(
-      () =>
-        URL.revokeObjectURL(url),
-      100
-    );
-
+  if (!colors.length) {
 
     setStatus(
       mode,
-      "Palette downloaded."
+      "Generate a palette first."
     );
+
+    return;
 
   }
 
 
-  /* =====================================================
-     RANDOMISE
-  ====================================================== */
+  const text =
+    colors.join("\n");
 
-  function randomise(mode) {
+
+  const blob =
+    new Blob(
+
+      [text],
+
+      {
+        type:
+          "text/plain;charset=utf-8"
+      }
+
+    );
+
+
+  const url =
+    URL.createObjectURL(
+      blob
+    );
+
+
+  const link =
+    document.createElement(
+      "a"
+    );
+
+
+  link.href =
+    url;
+
+
+  link.download =
+    `color-waves-${mode}.txt`;
+
+
+  link.style.display =
+    "none";
+
+
+  document.body.appendChild(
+    link
+  );
+
+
+  link.click();
+
+
+  link.remove();
+
+
+  setTimeout(() => {
+
+    URL.revokeObjectURL(
+      url
+    );
+
+  }, 100);
+
+
+  setStatus(
+    mode,
+    "Palette downloaded."
+  );
+
+}
+
+
+/* =====================================================
+   RANDOMISE
+===================================================== */
+
+function randomise(mode) {
+
+  if (mode === "mono") {
+
+    $("mono-color").value =
+      randomHex();
+
+  }
+
+
+  if (mode === "blend2") {
+
+    $("blend2-1").value =
+      randomHex();
+
+    $("blend2-2").value =
+      randomHex();
+
+  }
+
+
+  if (mode === "blend3") {
+
+    for (
+      let i = 1;
+      i <= 3;
+      i++
+    ) {
+
+      $(`blend3-${i}`).value =
+        randomHex();
+
+    }
+
+  }
+
+
+  if (mode === "blend5") {
+
+    for (
+      let i = 1;
+      i <= 5;
+      i++
+    ) {
+
+      $(`blend5-${i}`).value =
+        randomHex();
+
+    }
+
+  }
+
+
+  if (mode === "light") {
+
+    $("light-1").value =
+      "#ffffff";
+
+    $("light-2").value =
+      randomHex();
+
+    $("light-3").value =
+      randomHex();
+
+    $("light-5").value =
+      "#000000";
+
+  }
+
+
+  if (mode === "shadow") {
+
+    $("shadow-1").value =
+      "#ffffff";
+
+    $("shadow-3").value =
+      randomHex();
+
+    $("shadow-4").value =
+      randomHex();
+
+    $("shadow-5").value =
+      "#000000";
+
+  }
+
+
+  generate(mode);
+
+}
+
+
+/* =====================================================
+   GENERATOR ROUTER
+===================================================== */
+
+function generate(mode) {
+
+  try {
 
     if (mode === "mono") {
 
-      $("mono-color").value =
-        randomHex();
+      generateMono();
 
     }
 
 
     if (mode === "blend2") {
 
-      $("blend2-1").value =
-        randomHex();
-
-      $("blend2-2").value =
-        randomHex();
+      generateBlend(
+        "blend2",
+        2
+      );
 
     }
 
 
     if (mode === "blend3") {
 
-      for (
-        let i = 1;
-        i <= 3;
-        i++
-      ) {
-
-        $(`blend3-${i}`).value =
-          randomHex();
-
-      }
+      generateBlend(
+        "blend3",
+        3
+      );
 
     }
 
 
     if (mode === "blend5") {
 
-      for (
-        let i = 1;
-        i <= 5;
-        i++
-      ) {
-
-        $(`blend5-${i}`).value =
-          randomHex();
-
-      }
+      generateBlend(
+        "blend5",
+        5
+      );
 
     }
 
 
     if (mode === "light") {
 
-      $("light-1").value =
-        "#ffffff";
-
-      $("light-2").value =
-        randomHex();
-
-      $("light-3").value =
-        randomHex();
-
-      $("light-5").value =
-        "#000000";
+      generateLight();
 
     }
 
 
     if (mode === "shadow") {
 
-      $("shadow-1").value =
-        "#ffffff";
-
-      $("shadow-3").value =
-        randomHex();
-
-      $("shadow-4").value =
-        randomHex();
-
-      $("shadow-5").value =
-        "#000000";
+      generateShadow();
 
     }
 
+  } catch (error) {
 
-    generate(mode);
+    console.error(
+      `Color Waves ${mode} error:`,
+      error
+    );
+
+
+    setStatus(
+      mode,
+      "Unable to generate palette."
+    );
 
   }
 
-
-  /* =====================================================
-     RANGE INPUTS
-  ====================================================== */
-
-  document
-    .querySelectorAll(
-      'input[type="range"]'
-    )
-    .forEach(range => {
-
-      const output =
-        $(range.id + "-value");
+}
 
 
-      range.addEventListener(
-        "input",
-        () => {
+/* =====================================================
+   RANGE INPUTS
+===================================================== */
 
-          if (
-            range.id.includes(
-              "strength"
-            )
-          ) {
+document
+  .querySelectorAll(
+    'input[type="range"]'
+  )
+  .forEach(range => {
 
-            output.textContent =
-              range.value + "%";
-
-          } else {
-
-            output.textContent =
-              range.value;
-
-          }
-
-        }
-      );
-
-    });
+    const output =
+      $(range.id + "-value");
 
 
-  /* =====================================================
-     GENERATE BUTTONS
-  ====================================================== */
+    range.addEventListener(
+      "input",
+      () => {
 
-  document
-    .querySelectorAll(
-      "[data-generate]"
-    )
-    .forEach(button => {
+        if (
+          range.id.includes(
+            "strength"
+          )
+        ) {
 
-      button.addEventListener(
-        "click",
-        () => {
+          output.textContent =
+            range.value + "%";
 
-          generate(
-            button.dataset.generate
-          );
+        } else {
+
+          output.textContent =
+            range.value;
 
         }
-      );
 
-    });
+      }
+    );
 
-
-  /* =====================================================
-     RANDOM BUTTONS
-  ====================================================== */
-
-  document
-    .querySelectorAll(
-      "[data-random]"
-    )
-    .forEach(button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          randomise(
-            button.dataset.random
-          );
-
-        }
-      );
-
-    });
+  });
 
 
-  /* =====================================================
-     COPY HEX
-  ====================================================== */
+/* =====================================================
+   GENERATE BUTTONS
+===================================================== */
 
-  document
-    .querySelectorAll(
-      "[data-copy]"
-    )
-    .forEach(button => {
+document
+  .querySelectorAll(
+    "[data-generate]"
+  )
+  .forEach(button => {
 
-      button.addEventListener(
-        "click",
-        () => {
+    button.addEventListener(
+      "click",
+      () => {
 
-          const mode =
-            button.dataset.copy;
+        generate(
+          button.dataset.generate
+        );
 
-          copyText(
-            (palettes[mode] || [])
-              .join("\n"),
-            mode,
-            "HEX palette copied."
-          );
+      }
+    );
 
-        }
-      );
-
-    });
+  });
 
 
-  /* =====================================================
-     COPY CSS
-  ====================================================== */
+/* =====================================================
+   RANDOM BUTTONS
+===================================================== */
 
-  document
-    .querySelectorAll(
-      "[data-css]"
-    )
-    .forEach(button => {
+document
+  .querySelectorAll(
+    "[data-random]"
+  )
+  .forEach(button => {
 
-      button.addEventListener(
-        "click",
-        () => {
+    button.addEventListener(
+      "click",
+      () => {
 
-          const mode =
-            button.dataset.css;
+        randomise(
+          button.dataset.random
+        );
 
-          const colors =
-            palettes[mode] || [];
+      }
+    );
 
-
-          copyText(
-            cssVariables(colors),
-            mode,
-            "CSS variables copied."
-          );
-
-        }
-      );
-
-    });
+  });
 
 
-  /* =====================================================
-     COPY JSON
-  ====================================================== */
+/* =====================================================
+   COPY HEX BUTTONS
+===================================================== */
 
-  document
-    .querySelectorAll(
-      "[data-json]"
-    )
-    .forEach(button => {
+document
+  .querySelectorAll(
+    "[data-copy]"
+  )
+  .forEach(button => {
 
-      button.addEventListener(
-        "click",
-        () => {
+    button.addEventListener(
+      "click",
+      async () => {
 
-          const mode =
-            button.dataset.json;
-
-          const colors =
-            palettes[mode] || [];
+        const mode =
+          button.dataset.copy;
 
 
-          copyText(
-            jsonPalette(colors),
-            mode,
-            "JSON copied."
-          );
+        await copyText(
 
-        }
-      );
+          (palettes[mode] || [])
+            .join("\n"),
 
-    });
+          mode,
 
+          "HEX palette copied."
 
-  /* =====================================================
-     DOWNLOAD BUTTONS
-  ====================================================== */
+        );
 
-  document
-    .querySelectorAll(
-      "[data-download]"
-    )
-    .forEach(button => {
+      }
+    );
 
-      button.addEventListener(
-        "click",
-        () => {
-
-          download(
-            button.dataset.download
-          );
-
-        }
-      );
-
-    });
+  });
 
 
-  /* =====================================================
-     GENERATE INITIAL PREVIEWS
-  ====================================================== */
+/* =====================================================
+   COPY CSS BUTTONS
+===================================================== */
 
-  [
-    "mono",
-    "blend2",
-    "blend3",
-    "blend5",
-    "light",
-    "shadow"
-  ].forEach(
-    generate
-  );
+document
+  .querySelectorAll(
+    "[data-css]"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      async () => {
+
+        const mode =
+          button.dataset.css;
+
+
+        const colors =
+          palettes[mode] || [];
+
+
+        await copyText(
+
+          cssVariables(colors),
+
+          mode,
+
+          "CSS variables copied."
+
+        );
+
+      }
+    );
+
+  });
+
+
+/* =====================================================
+   COPY JSON BUTTONS
+===================================================== */
+
+document
+  .querySelectorAll(
+    "[data-json]"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      async () => {
+
+        const mode =
+          button.dataset.json;
+
+
+        const colors =
+          palettes[mode] || [];
+
+
+        await copyText(
+
+          jsonPalette(colors),
+
+          mode,
+
+          "JSON copied."
+
+        );
+
+      }
+    );
+
+  });
+
+
+/* =====================================================
+   DOWNLOAD BUTTONS
+===================================================== */
+
+document
+  .querySelectorAll(
+    "[data-download]"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        download(
+          button.dataset.download
+        );
+
+      }
+    );
+
+  });
+
+
+/* =====================================================
+   INITIAL PREVIEWS
+===================================================== */
+
+[
+  "mono",
+  "blend2",
+  "blend3",
+  "blend5",
+  "light",
+  "shadow"
+]
+.forEach(generate);
+
 
 })();
 </script>
