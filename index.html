@@ -3,30 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta
-  name="description"
-  content="Color Waves — a modern colour palette, gradient, light and shadow generator."
->
-
+<meta name="description" content="Color Waves — a modern colour palette, gradient, light and shadow generator.">
 <title>Color Waves by 2358</title>
 
 <style>
 :root {
   --bg: #f4f4f4;
-  --surface: #ffffff;
-  --text: #111111;
-  --muted: #666666;
-  --border: #dddddd;
+  --surface: #fff;
+  --text: #111;
+  --muted: #666;
+  --border: #ddd;
   --radius: 12px;
 }
 
 * {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -41,12 +32,6 @@ body {
   color: var(--text);
 }
 
-button,
-input,
-select {
-  font: inherit;
-}
-
 .container {
   width: min(1200px, calc(100% - 32px));
   margin: 0 auto;
@@ -56,17 +41,15 @@ select {
   padding: 48px 0 28px;
 }
 
-.site-header h1 {
+h1 {
   margin: 0;
-  font-size: clamp(2.4rem, 7vw, 5rem);
-  line-height: .95;
-  letter-spacing: -.05em;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
 }
 
 .subtitle {
-  margin: 16px 0 0;
+  margin: 14px 0 0;
   color: var(--muted);
-  font-size: 1.05rem;
 }
 
 .generator {
@@ -80,7 +63,6 @@ select {
 .generator h2 {
   margin: 0 0 6px;
   font-size: 1.5rem;
-  letter-spacing: -.02em;
 }
 
 .description {
@@ -116,7 +98,7 @@ input[type="color"] {
   padding: 3px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #fff;
+  background: white;
   cursor: pointer;
 }
 
@@ -126,8 +108,8 @@ select {
   padding: 8px 10px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #fff;
-  color: var(--text);
+  background: white;
+  font: inherit;
 }
 
 input[type="range"] {
@@ -143,7 +125,7 @@ input[type="range"] {
 }
 
 .range-value {
-  min-width: 42px;
+  min-width: 36px;
   text-align: center;
   font-weight: 700;
 }
@@ -161,28 +143,20 @@ button {
   border: 1px solid var(--text);
   border-radius: 8px;
   background: var(--text);
-  color: #fff;
+  color: white;
+  font: inherit;
   font-weight: 650;
   cursor: pointer;
-  transition:
-    opacity .15s ease,
-    transform .15s ease,
-    background .15s ease,
-    box-shadow .15s ease;
-}
-
-button:hover {
-  opacity: .84;
-}
-
-button:active {
-  transform: translateY(1px);
 }
 
 button.secondary {
-  background: #fff;
+  background: white;
   color: var(--text);
   border-color: var(--border);
+}
+
+button:hover {
+  opacity: .82;
 }
 
 button:focus-visible,
@@ -190,10 +164,6 @@ button:focus-visible,
   outline: 3px solid #6b8cff;
   outline-offset: 2px;
 }
-
-/* =====================================================
-   PALETTE PREVIEW
-===================================================== */
 
 .palette {
   display: grid;
@@ -204,13 +174,12 @@ button:focus-visible,
 
 .swatch {
   position: relative;
-  min-height: 150px;
-  width: 100%;
+  min-height: 140px;
   padding: 0;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, .08);
+  border: 1px solid rgba(0,0,0,.08);
   transition:
     transform .15s ease,
     opacity .15s ease,
@@ -218,15 +187,13 @@ button:focus-visible,
 }
 
 .swatch:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
-  opacity: .96;
+  transform: translateY(-2px);
 }
 
 .swatch.copied {
   box-shadow:
-    inset 0 0 0 4px rgba(255,255,255,.9),
-    0 8px 24px rgba(0,0,0,.2);
+    0 0 0 4px #6b8cff,
+    0 8px 20px rgba(0,0,0,.2);
 }
 
 .swatch-info {
@@ -235,12 +202,11 @@ button:focus-visible,
   padding: 12px 9px;
   background: linear-gradient(
     transparent,
-    rgba(0, 0, 0, .72)
+    rgba(0,0,0,.72)
   );
   color: white;
   text-align: center;
-  font-size: .72rem;
-  line-height: 1.35;
+  font-size: .76rem;
 }
 
 .swatch-info strong,
@@ -249,9 +215,8 @@ button:focus-visible,
 }
 
 .swatch-info strong {
-  font-size: .88rem;
+  font-size: .85rem;
   margin-bottom: 3px;
-  letter-spacing: .02em;
 }
 
 .status {
@@ -259,16 +224,6 @@ button:focus-visible,
   margin-top: 8px;
   color: var(--muted);
   font-size: .85rem;
-}
-
-.preview-label {
-  margin-top: 22px;
-  margin-bottom: -10px;
-  color: var(--muted);
-  font-size: .75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .08em;
 }
 
 footer {
@@ -297,7 +252,7 @@ footer a {
   }
 
   .swatch {
-    min-height: 135px;
+    min-height: 125px;
   }
 }
 </style>
@@ -307,1144 +262,967 @@ footer a {
 
 <main class="container">
 
-  <!-- ==================================================
-       HEADER
-  =================================================== -->
-
-  <header class="site-header">
-    <h1>Color Waves</h1>
-
-    <p class="subtitle">
-      Generate, explore and export colour palettes.
-    </p>
-  </header>
+<header class="site-header">
+  <h1>Color Waves</h1>
+  <p class="subtitle">
+    Generate, explore and export colour palettes.
+  </p>
+</header>
 
 
-  <!-- ==================================================
-       MONOCHROMATIC
-  =================================================== -->
+<!-- =====================================================
+     MONOCHROMATIC
+===================================================== -->
 
-  <section class="generator">
+<section class="generator">
 
-    <h2>Monochromatic</h2>
+  <h2>Monochromatic</h2>
 
-    <p class="description">
-      Create light and dark variations from a single colour.
-    </p>
+  <p class="description">
+    Create light and dark variations from a single colour.
+  </p>
 
-    <div class="controls">
+  <div class="controls">
 
-      <div class="color-controls">
-
-        <div class="control">
-
-          <label for="mono-color">
-            Base colour
-          </label>
-
-          <input
-            type="color"
-            id="mono-color"
-            value="#eb564b"
-          >
-
-        </div>
-
+    <div class="color-controls">
+      <div class="control">
+        <label for="mono-color">Base colour</label>
+        <input
+          type="color"
+          id="mono-color"
+          value="#eb564b"
+        >
       </div>
+    </div>
 
+    <div class="control">
+      <label for="mono-steps">Colours</label>
+
+      <div class="range-row">
+        <input
+          type="range"
+          id="mono-steps"
+          min="3"
+          max="50"
+          value="13"
+        >
+        <span
+          class="range-value"
+          id="mono-steps-value"
+        >13</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button data-generate="mono">
+        Generate
+      </button>
+
+      <button
+        class="secondary"
+        data-random="mono"
+      >
+        Randomise
+      </button>
+    </div>
+
+    <div
+      class="palette"
+      id="palette-mono"
+    ></div>
+
+    <div class="export-bar">
+      <button
+        class="secondary"
+        data-copy="mono"
+      >
+        Copy HEX
+      </button>
+
+      <button
+        class="secondary"
+        data-css="mono"
+      >
+        Copy CSS
+      </button>
+
+      <button
+        class="secondary"
+        data-json="mono"
+      >
+        Copy JSON
+      </button>
+
+      <button
+        class="secondary"
+        data-download="mono"
+      >
+        Download
+      </button>
+    </div>
+
+    <div
+      class="status"
+      id="status-mono"
+    ></div>
+
+  </div>
+</section>
+
+
+<!-- =====================================================
+     2 COLOUR BLEND
+===================================================== -->
+
+<section class="generator">
+
+  <h2>2 Colour Blend</h2>
+
+  <p class="description">
+    Blend smoothly between two colours using your chosen
+    colour space.
+  </p>
+
+  <div class="controls">
+
+    <div class="color-controls">
 
       <div class="control">
-
-        <label for="mono-steps">
-          Colours
-        </label>
-
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="mono-steps"
-            min="3"
-            max="50"
-            value="13"
-          >
-
-          <span
-            class="range-value"
-            id="mono-steps-value"
-          >13</span>
-
-        </div>
-
+        <label for="blend2-1">Colour 1</label>
+        <input
+          type="color"
+          id="blend2-1"
+          value="#ffe478"
+        >
       </div>
 
-
-      <div class="actions">
-
-        <button data-generate="mono">
-          Generate
-        </button>
-
-        <button
-          class="secondary"
-          data-random="mono"
+      <div class="control">
+        <label for="blend2-2">Colour 2</label>
+        <input
+          type="color"
+          id="blend2-2"
+          value="#001b87"
         >
-          Randomise
-        </button>
-
       </div>
-
-
-      <div
-        class="palette"
-        id="palette-mono"
-      ></div>
-
-
-      <div class="export-bar">
-
-        <button
-          class="secondary"
-          data-copy="mono"
-        >
-          Copy HEX
-        </button>
-
-        <button
-          class="secondary"
-          data-css="mono"
-        >
-          Copy CSS
-        </button>
-
-        <button
-          class="secondary"
-          data-json="mono"
-        >
-          Copy JSON
-        </button>
-
-        <button
-          class="secondary"
-          data-download="mono"
-        >
-          Download
-        </button>
-
-      </div>
-
-
-      <div
-        class="status"
-        id="status-mono"
-      ></div>
 
     </div>
 
-  </section>
+    <div class="control">
+      <label for="blend2-mode">
+        Interpolation
+      </label>
 
+      <select id="blend2-mode">
+        <option value="rgb">RGB</option>
+        <option value="hsl">HSL</option>
+        <option value="lab">LAB</option>
+        <option value="lch">LCH</option>
+      </select>
+    </div>
 
-  <!-- ==================================================
-       2 COLOUR BLEND
-  =================================================== -->
+    <div class="control">
 
-  <section class="generator">
+      <label for="blend2-steps">
+        Colours
+      </label>
 
-    <h2>2 Colour Blend</h2>
+      <div class="range-row">
 
-    <p class="description">
-      Blend smoothly between two colours using your chosen
-      colour space.
-    </p>
+        <input
+          type="range"
+          id="blend2-steps"
+          min="2"
+          max="50"
+          value="9"
+        >
 
-    <div class="controls">
-
-      <div class="color-controls">
-
-        <div class="control">
-
-          <label for="blend2-1">
-            Colour 1
-          </label>
-
-          <input
-            type="color"
-            id="blend2-1"
-            value="#ffe478"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="blend2-2">
-            Colour 2
-          </label>
-
-          <input
-            type="color"
-            id="blend2-2"
-            value="#001b87"
-          >
-
-        </div>
+        <span
+          class="range-value"
+          id="blend2-steps-value"
+        >9</span>
 
       </div>
-
-
-      <div class="control">
-
-        <label for="blend2-mode">
-          Interpolation
-        </label>
-
-        <select id="blend2-mode">
-
-          <option value="rgb">
-            RGB
-          </option>
-
-          <option value="hsl">
-            HSL
-          </option>
-
-          <option value="lab">
-            LAB
-          </option>
-
-          <option value="lch">
-            LCH
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="control">
-
-        <label for="blend2-steps">
-          Colours
-        </label>
-
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="blend2-steps"
-            min="2"
-            max="50"
-            value="9"
-          >
-
-          <span
-            class="range-value"
-            id="blend2-steps-value"
-          >9</span>
-
-        </div>
-
-      </div>
-
-
-      <div class="actions">
-
-        <button data-generate="blend2">
-          Generate
-        </button>
-
-        <button
-          class="secondary"
-          data-random="blend2"
-        >
-          Randomise
-        </button>
-
-      </div>
-
-
-      <div
-        class="palette"
-        id="palette-blend2"
-      ></div>
-
-
-      <div class="export-bar">
-
-        <button
-          class="secondary"
-          data-copy="blend2"
-        >
-          Copy HEX
-        </button>
-
-        <button
-          class="secondary"
-          data-css="blend2"
-        >
-          Copy CSS
-        </button>
-
-        <button
-          class="secondary"
-          data-json="blend2"
-        >
-          Copy JSON
-        </button>
-
-        <button
-          class="secondary"
-          data-download="blend2"
-        >
-          Download
-        </button>
-
-      </div>
-
-
-      <div
-        class="status"
-        id="status-blend2"
-      ></div>
 
     </div>
 
-  </section>
+    <div class="actions">
 
+      <button data-generate="blend2">
+        Generate
+      </button>
 
-  <!-- ==================================================
-       3 COLOUR BLEND
-  =================================================== -->
-
-  <section class="generator">
-
-    <h2>3 Colour Blend</h2>
-
-    <p class="description">
-      Create a gradient passing through three chosen colours.
-    </p>
-
-    <div class="controls">
-
-      <div class="color-controls">
-
-        <div class="control">
-
-          <label for="blend3-1">
-            Colour 1
-          </label>
-
-          <input
-            type="color"
-            id="blend3-1"
-            value="#ffe478"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="blend3-2">
-            Colour 2
-          </label>
-
-          <input
-            type="color"
-            id="blend3-2"
-            value="#ff6b97"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="blend3-3">
-            Colour 3
-          </label>
-
-          <input
-            type="color"
-            id="blend3-3"
-            value="#001b87"
-          >
-
-        </div>
-
-      </div>
-
-
-      <div class="control">
-
-        <label for="blend3-mode">
-          Interpolation
-        </label>
-
-        <select id="blend3-mode">
-
-          <option value="rgb">
-            RGB
-          </option>
-
-          <option value="hsl">
-            HSL
-          </option>
-
-          <option value="lab">
-            LAB
-          </option>
-
-          <option value="lch">
-            LCH
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="control">
-
-        <label for="blend3-steps">
-          Colours
-        </label>
-
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="blend3-steps"
-            min="3"
-            max="50"
-            value="9"
-          >
-
-          <span
-            class="range-value"
-            id="blend3-steps-value"
-          >9</span>
-
-        </div>
-
-      </div>
-
-
-      <div class="actions">
-
-        <button data-generate="blend3">
-          Generate
-        </button>
-
-        <button
-          class="secondary"
-          data-random="blend3"
-        >
-          Randomise
-        </button>
-
-      </div>
-
-
-      <div
-        class="palette"
-        id="palette-blend3"
-      ></div>
-
-
-      <div class="export-bar">
-
-        <button
-          class="secondary"
-          data-copy="blend3"
-        >
-          Copy HEX
-        </button>
-
-        <button
-          class="secondary"
-          data-css="blend3"
-        >
-          Copy CSS
-        </button>
-
-        <button
-          class="secondary"
-          data-json="blend3"
-        >
-          Copy JSON
-        </button>
-
-        <button
-          class="secondary"
-          data-download="blend3"
-        >
-          Download
-        </button>
-
-      </div>
-
-
-      <div
-        class="status"
-        id="status-blend3"
-      ></div>
+      <button
+        class="secondary"
+        data-random="blend2"
+      >
+        Randomise
+      </button>
 
     </div>
 
-  </section>
+    <div
+      class="palette"
+      id="palette-blend2"
+    ></div>
 
+    <div class="export-bar">
 
-  <!-- ==================================================
-       5 COLOUR BLEND
-  =================================================== -->
+      <button
+        class="secondary"
+        data-copy="blend2"
+      >
+        Copy HEX
+      </button>
 
-  <section class="generator">
+      <button
+        class="secondary"
+        data-css="blend2"
+      >
+        Copy CSS
+      </button>
 
-    <h2>5 Colour Blend</h2>
+      <button
+        class="secondary"
+        data-json="blend2"
+      >
+        Copy JSON
+      </button>
 
-    <p class="description">
-      Build a complex palette using five colour stops.
-    </p>
-
-    <div class="controls">
-
-      <div class="color-controls">
-
-        <div class="control">
-
-          <label for="blend5-1">
-            Colour 1
-          </label>
-
-          <input
-            type="color"
-            id="blend5-1"
-            value="#ffffff"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="blend5-2">
-            Colour 2
-          </label>
-
-          <input
-            type="color"
-            id="blend5-2"
-            value="#ffe478"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="blend5-3">
-            Colour 3
-          </label>
-
-          <input
-            type="color"
-            id="blend5-3"
-            value="#ff6b97"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="blend5-4">
-            Colour 4
-          </label>
-
-          <input
-            type="color"
-            id="blend5-4"
-            value="#001b87"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="blend5-5">
-            Colour 5
-          </label>
-
-          <input
-            type="color"
-            id="blend5-5"
-            value="#000000"
-          >
-
-        </div>
-
-      </div>
-
-
-      <div class="control">
-
-        <label for="blend5-mode">
-          Interpolation
-        </label>
-
-        <select id="blend5-mode">
-
-          <option value="lch">
-            LCH
-          </option>
-
-          <option value="lab">
-            LAB
-          </option>
-
-          <option value="rgb">
-            RGB
-          </option>
-
-          <option value="hsl">
-            HSL
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="control">
-
-        <label for="blend5-steps">
-          Colours
-        </label>
-
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="blend5-steps"
-            min="5"
-            max="50"
-            value="13"
-          >
-
-          <span
-            class="range-value"
-            id="blend5-steps-value"
-          >13</span>
-
-        </div>
-
-      </div>
-
-
-      <div class="actions">
-
-        <button data-generate="blend5">
-          Generate
-        </button>
-
-        <button
-          class="secondary"
-          data-random="blend5"
-        >
-          Randomise
-        </button>
-
-      </div>
-
-
-      <div
-        class="palette"
-        id="palette-blend5"
-      ></div>
-
-
-      <div class="export-bar">
-
-        <button
-          class="secondary"
-          data-copy="blend5"
-        >
-          Copy HEX
-        </button>
-
-        <button
-          class="secondary"
-          data-css="blend5"
-        >
-          Copy CSS
-        </button>
-
-        <button
-          class="secondary"
-          data-json="blend5"
-        >
-          Copy JSON
-        </button>
-
-        <button
-          class="secondary"
-          data-download="blend5"
-        >
-          Download
-        </button>
-
-      </div>
-
-
-      <div
-        class="status"
-        id="status-blend5"
-      ></div>
+      <button
+        class="secondary"
+        data-download="blend2"
+      >
+        Download
+      </button>
 
     </div>
 
-  </section>
+    <div
+      class="status"
+      id="status-blend2"
+    ></div>
+
+  </div>
+</section>
 
 
-  <!-- ==================================================
-       LIGHT CAST
-  =================================================== -->
+<!-- =====================================================
+     3 COLOUR BLEND
+===================================================== -->
 
-  <section class="generator">
+<section class="generator">
 
-    <h2>Light Cast</h2>
+  <h2>3 Colour Blend</h2>
 
-    <p class="description">
-      Create a more natural light-to-shadow palette using
-      LCH colour modelling.
-    </p>
+  <p class="description">
+    Create a gradient passing through three chosen colours.
+  </p>
 
-    <div class="controls">
+  <div class="controls">
 
-      <div class="color-controls">
+    <div class="color-controls">
 
-        <div class="control">
+      <div class="control">
+        <label for="blend3-1">Colour 1</label>
+        <input
+          type="color"
+          id="blend3-1"
+          value="#ffe478"
+        >
+      </div>
 
-          <label for="light-1">
-            Peak light
-          </label>
+      <div class="control">
+        <label for="blend3-2">Colour 2</label>
+        <input
+          type="color"
+          id="blend3-2"
+          value="#ff6b97"
+        >
+      </div>
 
-          <input
-            type="color"
-            id="light-1"
-            value="#ffffff"
-          >
+      <div class="control">
+        <label for="blend3-3">Colour 3</label>
+        <input
+          type="color"
+          id="blend3-3"
+          value="#001b87"
+        >
+      </div>
 
-        </div>
+    </div>
 
-        <div class="control">
+    <div class="control">
 
-          <label for="light-2">
-            Light influence
-          </label>
+      <label for="blend3-mode">
+        Interpolation
+      </label>
 
-          <input
-            type="color"
-            id="light-2"
-            value="#ffe478"
-          >
+      <select id="blend3-mode">
+        <option value="rgb">RGB</option>
+        <option value="hsl">HSL</option>
+        <option value="lab">LAB</option>
+        <option value="lch">LCH</option>
+      </select>
 
-        </div>
+    </div>
 
-        <div class="control">
+    <div class="control">
 
-          <label for="light-3">
-            Object colour
-          </label>
+      <label for="blend3-steps">
+        Colours
+      </label>
 
-          <input
-            type="color"
-            id="light-3"
-            value="#ff6b97"
-          >
+      <div class="range-row">
 
-        </div>
+        <input
+          type="range"
+          id="blend3-steps"
+          min="3"
+          max="50"
+          value="9"
+        >
 
-        <div class="control">
-
-          <label for="light-5">
-            Peak shadow
-          </label>
-
-          <input
-            type="color"
-            id="light-5"
-            value="#000000"
-          >
-
-        </div>
+        <span
+          class="range-value"
+          id="blend3-steps-value"
+        >9</span>
 
       </div>
 
+    </div>
+
+    <div class="actions">
+
+      <button data-generate="blend3">
+        Generate
+      </button>
+
+      <button
+        class="secondary"
+        data-random="blend3"
+      >
+        Randomise
+      </button>
+
+    </div>
+
+    <div
+      class="palette"
+      id="palette-blend3"
+    ></div>
+
+    <div class="export-bar">
+
+      <button
+        class="secondary"
+        data-copy="blend3"
+      >
+        Copy HEX
+      </button>
+
+      <button
+        class="secondary"
+        data-css="blend3"
+      >
+        Copy CSS
+      </button>
+
+      <button
+        class="secondary"
+        data-json="blend3"
+      >
+        Copy JSON
+      </button>
+
+      <button
+        class="secondary"
+        data-download="blend3"
+      >
+        Download
+      </button>
+
+    </div>
+
+    <div
+      class="status"
+      id="status-blend3"
+    ></div>
+
+  </div>
+</section>
+
+
+<!-- =====================================================
+     5 COLOUR BLEND
+===================================================== -->
+
+<section class="generator">
+
+  <h2>5 Colour Blend</h2>
+
+  <p class="description">
+    Build a complex palette using five colour stops.
+  </p>
+
+  <div class="controls">
+
+    <div class="color-controls">
 
       <div class="control">
+        <label for="blend5-1">Colour 1</label>
+        <input
+          type="color"
+          id="blend5-1"
+          value="#ffffff"
+        >
+      </div>
 
-        <label for="light-strength">
+      <div class="control">
+        <label for="blend5-2">Colour 2</label>
+        <input
+          type="color"
+          id="blend5-2"
+          value="#ffe478"
+        >
+      </div>
+
+      <div class="control">
+        <label for="blend5-3">Colour 3</label>
+        <input
+          type="color"
+          id="blend5-3"
+          value="#ff6b97"
+        >
+      </div>
+
+      <div class="control">
+        <label for="blend5-4">Colour 4</label>
+        <input
+          type="color"
+          id="blend5-4"
+          value="#001b87"
+        >
+      </div>
+
+      <div class="control">
+        <label for="blend5-5">Colour 5</label>
+        <input
+          type="color"
+          id="blend5-5"
+          value="#000000"
+        >
+      </div>
+
+    </div>
+
+    <div class="control">
+
+      <label for="blend5-mode">
+        Interpolation
+      </label>
+
+      <select id="blend5-mode">
+        <option value="lch">LCH</option>
+        <option value="lab">LAB</option>
+        <option value="rgb">RGB</option>
+        <option value="hsl">HSL</option>
+      </select>
+
+    </div>
+
+    <div class="control">
+
+      <label for="blend5-steps">
+        Colours
+      </label>
+
+      <div class="range-row">
+
+        <input
+          type="range"
+          id="blend5-steps"
+          min="5"
+          max="50"
+          value="13"
+        >
+
+        <span
+          class="range-value"
+          id="blend5-steps-value"
+        >13</span>
+
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <button data-generate="blend5">
+        Generate
+      </button>
+
+      <button
+        class="secondary"
+        data-random="blend5"
+      >
+        Randomise
+      </button>
+
+    </div>
+
+    <div
+      class="palette"
+      id="palette-blend5"
+    ></div>
+
+    <div class="export-bar">
+
+      <button
+        class="secondary"
+        data-copy="blend5"
+      >
+        Copy HEX
+      </button>
+
+      <button
+        class="secondary"
+        data-css="blend5"
+      >
+        Copy CSS
+      </button>
+
+      <button
+        class="secondary"
+        data-json="blend5"
+      >
+        Copy JSON
+      </button>
+
+      <button
+        class="secondary"
+        data-download="blend5"
+      >
+        Download
+      </button>
+
+    </div>
+
+    <div
+      class="status"
+      id="status-blend5"
+    ></div>
+
+  </div>
+</section>
+
+
+<!-- =====================================================
+     LIGHT CAST
+===================================================== -->
+
+<section class="generator">
+
+  <h2>Light Cast</h2>
+
+  <p class="description">
+    Create a more natural light-to-shadow palette using
+    LCH colour modelling.
+  </p>
+
+  <div class="controls">
+
+    <div class="color-controls">
+
+      <div class="control">
+        <label for="light-1">
+          Peak light
+        </label>
+
+        <input
+          type="color"
+          id="light-1"
+          value="#ffffff"
+        >
+      </div>
+
+      <div class="control">
+        <label for="light-2">
           Light influence
         </label>
 
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="light-strength"
-            min="0"
-            max="100"
-            value="55"
-          >
-
-          <span
-            class="range-value"
-            id="light-strength-value"
-          >55%</span>
-
-        </div>
-
+        <input
+          type="color"
+          id="light-2"
+          value="#ffe478"
+        >
       </div>
-
 
       <div class="control">
-
-        <label for="light-shadow-strength">
-          Shadow influence
+        <label for="light-3">
+          Object colour
         </label>
 
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="light-shadow-strength"
-            min="0"
-            max="100"
-            value="55"
-          >
-
-          <span
-            class="range-value"
-            id="light-shadow-strength-value"
-          >55%</span>
-
-        </div>
-
+        <input
+          type="color"
+          id="light-3"
+          value="#ff6b97"
+        >
       </div>
-
 
       <div class="control">
-
-        <label for="light-steps">
-          Colours
+        <label for="light-5">
+          Peak shadow
         </label>
 
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="light-steps"
-            min="5"
-            max="50"
-            value="13"
-          >
-
-          <span
-            class="range-value"
-            id="light-steps-value"
-          >13</span>
-
-        </div>
-
+        <input
+          type="color"
+          id="light-5"
+          value="#000000"
+        >
       </div>
-
-
-      <div class="actions">
-
-        <button data-generate="light">
-          Generate
-        </button>
-
-        <button
-          class="secondary"
-          data-random="light"
-        >
-          Randomise
-        </button>
-
-      </div>
-
-
-      <div
-        class="palette"
-        id="palette-light"
-      ></div>
-
-
-      <div class="export-bar">
-
-        <button
-          class="secondary"
-          data-copy="light"
-        >
-          Copy HEX
-        </button>
-
-        <button
-          class="secondary"
-          data-css="light"
-        >
-          Copy CSS
-        </button>
-
-        <button
-          class="secondary"
-          data-json="light"
-        >
-          Copy JSON
-        </button>
-
-        <button
-          class="secondary"
-          data-download="light"
-        >
-          Download
-        </button>
-
-      </div>
-
-
-      <div
-        class="status"
-        id="status-light"
-      ></div>
 
     </div>
 
-  </section>
+    <div class="control">
 
+      <label for="light-strength">
+        Light influence
+      </label>
 
-  <!-- ==================================================
-       SHADOW CAST
-  =================================================== -->
+      <div class="range-row">
 
-  <section class="generator">
-
-    <h2>Shadow Cast</h2>
-
-    <p class="description">
-      Create a coloured shadow while preserving the object's
-      hue and perceived lightness.
-    </p>
-
-    <div class="controls">
-
-      <div class="color-controls">
-
-        <div class="control">
-
-          <label for="shadow-1">
-            Peak light
-          </label>
-
-          <input
-            type="color"
-            id="shadow-1"
-            value="#ffffff"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="shadow-3">
-            Object colour
-          </label>
-
-          <input
-            type="color"
-            id="shadow-3"
-            value="#ff6b97"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="shadow-4">
-            Shadow influence
-          </label>
-
-          <input
-            type="color"
-            id="shadow-4"
-            value="#001b87"
-          >
-
-        </div>
-
-        <div class="control">
-
-          <label for="shadow-5">
-            Peak shadow
-          </label>
-
-          <input
-            type="color"
-            id="shadow-5"
-            value="#000000"
-          >
-
-        </div>
-
-      </div>
-
-
-      <div class="control">
-
-        <label for="shadow-strength">
-          Shadow influence
-        </label>
-
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="shadow-strength"
-            min="0"
-            max="100"
-            value="60"
-          >
-
-          <span
-            class="range-value"
-            id="shadow-strength-value"
-          >60%</span>
-
-        </div>
-
-      </div>
-
-
-      <div class="control">
-
-        <label for="shadow-light-strength">
-          Light influence
-        </label>
-
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="shadow-light-strength"
-            min="0"
-            max="100"
-            value="40"
-          >
-
-          <span
-            class="range-value"
-            id="shadow-light-strength-value"
-          >40%</span>
-
-        </div>
-
-      </div>
-
-
-      <div class="control">
-
-        <label for="shadow-steps">
-          Colours
-        </label>
-
-        <div class="range-row">
-
-          <input
-            type="range"
-            id="shadow-steps"
-            min="5"
-            max="50"
-            value="13"
-          >
-
-          <span
-            class="range-value"
-            id="shadow-steps-value"
-          >13</span>
-
-        </div>
-
-      </div>
-
-
-      <div class="actions">
-
-        <button data-generate="shadow">
-          Generate
-        </button>
-
-        <button
-          class="secondary"
-          data-random="shadow"
+        <input
+          type="range"
+          id="light-strength"
+          min="0"
+          max="100"
+          value="55"
         >
-          Randomise
-        </button>
+
+        <span
+          class="range-value"
+          id="light-strength-value"
+        >55%</span>
 
       </div>
-
-
-      <div
-        class="palette"
-        id="palette-shadow"
-      ></div>
-
-
-      <div class="export-bar">
-
-        <button
-          class="secondary"
-          data-copy="shadow"
-        >
-          Copy HEX
-        </button>
-
-        <button
-          class="secondary"
-          data-css="shadow"
-        >
-          Copy CSS
-        </button>
-
-        <button
-          class="secondary"
-          data-json="shadow"
-        >
-          Copy JSON
-        </button>
-
-        <button
-          class="secondary"
-          data-download="shadow"
-        >
-          Download
-        </button>
-
-      </div>
-
-
-      <div
-        class="status"
-        id="status-shadow"
-      ></div>
 
     </div>
 
-  </section>
+    <div class="control">
+
+      <label for="light-shadow-strength">
+        Shadow influence
+      </label>
+
+      <div class="range-row">
+
+        <input
+          type="range"
+          id="light-shadow-strength"
+          min="0"
+          max="100"
+          value="55"
+        >
+
+        <span
+          class="range-value"
+          id="light-shadow-strength-value"
+        >55%</span>
+
+      </div>
+
+    </div>
+
+    <div class="control">
+
+      <label for="light-steps">
+        Colours
+      </label>
+
+      <div class="range-row">
+
+        <input
+          type="range"
+          id="light-steps"
+          min="5"
+          max="50"
+          value="13"
+        >
+
+        <span
+          class="range-value"
+          id="light-steps-value"
+        >13</span>
+
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <button data-generate="light">
+        Generate
+      </button>
+
+      <button
+        class="secondary"
+        data-random="light"
+      >
+        Randomise
+      </button>
+
+    </div>
+
+    <div
+      class="palette"
+      id="palette-light"
+    ></div>
+
+    <div class="export-bar">
+
+      <button
+        class="secondary"
+        data-copy="light"
+      >
+        Copy HEX
+      </button>
+
+      <button
+        class="secondary"
+        data-css="light"
+      >
+        Copy CSS
+      </button>
+
+      <button
+        class="secondary"
+        data-json="light"
+      >
+        Copy JSON
+      </button>
+
+      <button
+        class="secondary"
+        data-download="light"
+      >
+        Download
+      </button>
+
+    </div>
+
+    <div
+      class="status"
+      id="status-light"
+    ></div>
+
+  </div>
+</section>
+
+
+<!-- =====================================================
+     SHADOW CAST
+===================================================== -->
+
+<section class="generator">
+
+  <h2>Shadow Cast</h2>
+
+  <p class="description">
+    Create a coloured shadow while preserving the object's
+    hue and perceived lightness.
+  </p>
+
+  <div class="controls">
+
+    <div class="color-controls">
+
+      <div class="control">
+        <label for="shadow-1">
+          Peak light
+        </label>
+
+        <input
+          type="color"
+          id="shadow-1"
+          value="#ffffff"
+        >
+      </div>
+
+      <div class="control">
+        <label for="shadow-3">
+          Object colour
+        </label>
+
+        <input
+          type="color"
+          id="shadow-3"
+          value="#ff6b97"
+        >
+      </div>
+
+      <div class="control">
+        <label for="shadow-4">
+          Shadow influence
+        </label>
+
+        <input
+          type="color"
+          id="shadow-4"
+          value="#001b87"
+        >
+      </div>
+
+      <div class="control">
+        <label for="shadow-5">
+          Peak shadow
+        </label>
+
+        <input
+          type="color"
+          id="shadow-5"
+          value="#000000"
+        >
+      </div>
+
+    </div>
+
+    <div class="control">
+
+      <label for="shadow-strength">
+        Shadow influence
+      </label>
+
+      <div class="range-row">
+
+        <input
+          type="range"
+          id="shadow-strength"
+          min="0"
+          max="100"
+          value="60"
+        >
+
+        <span
+          class="range-value"
+          id="shadow-strength-value"
+        >60%</span>
+
+      </div>
+
+    </div>
+
+    <div class="control">
+
+      <label for="shadow-light-strength">
+        Light influence
+      </label>
+
+      <div class="range-row">
+
+        <input
+          type="range"
+          id="shadow-light-strength"
+          min="0"
+          max="100"
+          value="40"
+        >
+
+        <span
+          class="range-value"
+          id="shadow-light-strength-value"
+        >40%</span>
+
+      </div>
+
+    </div>
+
+    <div class="control">
+
+      <label for="shadow-steps">
+        Colours
+      </label>
+
+      <div class="range-row">
+
+        <input
+          type="range"
+          id="shadow-steps"
+          min="5"
+          max="50"
+          value="13"
+        >
+
+        <span
+          class="range-value"
+          id="shadow-steps-value"
+        >13</span>
+
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <button data-generate="shadow">
+        Generate
+      </button>
+
+      <button
+        class="secondary"
+        data-random="shadow"
+      >
+        Randomise
+      </button>
+
+    </div>
+
+    <div
+      class="palette"
+      id="palette-shadow"
+    ></div>
+
+    <div class="export-bar">
+
+      <button
+        class="secondary"
+        data-copy="shadow"
+      >
+        Copy HEX
+      </button>
+
+      <button
+        class="secondary"
+        data-css="shadow"
+      >
+        Copy CSS
+      </button>
+
+      <button
+        class="secondary"
+        data-json="shadow"
+      >
+        Copy JSON
+      </button>
+
+      <button
+        class="secondary"
+        data-download="shadow"
+      >
+        Download
+      </button>
+
+    </div>
+
+    <div
+      class="status"
+      id="status-shadow"
+    ></div>
+
+  </div>
+</section>
 
 </main>
 
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
 
 <footer>
 
@@ -1482,7 +1260,7 @@ footer a {
 
 
 /* =====================================================
-   GLOBAL STATE / HELPERS
+   STATE / HELPERS
 ===================================================== */
 
 const palettes = {};
@@ -1495,19 +1273,15 @@ const value = id =>
 
 
 function clamp(value, min, max) {
-
   return Math.min(
     max,
     Math.max(min, value)
   );
-
 }
 
 
 function lerp(a, b, t) {
-
   return a + (b - a) * t;
-
 }
 
 
@@ -1543,30 +1317,15 @@ function parseHex(hex) {
   }
 
   if (!/^[0-9a-fA-F]{6}$/.test(hex)) {
-
     throw new Error(
       "Invalid HEX colour: " + hex
     );
-
   }
 
   return {
-
-    r: parseInt(
-      hex.substring(0, 2),
-      16
-    ),
-
-    g: parseInt(
-      hex.substring(2, 4),
-      16
-    ),
-
-    b: parseInt(
-      hex.substring(4, 6),
-      16
-    )
-
+    r: parseInt(hex.substring(0, 2), 16),
+    g: parseInt(hex.substring(2, 4), 16),
+    b: parseInt(hex.substring(4, 6), 16)
   };
 
 }
@@ -1590,8 +1349,7 @@ function rgbToHex(r, g, b) {
 
 function hexToRgb(hex) {
 
-  const c =
-    parseHex(hex);
+  const c = parseHex(hex);
 
   return [
     c.r,
@@ -1605,25 +1363,9 @@ function hexToRgb(hex) {
 function rgbMix(a, b, t) {
 
   return [
-
-    lerp(
-      a[0],
-      b[0],
-      t
-    ),
-
-    lerp(
-      a[1],
-      b[1],
-      t
-    ),
-
-    lerp(
-      a[2],
-      b[2],
-      t
-    )
-
+    lerp(a[0], b[0], t),
+    lerp(a[1], b[1], t),
+    lerp(a[2], b[2], t)
   ];
 
 }
@@ -1639,22 +1381,17 @@ function rgbToHsl(rgb) {
   let g = rgb[1] / 255;
   let b = rgb[2] / 255;
 
-  const max =
-    Math.max(r, g, b);
-
-  const min =
-    Math.min(r, g, b);
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
 
   let h = 0;
   let s = 0;
 
-  const l =
-    (max + min) / 2;
+  const l = (max + min) / 2;
 
   if (max !== min) {
 
-    const d =
-      max - min;
+    const d = max - min;
 
     s =
       l > .5
@@ -1664,27 +1401,19 @@ function rgbToHsl(rgb) {
     switch (max) {
 
       case r:
-
         h =
           (g - b) / d +
           (g < b ? 6 : 0);
-
         break;
 
       case g:
-
         h =
-          (b - r) / d +
-          2;
-
+          (b - r) / d + 2;
         break;
 
       case b:
-
         h =
-          (r - g) / d +
-          4;
-
+          (r - g) / d + 4;
         break;
 
     }
@@ -1704,26 +1433,23 @@ function rgbToHsl(rgb) {
 
 function hue2rgb(p, q, t) {
 
-  if (t < 0)
-    t += 1;
+  if (t < 0) t += 1;
+  if (t > 1) t -= 1;
 
-  if (t > 1)
-    t -= 1;
-
-  if (t < 1 / 6)
+  if (t < 1 / 6) {
     return p +
-      (q - p) *
-      6 *
-      t;
+      (q - p) * 6 * t;
+  }
 
-  if (t < 1 / 2)
+  if (t < 1 / 2) {
     return q;
+  }
 
-  if (t < 2 / 3)
+  if (t < 2 / 3) {
     return p +
       (q - p) *
-      (2 / 3 - t) *
-      6;
+      (2 / 3 - t) * 6;
+  }
 
   return p;
 
@@ -1732,14 +1458,10 @@ function hue2rgb(p, q, t) {
 
 function hslToRgb(hsl) {
 
-  let h =
-    hsl[0] / 360;
+  let h = hsl[0] / 360;
 
-  const s =
-    hsl[1];
-
-  const l =
-    hsl[2];
+  const s = hsl[1];
+  const l = hsl[2];
 
   let r;
   let g;
@@ -1797,15 +1519,9 @@ function hslToRgb(hsl) {
 
 function rgbToXyz(rgb) {
 
-  let r =
-    rgb[0] / 255;
-
-  let g =
-    rgb[1] / 255;
-
-  let b =
-    rgb[2] / 255;
-
+  let r = rgb[0] / 255;
+  let g = rgb[1] / 255;
+  let b = rgb[2] / 255;
 
   r =
     r > .04045
@@ -1815,7 +1531,6 @@ function rgbToXyz(rgb) {
         )
       : r / 12.92;
 
-
   g =
     g > .04045
       ? Math.pow(
@@ -1824,7 +1539,6 @@ function rgbToXyz(rgb) {
         )
       : g / 12.92;
 
-
   b =
     b > .04045
       ? Math.pow(
@@ -1832,7 +1546,6 @@ function rgbToXyz(rgb) {
           2.4
         )
       : b / 12.92;
-
 
   return [
 
@@ -1865,83 +1578,51 @@ function rgbToXyz(rgb) {
 
 function xyzToRgb(xyz) {
 
-  let x =
-    xyz[0] / 100;
-
-  let y =
-    xyz[1] / 100;
-
-  let z =
-    xyz[2] / 100;
-
+  let x = xyz[0] / 100;
+  let y = xyz[1] / 100;
+  let z = xyz[2] / 100;
 
   let r =
     x * 3.2404542 +
     y * -1.5371385 +
     z * -0.4985314;
 
-
   let g =
     x * -.9692660 +
     y * 1.8760108 +
     z * .0415560;
-
 
   let b =
     x * .0556434 +
     y * -.2040259 +
     z * 1.0572252;
 
-
   r =
     r > .0031308
       ? 1.055 *
-        Math.pow(
-          r,
-          1 / 2.4
-        ) - .055
+        Math.pow(r, 1 / 2.4) -
+        .055
       : 12.92 * r;
-
 
   g =
     g > .0031308
       ? 1.055 *
-        Math.pow(
-          g,
-          1 / 2.4
-        ) - .055
+        Math.pow(g, 1 / 2.4) -
+        .055
       : 12.92 * g;
-
 
   b =
     b > .0031308
       ? 1.055 *
-        Math.pow(
-          b,
-          1 / 2.4
-        ) - .055
+        Math.pow(b, 1 / 2.4) -
+        .055
       : 12.92 * b;
-
 
   return [
 
-    clamp(
-      r * 255,
-      0,
-      255
-    ),
-
-    clamp(
-      g * 255,
-      0,
-      255
-    ),
-
-    clamp(
-      b * 255,
-      0,
-      255
-    )
+    clamp(r * 255, 0, 255),
+    clamp(g * 255, 0, 255),
+    clamp(b * 255, 0, 255)
 
   ];
 
@@ -1949,7 +1630,7 @@ function xyzToRgb(xyz) {
 
 
 /* =====================================================
-   XYZ -> LAB
+   LAB
 ===================================================== */
 
 function xyzToLab(xyz) {
@@ -1958,47 +1639,31 @@ function xyzToLab(xyz) {
   const refY = 100.000;
   const refZ = 108.883;
 
-  let x =
-    xyz[0] / refX;
-
-  let y =
-    xyz[1] / refY;
-
-  let z =
-    xyz[2] / refZ;
-
+  let x = xyz[0] / refX;
+  let y = xyz[1] / refY;
+  let z = xyz[2] / refZ;
 
   const f = n =>
-
     n > .008856
       ? Math.cbrt(n)
-      : (7.787 * n) +
-        (16 / 116);
-
+      : 7.787 * n + 16 / 116;
 
   x = f(x);
   y = f(y);
   z = f(z);
 
-
   return [
 
-    (116 * y) - 16,
+    116 * y - 16,
 
-    500 *
-      (x - y),
+    500 * (x - y),
 
-    200 *
-      (y - z)
+    200 * (y - z)
 
   ];
 
 }
 
-
-/* =====================================================
-   LAB -> XYZ
-===================================================== */
 
 function labToXyz(lab) {
 
@@ -2010,36 +1675,25 @@ function labToXyz(lab) {
     (lab[0] + 16) / 116;
 
   const fx =
-    lab[1] / 500 +
-    fy;
+    lab[1] / 500 + fy;
 
   const fz =
-    fy -
-    lab[2] / 200;
-
+    fy - lab[2] / 200;
 
   const finv = n => {
 
-    const n3 =
-      n * n * n;
+    const n3 = n * n * n;
 
     return n3 > .008856
-
       ? n3
-
-      : (
-          n - 16 / 116
-        ) / 7.787;
+      : (n - 16 / 116) / 7.787;
 
   };
-
 
   return [
 
     refX * finv(fx),
-
     refY * finv(fy),
-
     refZ * finv(fz)
 
   ];
@@ -2071,35 +1725,21 @@ function labToRgb(lab) {
 
 function labToLch(lab) {
 
-  const L =
-    lab[0];
-
-  const a =
-    lab[1];
-
-  const b =
-    lab[2];
-
+  const L = lab[0];
+  const a = lab[1];
+  const b = lab[2];
 
   const C =
     Math.sqrt(
-      a * a +
-      b * b
+      a * a + b * b
     );
 
-
   let H =
-    Math.atan2(
-      b,
-      a
-    ) *
+    Math.atan2(b, a) *
     180 /
     Math.PI;
 
-
-  if (H < 0)
-    H += 360;
-
+  if (H < 0) H += 360;
 
   return [
     L,
@@ -2112,27 +1752,21 @@ function labToLch(lab) {
 
 function lchToLab(lch) {
 
-  const L =
-    lch[0];
-
-  const C =
-    lch[1];
+  const L = lch[0];
+  const C = lch[1];
 
   const H =
     lch[2] *
     Math.PI /
     180;
 
-
   return [
 
     L,
 
-    C *
-      Math.cos(H),
+    C * Math.cos(H),
 
-    C *
-      Math.sin(H)
+    C * Math.sin(H)
 
   ];
 
@@ -2163,58 +1797,29 @@ function lchToRgb(lch) {
 
 function interpolateHsl(a, b, t) {
 
-  const A =
-    rgbToHsl(a);
+  const A = rgbToHsl(a);
+  const B = rgbToHsl(b);
 
-  const B =
-    rgbToHsl(b);
+  let h1 = A[0];
+  let h2 = B[0];
 
+  let dh = h2 - h1;
 
-  let h1 =
-    A[0];
+  if (dh > 180) dh -= 360;
+  if (dh < -180) dh += 360;
 
-  let h2 =
-    B[0];
+  let h = h1 + dh * t;
 
-
-  let dh =
-    h2 - h1;
-
-
-  if (dh > 180)
-    dh -= 360;
-
-  if (dh < -180)
-    dh += 360;
-
-
-  let h =
-    h1 +
-    dh * t;
-
-
-  if (h < 0)
-    h += 360;
-
-  if (h >= 360)
-    h -= 360;
-
+  if (h < 0) h += 360;
+  if (h >= 360) h -= 360;
 
   return hslToRgb([
 
     h,
 
-    lerp(
-      A[1],
-      B[1],
-      t
-    ),
+    lerp(A[1], B[1], t),
 
-    lerp(
-      A[2],
-      B[2],
-      t
-    )
+    lerp(A[2], B[2], t)
 
   ]);
 
@@ -2223,32 +1828,14 @@ function interpolateHsl(a, b, t) {
 
 function interpolateLab(a, b, t) {
 
-  const A =
-    rgbToLab(a);
-
-  const B =
-    rgbToLab(b);
-
+  const A = rgbToLab(a);
+  const B = rgbToLab(b);
 
   return labToRgb([
 
-    lerp(
-      A[0],
-      B[0],
-      t
-    ),
-
-    lerp(
-      A[1],
-      B[1],
-      t
-    ),
-
-    lerp(
-      A[2],
-      B[2],
-      t
-    )
+    lerp(A[0], B[0], t),
+    lerp(A[1], B[1], t),
+    lerp(A[2], B[2], t)
 
   ]);
 
@@ -2257,56 +1844,27 @@ function interpolateLab(a, b, t) {
 
 function interpolateLch(a, b, t) {
 
-  const A =
-    rgbToLch(a);
+  const A = rgbToLch(a);
+  const B = rgbToLch(b);
 
-  const B =
-    rgbToLch(b);
+  let h1 = A[2];
+  let h2 = B[2];
 
+  let dh = h2 - h1;
 
-  let h1 =
-    A[2];
+  if (dh > 180) dh -= 360;
+  if (dh < -180) dh += 360;
 
-  let h2 =
-    B[2];
+  let h = h1 + dh * t;
 
-
-  let dh =
-    h2 - h1;
-
-
-  if (dh > 180)
-    dh -= 360;
-
-  if (dh < -180)
-    dh += 360;
-
-
-  let h =
-    h1 +
-    dh * t;
-
-
-  if (h < 0)
-    h += 360;
-
-  if (h >= 360)
-    h -= 360;
-
+  if (h < 0) h += 360;
+  if (h >= 360) h -= 360;
 
   return lchToRgb([
 
-    lerp(
-      A[0],
-      B[0],
-      t
-    ),
+    lerp(A[0], B[0], t),
 
-    lerp(
-      A[1],
-      B[1],
-      t
-    ),
+    lerp(A[1], B[1], t),
 
     h
 
@@ -2315,64 +1873,27 @@ function interpolateLch(a, b, t) {
 }
 
 
-function interpolate(
-  a,
-  b,
-  t,
-  mode
-) {
-
-  if (mode === "rgb") {
-
-    return rgbMix(
-      a,
-      b,
-      t
-    );
-
-  }
+function interpolate(a, b, t, mode) {
 
   if (mode === "hsl") {
-
-    return interpolateHsl(
-      a,
-      b,
-      t
-    );
-
+    return interpolateHsl(a, b, t);
   }
 
   if (mode === "lab") {
-
-    return interpolateLab(
-      a,
-      b,
-      t
-    );
-
+    return interpolateLab(a, b, t);
   }
 
   if (mode === "lch") {
-
-    return interpolateLch(
-      a,
-      b,
-      t
-    );
-
+    return interpolateLch(a, b, t);
   }
 
-  return rgbMix(
-    a,
-    b,
-    t
-  );
+  return rgbMix(a, b, t);
 
 }
 
 
 /* =====================================================
-   SCALE
+   MULTI-STOP SCALE
 ===================================================== */
 
 function generateScale(
@@ -2381,225 +1902,56 @@ function generateScale(
   mode
 ) {
 
-  const parsed =
-    colors.map(hexToRgb);
-
-  const n =
-    Number(count);
-
-
-  if (!Number.isFinite(n) ||
-      n < 1) {
-
-    throw new Error(
-      "Invalid colour count."
+  const stops =
+    colors.map(hex =>
+      hexToRgb(hex)
     );
-
-  }
-
-
-  if (n === 1) {
-
-    return [
-      rgbToHex(
-        ...parsed[0]
-      )
-    ];
-
-  }
-
 
   const result = [];
 
+  const n =
+    Math.max(
+      2,
+      Number(count)
+    );
 
-  for (
-    let i = 0;
-    i < n;
-    i++
-  ) {
+  for (let i = 0; i < n; i++) {
 
-    const globalT =
+    const position =
       i / (n - 1);
 
-
-    const segmentCount =
-      parsed.length - 1;
-
-
     const scaled =
-      globalT *
-      segmentCount;
+      position *
+      (stops.length - 1);
 
-
-    let segment =
-      Math.floor(scaled);
-
-
-    if (
-      segment >=
-      segmentCount
-    ) {
-
-      segment =
-        segmentCount - 1;
-
-    }
-
+    const index =
+      Math.min(
+        stops.length - 2,
+        Math.floor(scaled)
+      );
 
     const localT =
-      scaled - segment;
-
+      scaled - index;
 
     const rgb =
       interpolate(
-        parsed[segment],
-        parsed[segment + 1],
+        stops[index],
+        stops[index + 1],
         localT,
         mode
       );
 
-
     result.push(
-      rgbToHex(...rgb)
+      rgbToHex(
+        rgb[0],
+        rgb[1],
+        rgb[2]
+      )
     );
 
   }
-
 
   return result;
-
-}
-
-
-/* =====================================================
-   MONOCHROMATIC
-===================================================== */
-
-function generateMono() {
-
-  const rgb =
-    hexToRgb(
-      value("mono-color")
-    );
-
-
-  const lab =
-    rgbToLab(rgb);
-
-
-  const count =
-    Number(
-      value("mono-steps")
-    );
-
-
-  const midpoint =
-    Math.floor(
-      count / 2
-    );
-
-
-  const colors = [];
-
-
-  for (
-    let i = 0;
-    i < count;
-    i++
-  ) {
-
-    const delta =
-      i - midpoint;
-
-
-    const L =
-      clamp(
-        lab[0] -
-        delta * 6,
-        0,
-        100
-      );
-
-
-    const rgb =
-      labToRgb([
-
-        L,
-
-        lab[1],
-
-        lab[2]
-
-      ]);
-
-
-    colors.push(
-      rgbToHex(...rgb)
-    );
-
-  }
-
-
-  createSwatches(
-    "mono",
-    colors
-  );
-
-}
-
-
-/* =====================================================
-   BLENDS
-===================================================== */
-
-function generateBlend(
-  mode,
-  numberOfColors
-) {
-
-  const colors = [];
-
-
-  for (
-    let i = 1;
-    i <= numberOfColors;
-    i++
-  ) {
-
-    colors.push(
-      value(
-        `${mode}-${i}`
-      )
-    );
-
-  }
-
-
-  const interpolation =
-    value(
-      `${mode}-mode`
-    );
-
-
-  const count =
-    Number(
-      value(
-        `${mode}-steps`
-      )
-    );
-
-
-  createSwatches(
-
-    mode,
-
-    generateScale(
-      colors,
-      count,
-      interpolation
-    )
-
-  );
 
 }
 
@@ -2620,46 +1972,35 @@ function influencedLch(
       hexToRgb(objectHex)
     );
 
-
   const influence =
     rgbToLch(
       hexToRgb(influenceHex)
     );
 
-
   const t =
-    clamp(
-      amount,
-      0,
-      1
-    );
+    clamp(amount, 0, 1);
 
+  let hue;
 
-  let hueDifference =
-    influence[2] -
-    object[2];
+  if (
+    !Number.isFinite(object[2]) &&
+    Number.isFinite(influence[2])
+  ) {
 
+    hue = influence[2];
 
-  if (hueDifference > 180)
-    hueDifference -= 360;
+  } else {
 
-  if (hueDifference < -180)
-    hueDifference += 360;
+    hue =
+      object[2] +
+      (
+        influence[2] -
+        object[2]
+      ) * t;
 
+  }
 
-  let hue =
-    object[2] +
-    hueDifference * t;
-
-
-  if (hue < 0)
-    hue += 360;
-
-  if (hue >= 360)
-    hue -= 360;
-
-
-  const L =
+  const l =
     clamp(
       object[0] +
       lightnessDelta,
@@ -2667,287 +2008,23 @@ function influencedLch(
       100
     );
 
-
-  const C =
+  const c =
     clamp(
-
-      object[1] *
-        (1 - t) +
-
-      influence[1] *
-        t,
-
+      object[1] * (1 - t) +
+      influence[1] * t,
       0,
       150
-
     );
 
+  if (!Number.isFinite(hue)) {
+    hue = object[2];
+  }
 
   return lchToRgb([
-
-    L,
-
-    C,
-
+    l,
+    c,
     hue
-
   ]);
-
-}
-
-
-/* =====================================================
-   LIGHT CAST
-===================================================== */
-
-function generateLight() {
-
-  const peakLight =
-    value("light-1");
-
-
-  const lightInfluence =
-    value("light-2");
-
-
-  const object =
-    value("light-3");
-
-
-  const peakShadow =
-    value("light-5");
-
-
-  const lightAmount =
-    Number(
-      value("light-strength")
-    ) / 100;
-
-
-  const shadowAmount =
-    Number(
-      value(
-        "light-shadow-strength"
-      )
-    ) / 100;
-
-
-  const count =
-    Number(
-      value("light-steps")
-    );
-
-
-  const lightSide =
-    rgbToHex(
-
-      ...influencedLch(
-
-        object,
-
-        lightInfluence,
-
-        lightAmount,
-
-        20 *
-        lightAmount
-
-      )
-
-    );
-
-
-  const shadowInfluenced =
-    rgbToHex(
-
-      ...influencedLch(
-
-        object,
-
-        lightInfluence,
-
-        shadowAmount * .45,
-
-        -15 *
-        shadowAmount
-
-      )
-
-    );
-
-
-  const shadowSide =
-    rgbToHex(
-
-      ...interpolate(
-
-        hexToRgb(
-          shadowInfluenced
-        ),
-
-        hexToRgb(
-          peakShadow
-        ),
-
-        shadowAmount,
-
-        "lch"
-
-      )
-
-    );
-
-
-  const colors =
-    generateScale(
-
-      [
-        peakLight,
-        lightSide,
-        object,
-        shadowSide,
-        peakShadow
-      ],
-
-      count,
-
-      "lch"
-
-    );
-
-
-  createSwatches(
-    "light",
-    colors
-  );
-
-}
-
-
-/* =====================================================
-   SHADOW CAST
-===================================================== */
-
-function generateShadow() {
-
-  const peakLight =
-    value("shadow-1");
-
-
-  const object =
-    value("shadow-3");
-
-
-  const shadowInfluence =
-    value("shadow-4");
-
-
-  const peakShadow =
-    value("shadow-5");
-
-
-  const shadowAmount =
-    Number(
-      value("shadow-strength")
-    ) / 100;
-
-
-  const lightAmount =
-    Number(
-      value(
-        "shadow-light-strength"
-      )
-    ) / 100;
-
-
-  const count =
-    Number(
-      value("shadow-steps")
-    );
-
-
-  const lightSide =
-    rgbToHex(
-
-      ...influencedLch(
-
-        object,
-
-        peakLight,
-
-        lightAmount,
-
-        20 *
-        lightAmount
-
-      )
-
-    );
-
-
-  const colouredShadow =
-    rgbToHex(
-
-      ...influencedLch(
-
-        object,
-
-        shadowInfluence,
-
-        shadowAmount,
-
-        -25 *
-        shadowAmount
-
-      )
-
-    );
-
-
-  const shadowSide =
-    rgbToHex(
-
-      ...interpolate(
-
-        hexToRgb(
-          colouredShadow
-        ),
-
-        hexToRgb(
-          peakShadow
-        ),
-
-        shadowAmount,
-
-        "lch"
-
-      )
-
-    );
-
-
-  const colors =
-    generateScale(
-
-      [
-        peakLight,
-        lightSide,
-        object,
-        shadowSide,
-        peakShadow
-      ],
-
-      count,
-
-      "lch"
-
-    );
-
-
-  createSwatches(
-    "shadow",
-    colors
-  );
 
 }
 
@@ -2963,142 +2040,127 @@ function createSwatches(
 
   palettes[mode] =
     colors.map(color =>
-      String(color)
-        .toLowerCase()
+      String(color).toLowerCase()
     );
-
 
   const output =
     $("palette-" + mode);
 
-
   output.innerHTML = "";
 
+  palettes[mode].forEach(hex => {
 
-  palettes[mode]
-    .forEach(hex => {
+    const rgb =
+      hexToRgb(hex);
 
-      const rgb =
-        hexToRgb(hex);
+    const hsl =
+      rgbToHsl(rgb);
 
-
-      const hsl =
-        rgbToHsl(rgb);
-
-
-      const swatch =
-        document.createElement(
-          "button"
-        );
-
-
-      swatch.type =
-        "button";
-
-
-      swatch.className =
-        "swatch";
-
-
-      swatch.style.backgroundColor =
-        hex;
-
-
-      swatch.setAttribute(
-        "aria-label",
-        `Copy ${hex}`
+    const swatch =
+      document.createElement(
+        "button"
       );
 
+    swatch.type =
+      "button";
 
-      const hue =
-        Number.isFinite(
-          hsl[0]
-        )
-          ? Math.round(hsl[0])
-          : 0;
+    swatch.className =
+      "swatch";
 
+    swatch.style.backgroundColor =
+      hex;
 
-      const saturation =
-        Math.round(
-          hsl[1] * 100
-        );
+    swatch.setAttribute(
+      "aria-label",
+      `Copy ${hex}`
+    );
 
+    const hue =
+      Number.isFinite(hsl[0])
+        ? Math.round(hsl[0])
+        : 0;
 
-      const lightness =
-        Math.round(
-          hsl[2] * 100
-        );
+    const saturation =
+      Math.round(
+        hsl[1] * 100
+      );
 
+    const lightness =
+      Math.round(
+        hsl[2] * 100
+      );
 
-      swatch.innerHTML = `
+    swatch.innerHTML = `
 
-        <span class="swatch-info">
+      <span class="swatch-info">
 
-          <strong>
-            ${hex.toUpperCase()}
-          </strong>
+        <strong>
+          ${hex.toUpperCase()}
+        </strong>
 
-          <span>
-            RGB
-            ${Math.round(rgb[0])},
-            ${Math.round(rgb[1])},
-            ${Math.round(rgb[2])}
-          </span>
-
-          <span>
-            ${hue}° ·
-            ${saturation}% ·
-            ${lightness}%
-          </span>
-
+        <span>
+          RGB
+          ${Math.round(rgb[0])},
+          ${Math.round(rgb[1])},
+          ${Math.round(rgb[2])}
         </span>
 
-      `;
+        <span>
+          ${hue}° ·
+          ${saturation}% ·
+          ${lightness}%
+        </span>
 
+      </span>
 
-      swatch.addEventListener(
-        "click",
-        async () => {
+    `;
 
-          const copied =
-            await copyText(
+    /*
+     * IMPORTANT:
+     *
+     * Do not make this click handler async.
+     *
+     * The fallback clipboard operation must happen
+     * synchronously while the browser still considers
+     * the click a user gesture.
+     */
 
-              hex,
+    swatch.addEventListener(
+      "click",
+      () => {
 
-              mode,
+        const copied =
+          copyText(
+            hex,
+            mode,
+            "Copied " +
+            hex.toUpperCase()
+          );
 
-              "Copied " +
-              hex.toUpperCase()
+        if (copied) {
 
-            );
+          swatch.classList.add(
+            "copied"
+          );
 
+          setTimeout(() => {
 
-          if (copied) {
-
-            swatch.classList.add(
+            swatch.classList.remove(
               "copied"
             );
 
-
-            setTimeout(() => {
-
-              swatch.classList.remove(
-                "copied"
-              );
-
-            }, 500);
-
-          }
+          }, 500);
 
         }
-      );
 
+      }
+    );
 
-      output.appendChild(
-        swatch
-      );
+    output.appendChild(
+      swatch
+    );
 
-    });
+  });
 
 }
 
@@ -3115,28 +2177,21 @@ function setStatus(
   const status =
     $("status-" + mode);
 
-
   status.textContent =
     message;
 
-
   if (!setStatus.timers) {
-
     setStatus.timers = {};
-
   }
-
 
   clearTimeout(
     setStatus.timers[mode]
   );
 
-
   setStatus.timers[mode] =
     setTimeout(() => {
 
-      status.textContent =
-        "";
+      status.textContent = "";
 
     }, 2200);
 
@@ -3148,16 +2203,23 @@ function setStatus(
 ===================================================== */
 
 /*
- * Clipboard handling deliberately uses two methods:
+ * Clipboard strategy:
  *
- * 1. navigator.clipboard.writeText()
- * 2. document.execCommand("copy") fallback
+ * 1. First try document.execCommand("copy")
+ *    synchronously.
  *
- * The fallback is important for browsers/devices where
- * Clipboard API permissions are unavailable.
+ *    This is important because it runs while the
+ *    browser still has the original button click's
+ *    user-activation state.
+ *
+ * 2. If that fails, try navigator.clipboard.
+ *
+ * This avoids the common problem where awaiting
+ * navigator.clipboard causes the subsequent fallback
+ * to lose user activation.
  */
 
-async function copyText(
+function copyText(
   text,
   mode,
   message = "Copied"
@@ -3177,86 +2239,77 @@ async function copyText(
 
   }
 
-
   text =
     String(text);
 
+  /*
+   * Synchronous fallback FIRST.
+   */
+
+  if (
+    fallbackCopy(text)
+  ) {
+
+    setStatus(
+      mode,
+      message
+    );
+
+    return true;
+
+  }
 
   /*
-   * Modern Clipboard API
+   * Modern Clipboard API SECOND.
+   *
+   * This may be asynchronous, but it is only reached
+   * if the synchronous method was unavailable/failed.
    */
 
   if (
     navigator.clipboard &&
     typeof navigator.clipboard.writeText ===
-      "function" &&
-    window.isSecureContext
+      "function"
   ) {
 
-    try {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
 
-      await navigator.clipboard.writeText(
-        text
-      );
+        setStatus(
+          mode,
+          message
+        );
 
+      })
+      .catch(error => {
 
-      setStatus(
-        mode,
-        message
-      );
+        console.error(
+          "Clipboard API failed:",
+          error
+        );
 
+        setStatus(
+          mode,
+          "Copy failed — please copy manually."
+        );
 
-      return true;
+      });
 
-    } catch (error) {
+    /*
+     * The operation has been handed to the browser.
+     * Return true here so the swatch can show immediate
+     * feedback.
+     */
 
-      console.warn(
-        "Clipboard API failed; trying fallback.",
-        error
-      );
-
-    }
-
-  }
-
-
-  /*
-   * Legacy / compatibility fallback
-   */
-
-  try {
-
-    const copied =
-      fallbackCopy(text);
-
-
-    if (copied) {
-
-      setStatus(
-        mode,
-        message
-      );
-
-
-      return true;
-
-    }
-
-  } catch (error) {
-
-    console.error(
-      "Fallback clipboard error:",
-      error
-    );
+    return true;
 
   }
-
 
   setStatus(
     mode,
     "Copy failed — please copy manually."
   );
-
 
   return false;
 
@@ -3270,17 +2323,19 @@ function fallbackCopy(text) {
       "textarea"
     );
 
-
   textarea.value =
     text;
 
+  textarea.setAttribute(
+    "readonly",
+    ""
+  );
 
   /*
-   * Do not position the textarea at -9999px.
+   * Do NOT put the textarea at -9999px.
    *
-   * Some Safari/iOS versions will not allow the
-   * selection/copy operation to work correctly when
-   * the element is completely outside the viewport.
+   * Safari/iOS can reject copy operations when the
+   * selected element is completely outside the viewport.
    */
 
   textarea.style.position =
@@ -3293,22 +2348,25 @@ function fallbackCopy(text) {
     "0";
 
   textarea.style.width =
-    "1px";
+    "2px";
 
   textarea.style.height =
-    "1px";
+    "2px";
 
   textarea.style.padding =
-    "0";
-
-  textarea.style.border =
     "0";
 
   textarea.style.margin =
     "0";
 
+  textarea.style.border =
+    "0";
+
   textarea.style.opacity =
     "0";
+
+  textarea.style.background =
+    "transparent";
 
   textarea.style.pointerEvents =
     "none";
@@ -3316,37 +2374,25 @@ function fallbackCopy(text) {
   textarea.style.zIndex =
     "-1";
 
-
-  textarea.setAttribute(
-    "readonly",
-    ""
-  );
-
-
   document.body.appendChild(
     textarea
   );
 
-
-  textarea.focus({
-    preventScroll: true
-  });
-
-
-  textarea.select();
-
-
-  textarea.setSelectionRange(
-    0,
-    textarea.value.length
-  );
-
-
   let successful =
     false;
 
-
   try {
+
+    textarea.focus({
+      preventScroll: true
+    });
+
+    textarea.select();
+
+    textarea.setSelectionRange(
+      0,
+      textarea.value.length
+    );
 
     successful =
       document.execCommand(
@@ -3356,15 +2402,13 @@ function fallbackCopy(text) {
   } catch (error) {
 
     console.warn(
-      "document.execCommand('copy') failed.",
+      "Synchronous clipboard fallback failed:",
       error
     );
 
   }
 
-
   textarea.remove();
-
 
   return successful;
 
@@ -3378,12 +2422,10 @@ function fallbackCopy(text) {
 function cssVariables(colors) {
 
   return colors
-
     .map(
       (color, i) =>
         `--color-${i + 1}: ${color};`
     )
-
     .join("\n");
 
 }
@@ -3392,107 +2434,321 @@ function cssVariables(colors) {
 function jsonPalette(colors) {
 
   return JSON.stringify(
-
     {
       colors
     },
-
     null,
-
     2
-
   );
 
 }
 
 
 /* =====================================================
-   DOWNLOAD
+   GENERATORS
 ===================================================== */
 
-function download(mode) {
+function generateMono() {
+
+  const base =
+    hexToRgb(
+      value("mono-color")
+    );
+
+  const count =
+    Number(
+      value("mono-steps")
+    );
+
+  const midpoint =
+    Math.floor(
+      count / 2
+    );
+
+  const baseLch =
+    rgbToLch(base);
 
   const colors =
-    palettes[mode] || [];
+    Array.from(
+      { length: count },
+      (_, i) => {
+
+        const delta =
+          i - midpoint;
+
+        const lightness =
+          clamp(
+            baseLch[0] -
+            delta * 8,
+            0,
+            100
+          );
+
+        const rgb =
+          lchToRgb([
+            lightness,
+            baseLch[1],
+            baseLch[2]
+          ]);
+
+        return rgbToHex(
+          rgb[0],
+          rgb[1],
+          rgb[2]
+        );
+
+      }
+    );
+
+  createSwatches(
+    "mono",
+    colors
+  );
+
+}
 
 
-  if (!colors.length) {
+function generateBlend(
+  mode,
+  numberOfColors
+) {
+
+  const colors =
+    Array.from(
+      {
+        length:
+          numberOfColors
+      },
+      (_, i) =>
+        value(
+          `${mode}-${i + 1}`
+        )
+    );
+
+  const result =
+    generateScale(
+      colors,
+      value(`${mode}-steps`),
+      value(`${mode}-mode`)
+    );
+
+  createSwatches(
+    mode,
+    result
+  );
+
+}
+
+
+function generateLight() {
+
+  const peakLight =
+    value("light-1");
+
+  const lightInfluence =
+    value("light-2");
+
+  const object =
+    value("light-3");
+
+  const peakShadow =
+    value("light-5");
+
+  const lightAmount =
+    Number(
+      value("light-strength")
+    ) / 100;
+
+  const shadowAmount =
+    Number(
+      value(
+        "light-shadow-strength"
+      )
+    ) / 100;
+
+  const count =
+    Number(
+      value("light-steps")
+    );
+
+  const lightSide =
+    rgbToHex(
+      ...influencedLch(
+        object,
+        lightInfluence,
+        lightAmount,
+        20 * lightAmount
+      )
+    );
+
+  const shadowBase =
+    rgbToHex(
+      ...influencedLch(
+        object,
+        lightInfluence,
+        shadowAmount * .45,
+        -15 * shadowAmount
+      )
+    );
+
+  const shadowSide =
+    rgbToHex(
+      ...interpolate(
+        hexToRgb(shadowBase),
+        hexToRgb(peakShadow),
+        shadowAmount,
+        "lch"
+      )
+    );
+
+  const colors =
+    generateScale(
+      [
+        peakLight,
+        lightSide,
+        object,
+        shadowSide,
+        peakShadow
+      ],
+      count,
+      "lch"
+    );
+
+  createSwatches(
+    "light",
+    colors
+  );
+
+}
+
+
+function generateShadow() {
+
+  const peakLight =
+    value("shadow-1");
+
+  const object =
+    value("shadow-3");
+
+  const shadowInfluence =
+    value("shadow-4");
+
+  const peakShadow =
+    value("shadow-5");
+
+  const shadowAmount =
+    Number(
+      value("shadow-strength")
+    ) / 100;
+
+  const lightAmount =
+    Number(
+      value(
+        "shadow-light-strength"
+      )
+    ) / 100;
+
+  const count =
+    Number(
+      value("shadow-steps")
+    );
+
+  const lightSide =
+    rgbToHex(
+      ...influencedLch(
+        object,
+        peakLight,
+        lightAmount,
+        20 * lightAmount
+      )
+    );
+
+  const colouredShadow =
+    rgbToHex(
+      ...influencedLch(
+        object,
+        shadowInfluence,
+        shadowAmount,
+        -25 * shadowAmount
+      )
+    );
+
+  const shadowSide =
+    rgbToHex(
+      ...interpolate(
+        hexToRgb(colouredShadow),
+        hexToRgb(peakShadow),
+        shadowAmount,
+        "lch"
+      )
+    );
+
+  const colors =
+    generateScale(
+      [
+        peakLight,
+        lightSide,
+        object,
+        shadowSide,
+        peakShadow
+      ],
+      count,
+      "lch"
+    );
+
+  createSwatches(
+    "shadow",
+    colors
+  );
+
+}
+
+
+/* =====================================================
+   GENERATOR ROUTER
+===================================================== */
+
+function generate(mode) {
+
+  try {
+
+    if (mode === "mono") {
+      generateMono();
+    }
+
+    if (mode === "blend2") {
+      generateBlend("blend2", 2);
+    }
+
+    if (mode === "blend3") {
+      generateBlend("blend3", 3);
+    }
+
+    if (mode === "blend5") {
+      generateBlend("blend5", 5);
+    }
+
+    if (mode === "light") {
+      generateLight();
+    }
+
+    if (mode === "shadow") {
+      generateShadow();
+    }
+
+  } catch (error) {
+
+    console.error(
+      `Color Waves ${mode} error:`,
+      error
+    );
 
     setStatus(
       mode,
-      "Generate a palette first."
+      "Unable to generate palette."
     );
-
-    return;
 
   }
-
-
-  const text =
-    colors.join("\n");
-
-
-  const blob =
-    new Blob(
-
-      [text],
-
-      {
-        type:
-          "text/plain;charset=utf-8"
-      }
-
-    );
-
-
-  const url =
-    URL.createObjectURL(
-      blob
-    );
-
-
-  const link =
-    document.createElement(
-      "a"
-    );
-
-
-  link.href =
-    url;
-
-
-  link.download =
-    `color-waves-${mode}.txt`;
-
-
-  link.style.display =
-    "none";
-
-
-  document.body.appendChild(
-    link
-  );
-
-
-  link.click();
-
-
-  link.remove();
-
-
-  setTimeout(() => {
-
-    URL.revokeObjectURL(
-      url
-    );
-
-  }, 100);
-
-
-  setStatus(
-    mode,
-    "Palette downloaded."
-  );
 
 }
 
@@ -3510,7 +2766,6 @@ function randomise(mode) {
 
   }
 
-
   if (mode === "blend2") {
 
     $("blend2-1").value =
@@ -3520,7 +2775,6 @@ function randomise(mode) {
       randomHex();
 
   }
-
 
   if (mode === "blend3") {
 
@@ -3537,7 +2791,6 @@ function randomise(mode) {
 
   }
 
-
   if (mode === "blend5") {
 
     for (
@@ -3552,7 +2805,6 @@ function randomise(mode) {
     }
 
   }
-
 
   if (mode === "light") {
 
@@ -3570,7 +2822,6 @@ function randomise(mode) {
 
   }
 
-
   if (mode === "shadow") {
 
     $("shadow-1").value =
@@ -3587,84 +2838,82 @@ function randomise(mode) {
 
   }
 
-
   generate(mode);
 
 }
 
 
 /* =====================================================
-   GENERATOR ROUTER
+   DOWNLOAD
 ===================================================== */
 
-function generate(mode) {
+function download(mode) {
 
-  try {
+  const colors =
+    palettes[mode] || [];
 
-    if (mode === "mono") {
-
-      generateMono();
-
-    }
-
-
-    if (mode === "blend2") {
-
-      generateBlend(
-        "blend2",
-        2
-      );
-
-    }
-
-
-    if (mode === "blend3") {
-
-      generateBlend(
-        "blend3",
-        3
-      );
-
-    }
-
-
-    if (mode === "blend5") {
-
-      generateBlend(
-        "blend5",
-        5
-      );
-
-    }
-
-
-    if (mode === "light") {
-
-      generateLight();
-
-    }
-
-
-    if (mode === "shadow") {
-
-      generateShadow();
-
-    }
-
-  } catch (error) {
-
-    console.error(
-      `Color Waves ${mode} error:`,
-      error
-    );
-
+  if (!colors.length) {
 
     setStatus(
       mode,
-      "Unable to generate palette."
+      "Generate a palette first."
     );
 
+    return;
+
   }
+
+  const text =
+    colors.join("\n");
+
+  const blob =
+    new Blob(
+      [text],
+      {
+        type:
+          "text/plain;charset=utf-8"
+      }
+    );
+
+  const url =
+    URL.createObjectURL(
+      blob
+    );
+
+  const link =
+    document.createElement(
+      "a"
+    );
+
+  link.href =
+    url;
+
+  link.download =
+    `color-waves-${mode}.txt`;
+
+  link.style.display =
+    "none";
+
+  document.body.appendChild(
+    link
+  );
+
+  link.click();
+
+  link.remove();
+
+  setTimeout(() => {
+
+    URL.revokeObjectURL(
+      url
+    );
+
+  }, 100);
+
+  setStatus(
+    mode,
+    "Palette downloaded."
+  );
 
 }
 
@@ -3681,7 +2930,6 @@ document
 
     const output =
       $(range.id + "-value");
-
 
     range.addEventListener(
       "input",
@@ -3758,7 +3006,7 @@ document
 
 
 /* =====================================================
-   COPY HEX BUTTONS
+   COPY HEX
 ===================================================== */
 
 document
@@ -3769,21 +3017,18 @@ document
 
     button.addEventListener(
       "click",
-      async () => {
+      () => {
 
         const mode =
           button.dataset.copy;
 
+        const colors =
+          palettes[mode] || [];
 
-        await copyText(
-
-          (palettes[mode] || [])
-            .join("\n"),
-
+        copyText(
+          colors.join("\n"),
           mode,
-
           "HEX palette copied."
-
         );
 
       }
@@ -3793,7 +3038,7 @@ document
 
 
 /* =====================================================
-   COPY CSS BUTTONS
+   COPY CSS
 ===================================================== */
 
 document
@@ -3804,24 +3049,18 @@ document
 
     button.addEventListener(
       "click",
-      async () => {
+      () => {
 
         const mode =
           button.dataset.css;
 
-
         const colors =
           palettes[mode] || [];
 
-
-        await copyText(
-
+        copyText(
           cssVariables(colors),
-
           mode,
-
           "CSS variables copied."
-
         );
 
       }
@@ -3831,7 +3070,7 @@ document
 
 
 /* =====================================================
-   COPY JSON BUTTONS
+   COPY JSON
 ===================================================== */
 
 document
@@ -3842,24 +3081,18 @@ document
 
     button.addEventListener(
       "click",
-      async () => {
+      () => {
 
         const mode =
           button.dataset.json;
 
-
         const colors =
           palettes[mode] || [];
 
-
-        await copyText(
-
+        copyText(
           jsonPalette(colors),
-
           mode,
-
           "JSON copied."
-
         );
 
       }
