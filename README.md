@@ -1,136 +1,115 @@
-Color Waves
+# Color Waves
 
-Color Waves is a browser-based colour palette generator for creating, exploring and exporting colour palettes, gradients, light variations and coloured shadows.
+**Color Waves** is a simple browser-based colour palette generator for creating, exploring and exporting colour palettes, gradients, light variations and coloured shadows.
 
-It is designed as a simple, self-contained tool for designers, developers, artists and anyone who needs to experiment with colour combinations.
+**Live demo:** [Color Waves](https://git2358.github.io/Color-Waves/)
 
-🌐 Web App:
-https://git2358.github.io/Color-Waves/
+## Features
 
-Features
+Color Waves includes six palette generators.
 
-Color Waves provides six different palette generation modes:
+### Monochromatic
 
-Monochromatic
+Create light and dark variations from a single base colour.
 
-Create a series of lighter and darker variations from a single base colour.
+- Choose a base colour
+- Generate **3–50 colours**
+- Create tonal scales for UI, themes and design systems
 
-* Choose a base colour.
-* Select between 3–50 colours.
-* Generate a monochromatic scale.
-* Useful for UI colour systems, themes and tonal palettes.
+### 2 Colour Blend
 
-2 Colour Blend
+Blend between two colours using different interpolation methods.
 
-Blend smoothly between two colours.
+- Choose two colours
+- Generate **2–50 colours**
+- RGB, HSL, LAB or LCH interpolation
 
-* Choose two colours.
-* Select the interpolation method.
-* Generate between 2–50 colours.
+### 3 Colour Blend
 
-Available interpolation modes:
+Create a palette that passes through three chosen colours.
 
-* RGB
-* HSL
-* LAB
-* LCH
+- Choose three colours
+- Generate **3–50 colours**
+- RGB, HSL, LAB or LCH interpolation
 
-3 Colour Blend
+### 5 Colour Blend
 
-Create a palette that passes through three selected colours.
+Build a more complex colour progression using five colour stops.
 
-This is useful for creating more complex gradients while controlling the midpoint of the transition.
+- Choose five colours
+- Generate **5–50 colours**
+- RGB, HSL, LAB or LCH interpolation
 
-5 Colour Blend
+### Light Cast
 
-Create a more complex colour progression using five colour stops.
-
-Five colours can be combined using RGB, HSL, LAB or LCH interpolation.
-
-Light Cast
-
-Create a light-to-shadow palette designed to produce more natural colour transitions.
-
-Light Cast uses LCH colour modelling to introduce a light influence while maintaining the character of the object’s colour.
+Create a light-to-shadow palette with a more natural colour transition.
 
 You can control:
 
-* Peak light
-* Light influence
-* Object colour
-* Peak shadow
-* Light influence strength
-* Shadow influence strength
-* Number of generated colours
+- Peak light
+- Light influence
+- Object colour
+- Peak shadow
+- Light influence strength
+- Shadow influence strength
+- Number of colours
 
-Shadow Cast
+Light Cast uses **LCH colour modelling** internally.
 
-Create coloured shadows while maintaining the object’s hue and perceived lightness.
+### Shadow Cast
 
-Instead of simply darkening or inverting a colour, Shadow Cast introduces a separate shadow colour influence using LCH colour modelling.
+Create coloured shadows while maintaining the character of the object's colour.
 
 You can control:
 
-* Peak light
-* Object colour
-* Shadow influence
-* Peak shadow
-* Shadow influence strength
-* Light influence strength
-* Number of generated colours
+- Peak light
+- Object colour
+- Shadow influence
+- Peak shadow
+- Shadow influence strength
+- Light influence strength
+- Number of colours
 
-How to Use
+Shadow Cast also uses **LCH colour modelling** internally.
 
-1. Open Color Waves in your browser.
-2. Choose the palette generator you want to use.
-3. Select your colours using the colour pickers.
-4. Adjust the number of generated colours.
-5. For blend generators, choose an interpolation method.
-6. Click Generate.
-7. The generated palette will immediately appear below the controls.
-8. Click any individual colour to copy its HEX value.
+## Using Color Waves
 
-You can also click Randomise to automatically generate new colours and immediately preview the resulting palette.
+1. Choose a generator.
+2. Select your colours.
+3. Adjust the number of colours.
+4. Choose an interpolation method when available.
+5. Click **Generate**.
+6. Click **Randomise** to quickly create a new colour combination.
 
-Preview
+Generated palettes appear as interactive colour swatches.
 
-Generated colours are displayed as interactive swatches.
+Click any swatch to copy its HEX value.
 
-Each swatch shows:
+Each swatch displays:
 
-* HEX value
-* RGB values
-* HSL values
+- HEX
+- RGB
+- HSL
 
-Clicking a swatch copies its HEX value to the clipboard.
+## Export
 
-Exporting Palettes
+Every generator includes four export options:
 
-Every generator includes several export options.
+- **Copy HEX** — copies the palette as a list of HEX values.
+- **Copy CSS** — copies the colours as CSS custom properties.
+- **Copy JSON** — copies the palette as a JSON object.
+- **Download** — downloads the palette as a `.txt` file.
 
-Copy HEX
+### CSS
 
-Copies the generated colours as a simple list of HEX values:
-
-#FF0000
-#CC0000
-#990000
-#660000
-
-Copy CSS
-
-Copies the palette as CSS custom properties:
-
+```css
 --color-1: #ff0000;
 --color-2: #cc0000;
 --color-3: #990000;
+```
 
-These can be pasted directly into a CSS stylesheet.
-
-Copy JSON
-
-Copies the palette as JSON:
-
+### JSON
+```json
 {
   "colors": [
     "#ff0000",
@@ -138,80 +117,65 @@ Copies the palette as JSON:
     "#990000"
   ]
 }
+```
 
-Download
+### Downloads
 
-Downloads the generated palette as a .txt file.
+Downloaded files use the generator name, for example:
 
-The filename includes the generator used, for example:
-
+```text
 color-waves-mono.txt
 color-waves-blend2.txt
 color-waves-light.txt
+```
 
-Colour Interpolation
+## Colour Interpolation
 
-The blend generators support four interpolation modes.
+The blend generators support four interpolation methods:
 
-RGB
-Interpolates directly through red, green and blue values. This is simple and familiar but can sometimes produce less natural-looking transitions.
+| Mode | Description |
+| --- | --- |
+| **RGB** | Direct interpolation between red, green and blue values |
+| **HSL** | Interpolation using hue, saturation and lightness |
+| **LAB** | Perceptual colour interpolation using CIELAB |
+| **LCH** | Interpolation using lightness, chroma and hue |
 
-HSL
-Interpolates using hue, saturation and lightness.
+LCH is also used internally by the **Light Cast** and **Shadow Cast** generators.
 
-LAB
-Uses the CIELAB colour space, which is designed to represent colour differences more perceptually than RGB.
+## How It Works
 
-LCH
-Uses lightness, chroma and hue. LCH is particularly useful for creating controlled and visually natural colour transitions.
+Color Waves runs entirely in the browser.
 
-The Light Cast and Shadow Cast generators use LCH internally for their colour manipulation.
+It uses:
 
-Technologies
+- HTML
+- CSS
+- JavaScript
 
-Color Waves is a client-side web application built with:
+There is no server, database or build process required. Colour conversion, interpolation and palette generation all happen locally in your browser.
 
-* HTML
-* CSS
-* JavaScript
-* chroma.js
-
-No server or database is required.
-
-All palette generation happens directly in your browser.
-
-Running Locally
-
-Because Color Waves is a static web application, it can be run locally without a build system.
+## Run Locally
 
 Clone the repository:
 
+```bash
 git clone https://github.com/git2358/Color-Waves.git
-
-Open the project directory:
-
 cd Color-Waves
+```
 
-Then open the HTML file in a web browser.
+Then open `index.html` in a modern web browser.
 
-Alternatively, serve the directory using any simple local web server.
+You can also serve the directory with any simple local web server.
 
-Browser Support
+## Browser Support
 
-Color Waves uses standard HTML, CSS and JavaScript APIs and should work in modern browsers.
+Color Waves is designed for modern browsers using standard HTML, CSS and JavaScript APIs.
 
-Clipboard functionality requires browser permission and support for the Clipboard API.
+Clipboard features depend on browser clipboard support and permissions.
 
-Credits
+## Credits
 
-Created by 2358.
+Created by **2358**.
 
-GitHub:
-https://github.com/git2358
-
-Project:
-https://github.com/git2358/Color-Waves
-
-License
-
-See the repository for licensing information.
+- [GitHub profile](https://github.com/git2358)
+- [Color Waves repository](https://github.com/git2358/Color-Waves)
