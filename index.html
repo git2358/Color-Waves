@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <meta
   name="description"
   content="Color Waves — a modern colour palette, gradient, light and shadow generator."
 >
+
 <title>Color Waves by 2358</title>
 
 <style>
 :root {
   --bg: #f4f4f4;
-  --surface: #fff;
-  --text: #111;
-  --muted: #666;
-  --border: #ddd;
+  --surface: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --border: #dddddd;
   --radius: 12px;
 }
 
@@ -50,30 +52,22 @@ select {
   margin: 0 auto;
 }
 
-/* --------------------------------------------------
-   HEADER
--------------------------------------------------- */
-
 .site-header {
   padding: 48px 0 28px;
 }
 
-h1 {
+.site-header h1 {
   margin: 0;
   font-size: clamp(2.4rem, 7vw, 5rem);
   line-height: .95;
-  letter-spacing: -.04em;
+  letter-spacing: -.05em;
 }
 
 .subtitle {
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   color: var(--muted);
   font-size: 1.05rem;
 }
-
-/* --------------------------------------------------
-   GENERATORS
--------------------------------------------------- */
 
 .generator {
   margin: 24px 0;
@@ -81,22 +75,18 @@ h1 {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,.025);
 }
 
 .generator h2 {
   margin: 0 0 6px;
   font-size: 1.5rem;
+  letter-spacing: -.02em;
 }
 
 .description {
   margin: 0 0 22px;
   color: var(--muted);
 }
-
-/* --------------------------------------------------
-   CONTROLS
--------------------------------------------------- */
 
 .controls {
   display: grid;
@@ -105,8 +95,7 @@ h1 {
 
 .color-controls {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 12px;
 }
 
@@ -127,7 +116,7 @@ input[type="color"] {
   padding: 3px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: white;
+  background: #fff;
   cursor: pointer;
 }
 
@@ -137,7 +126,7 @@ select {
   padding: 8px 10px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: white;
+  background: #fff;
   color: var(--text);
 }
 
@@ -159,10 +148,6 @@ input[type="range"] {
   font-weight: 700;
 }
 
-/* --------------------------------------------------
-   BUTTONS
--------------------------------------------------- */
-
 .actions,
 .export-bar {
   display: flex;
@@ -176,26 +161,27 @@ button {
   border: 1px solid var(--text);
   border-radius: 8px;
   background: var(--text);
-  color: white;
+  color: #fff;
   font-weight: 650;
   cursor: pointer;
   transition:
     opacity .15s ease,
-    transform .15s ease;
-}
-
-button.secondary {
-  background: white;
-  color: var(--text);
-  border-color: var(--border);
+    transform .15s ease,
+    background .15s ease;
 }
 
 button:hover {
-  opacity: .82;
+  opacity: .84;
 }
 
 button:active {
   transform: translateY(1px);
+}
+
+button.secondary {
+  background: #fff;
+  color: var(--text);
+  border-color: var(--border);
 }
 
 button:focus-visible,
@@ -210,51 +196,44 @@ button:focus-visible,
 
 .palette {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 8px;
   margin-top: 20px;
-  min-height: 140px;
 }
 
-/*
- * These are the replacement for the original
- * floating <li> colour blocks.
- */
 .swatch {
   position: relative;
-  display: block;
+  min-height: 150px;
   width: 100%;
-  min-width: 0;
-  min-height: 140px;
   padding: 0;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(0,0,0,.08);
+  border: 1px solid rgba(0, 0, 0, .08);
   transition:
     transform .15s ease,
-    opacity .15s ease;
+    opacity .15s ease,
+    box-shadow .15s ease;
 }
 
 .swatch:hover {
   transform: translateY(-3px);
-  opacity: .9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+  opacity: .96;
 }
 
 .swatch-info {
   position: absolute;
   inset: auto 0 0;
   padding: 12px 9px;
-  background:
-    linear-gradient(
-      transparent,
-      rgba(0,0,0,.75)
-    );
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, .72)
+  );
   color: white;
   text-align: center;
   font-size: .72rem;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .swatch-info strong,
@@ -263,14 +242,10 @@ button:focus-visible,
 }
 
 .swatch-info strong {
-  font-size: .85rem;
+  font-size: .88rem;
   margin-bottom: 3px;
   letter-spacing: .02em;
 }
-
-/* --------------------------------------------------
-   STATUS
--------------------------------------------------- */
 
 .status {
   min-height: 20px;
@@ -279,9 +254,15 @@ button:focus-visible,
   font-size: .85rem;
 }
 
-/* --------------------------------------------------
-   FOOTER
--------------------------------------------------- */
+.preview-label {
+  margin-top: 22px;
+  margin-bottom: -10px;
+  color: var(--muted);
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
 
 footer {
   margin-top: 50px;
@@ -294,10 +275,6 @@ footer {
 footer a {
   color: inherit;
 }
-
-/* --------------------------------------------------
-   MOBILE
--------------------------------------------------- */
 
 @media (max-width: 600px) {
   .container {
@@ -313,12 +290,7 @@ footer a {
   }
 
   .swatch {
-    min-height: 125px;
-  }
-
-  .actions button,
-  .export-bar button {
-    flex: 1 1 auto;
+    min-height: 135px;
   }
 }
 </style>
@@ -341,7 +313,6 @@ footer a {
   =================================================== -->
 
   <section class="generator">
-
     <h2>Monochromatic</h2>
 
     <p class="description">
@@ -353,10 +324,7 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-          <label for="mono-color">
-            Base colour
-          </label>
-
+          <label for="mono-color">Base colour</label>
           <input
             type="color"
             id="mono-color"
@@ -366,15 +334,10 @@ footer a {
 
       </div>
 
-
       <div class="control">
-
-        <label for="mono-steps">
-          Colours
-        </label>
+        <label for="mono-steps">Colours</label>
 
         <div class="range-row">
-
           <input
             type="range"
             id="mono-steps"
@@ -387,14 +350,10 @@ footer a {
             class="range-value"
             id="mono-steps-value"
           >13</span>
-
         </div>
-
       </div>
 
-
       <div class="actions">
-
         <button data-generate="mono">
           Generate
         </button>
@@ -405,58 +364,31 @@ footer a {
         >
           Randomise
         </button>
-
       </div>
 
-
-      <div
-        class="palette"
-        id="palette-mono"
-        aria-live="polite"
-      ></div>
-
+      <div class="palette" id="palette-mono"></div>
 
       <div class="export-bar">
-
-        <button
-          class="secondary"
-          data-copy="mono"
-        >
+        <button class="secondary" data-copy="mono">
           Copy HEX
         </button>
 
-        <button
-          class="secondary"
-          data-css="mono"
-        >
+        <button class="secondary" data-css="mono">
           Copy CSS
         </button>
 
-        <button
-          class="secondary"
-          data-json="mono"
-        >
+        <button class="secondary" data-json="mono">
           Copy JSON
         </button>
 
-        <button
-          class="secondary"
-          data-download="mono"
-        >
+        <button class="secondary" data-download="mono">
           Download
         </button>
-
       </div>
 
-
-      <div
-        class="status"
-        id="status-mono"
-        aria-live="polite"
-      ></div>
+      <div class="status" id="status-mono"></div>
 
     </div>
-
   </section>
 
 
@@ -469,7 +401,8 @@ footer a {
     <h2>2 Colour Blend</h2>
 
     <p class="description">
-      Blend smoothly between two colours using your chosen colour space.
+      Blend smoothly between two colours using your chosen
+      colour space.
     </p>
 
     <div class="controls">
@@ -477,36 +410,26 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-
-          <label for="blend2-1">
-            Colour 1
-          </label>
+          <label for="blend2-1">Colour 1</label>
 
           <input
             type="color"
             id="blend2-1"
             value="#ffe478"
           >
-
         </div>
 
-
         <div class="control">
-
-          <label for="blend2-2">
-            Colour 2
-          </label>
+          <label for="blend2-2">Colour 2</label>
 
           <input
             type="color"
             id="blend2-2"
             value="#001b87"
           >
-
         </div>
 
       </div>
-
 
       <div class="control">
 
@@ -515,27 +438,13 @@ footer a {
         </label>
 
         <select id="blend2-mode">
-
-          <option value="rgb">
-            RGB
-          </option>
-
-          <option value="hsl">
-            HSL
-          </option>
-
-          <option value="lab">
-            LAB
-          </option>
-
-          <option value="lch">
-            LCH
-          </option>
-
+          <option value="rgb">RGB</option>
+          <option value="hsl">HSL</option>
+          <option value="lab">LAB</option>
+          <option value="lch">LCH</option>
         </select>
 
       </div>
-
 
       <div class="control">
 
@@ -562,7 +471,6 @@ footer a {
 
       </div>
 
-
       <div class="actions">
 
         <button data-generate="blend2">
@@ -578,52 +486,29 @@ footer a {
 
       </div>
 
-
-      <div
-        class="palette"
-        id="palette-blend2"
-        aria-live="polite"
-      ></div>
-
+      <div class="palette" id="palette-blend2"></div>
 
       <div class="export-bar">
 
-        <button
-          class="secondary"
-          data-copy="blend2"
-        >
+        <button class="secondary" data-copy="blend2">
           Copy HEX
         </button>
 
-        <button
-          class="secondary"
-          data-css="blend2"
-        >
+        <button class="secondary" data-css="blend2">
           Copy CSS
         </button>
 
-        <button
-          class="secondary"
-          data-json="blend2"
-        >
+        <button class="secondary" data-json="blend2">
           Copy JSON
         </button>
 
-        <button
-          class="secondary"
-          data-download="blend2"
-        >
+        <button class="secondary" data-download="blend2">
           Download
         </button>
 
       </div>
 
-
-      <div
-        class="status"
-        id="status-blend2"
-        aria-live="polite"
-      ></div>
+      <div class="status" id="status-blend2"></div>
 
     </div>
 
@@ -647,51 +532,36 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-
-          <label for="blend3-1">
-            Colour 1
-          </label>
+          <label for="blend3-1">Colour 1</label>
 
           <input
             type="color"
             id="blend3-1"
             value="#ffe478"
           >
-
         </div>
 
-
         <div class="control">
-
-          <label for="blend3-2">
-            Colour 2
-          </label>
+          <label for="blend3-2">Colour 2</label>
 
           <input
             type="color"
             id="blend3-2"
             value="#ff6b97"
           >
-
         </div>
 
-
         <div class="control">
-
-          <label for="blend3-3">
-            Colour 3
-          </label>
+          <label for="blend3-3">Colour 3</label>
 
           <input
             type="color"
             id="blend3-3"
             value="#001b87"
           >
-
         </div>
 
       </div>
-
 
       <div class="control">
 
@@ -701,26 +571,14 @@ footer a {
 
         <select id="blend3-mode">
 
-          <option value="rgb">
-            RGB
-          </option>
-
-          <option value="hsl">
-            HSL
-          </option>
-
-          <option value="lab">
-            LAB
-          </option>
-
-          <option value="lch">
-            LCH
-          </option>
+          <option value="rgb">RGB</option>
+          <option value="hsl">HSL</option>
+          <option value="lab">LAB</option>
+          <option value="lch">LCH</option>
 
         </select>
 
       </div>
-
 
       <div class="control">
 
@@ -747,7 +605,6 @@ footer a {
 
       </div>
 
-
       <div class="actions">
 
         <button data-generate="blend3">
@@ -763,52 +620,29 @@ footer a {
 
       </div>
 
-
-      <div
-        class="palette"
-        id="palette-blend3"
-        aria-live="polite"
-      ></div>
-
+      <div class="palette" id="palette-blend3"></div>
 
       <div class="export-bar">
 
-        <button
-          class="secondary"
-          data-copy="blend3"
-        >
+        <button class="secondary" data-copy="blend3">
           Copy HEX
         </button>
 
-        <button
-          class="secondary"
-          data-css="blend3"
-        >
+        <button class="secondary" data-css="blend3">
           Copy CSS
         </button>
 
-        <button
-          class="secondary"
-          data-json="blend3"
-        >
+        <button class="secondary" data-json="blend3">
           Copy JSON
         </button>
 
-        <button
-          class="secondary"
-          data-download="blend3"
-        >
+        <button class="secondary" data-download="blend3">
           Download
         </button>
 
       </div>
 
-
-      <div
-        class="status"
-        id="status-blend3"
-        aria-live="polite"
-      ></div>
+      <div class="status" id="status-blend3"></div>
 
     </div>
 
@@ -833,6 +667,7 @@ footer a {
 
         <div class="control">
           <label for="blend5-1">Colour 1</label>
+
           <input
             type="color"
             id="blend5-1"
@@ -842,6 +677,7 @@ footer a {
 
         <div class="control">
           <label for="blend5-2">Colour 2</label>
+
           <input
             type="color"
             id="blend5-2"
@@ -851,6 +687,7 @@ footer a {
 
         <div class="control">
           <label for="blend5-3">Colour 3</label>
+
           <input
             type="color"
             id="blend5-3"
@@ -860,6 +697,7 @@ footer a {
 
         <div class="control">
           <label for="blend5-4">Colour 4</label>
+
           <input
             type="color"
             id="blend5-4"
@@ -869,6 +707,7 @@ footer a {
 
         <div class="control">
           <label for="blend5-5">Colour 5</label>
+
           <input
             type="color"
             id="blend5-5"
@@ -878,7 +717,6 @@ footer a {
 
       </div>
 
-
       <div class="control">
 
         <label for="blend5-mode">
@@ -887,26 +725,14 @@ footer a {
 
         <select id="blend5-mode">
 
-          <option value="lch">
-            LCH
-          </option>
-
-          <option value="lab">
-            LAB
-          </option>
-
-          <option value="rgb">
-            RGB
-          </option>
-
-          <option value="hsl">
-            HSL
-          </option>
+          <option value="lch">LCH</option>
+          <option value="lab">LAB</option>
+          <option value="rgb">RGB</option>
+          <option value="hsl">HSL</option>
 
         </select>
 
       </div>
-
 
       <div class="control">
 
@@ -933,7 +759,6 @@ footer a {
 
       </div>
 
-
       <div class="actions">
 
         <button data-generate="blend5">
@@ -949,52 +774,29 @@ footer a {
 
       </div>
 
-
-      <div
-        class="palette"
-        id="palette-blend5"
-        aria-live="polite"
-      ></div>
-
+      <div class="palette" id="palette-blend5"></div>
 
       <div class="export-bar">
 
-        <button
-          class="secondary"
-          data-copy="blend5"
-        >
+        <button class="secondary" data-copy="blend5">
           Copy HEX
         </button>
 
-        <button
-          class="secondary"
-          data-css="blend5"
-        >
+        <button class="secondary" data-css="blend5">
           Copy CSS
         </button>
 
-        <button
-          class="secondary"
-          data-json="blend5"
-        >
+        <button class="secondary" data-json="blend5">
           Copy JSON
         </button>
 
-        <button
-          class="secondary"
-          data-download="blend5"
-        >
+        <button class="secondary" data-download="blend5">
           Download
         </button>
 
       </div>
 
-
-      <div
-        class="status"
-        id="status-blend5"
-        aria-live="polite"
-      ></div>
+      <div class="status" id="status-blend5"></div>
 
     </div>
 
@@ -1010,8 +812,8 @@ footer a {
     <h2>Light Cast</h2>
 
     <p class="description">
-      Create a more natural light-to-shadow palette using LCH
-      colour modelling.
+      Create a more natural light-to-shadow palette using
+      LCH colour modelling.
     </p>
 
     <div class="controls">
@@ -1019,66 +821,46 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-
-          <label for="light-1">
-            Peak light
-          </label>
+          <label for="light-1">Peak light</label>
 
           <input
             type="color"
             id="light-1"
             value="#ffffff"
           >
-
         </div>
 
-
         <div class="control">
-
-          <label for="light-2">
-            Light influence
-          </label>
+          <label for="light-2">Light influence</label>
 
           <input
             type="color"
             id="light-2"
             value="#ffe478"
           >
-
         </div>
 
-
         <div class="control">
-
-          <label for="light-3">
-            Object colour
-          </label>
+          <label for="light-3">Object colour</label>
 
           <input
             type="color"
             id="light-3"
             value="#ff6b97"
           >
-
         </div>
 
-
         <div class="control">
-
-          <label for="light-5">
-            Peak shadow
-          </label>
+          <label for="light-5">Peak shadow</label>
 
           <input
             type="color"
             id="light-5"
             value="#000000"
           >
-
         </div>
 
       </div>
-
 
       <div class="control">
 
@@ -1105,7 +887,6 @@ footer a {
 
       </div>
 
-
       <div class="control">
 
         <label for="light-shadow-strength">
@@ -1130,7 +911,6 @@ footer a {
         </div>
 
       </div>
-
 
       <div class="control">
 
@@ -1157,7 +937,6 @@ footer a {
 
       </div>
 
-
       <div class="actions">
 
         <button data-generate="light">
@@ -1173,52 +952,29 @@ footer a {
 
       </div>
 
-
-      <div
-        class="palette"
-        id="palette-light"
-        aria-live="polite"
-      ></div>
-
+      <div class="palette" id="palette-light"></div>
 
       <div class="export-bar">
 
-        <button
-          class="secondary"
-          data-copy="light"
-        >
+        <button class="secondary" data-copy="light">
           Copy HEX
         </button>
 
-        <button
-          class="secondary"
-          data-css="light"
-        >
+        <button class="secondary" data-css="light">
           Copy CSS
         </button>
 
-        <button
-          class="secondary"
-          data-json="light"
-        >
+        <button class="secondary" data-json="light">
           Copy JSON
         </button>
 
-        <button
-          class="secondary"
-          data-download="light"
-        >
+        <button class="secondary" data-download="light">
           Download
         </button>
 
       </div>
 
-
-      <div
-        class="status"
-        id="status-light"
-        aria-live="polite"
-      ></div>
+      <div class="status" id="status-light"></div>
 
     </div>
 
@@ -1234,8 +990,8 @@ footer a {
     <h2>Shadow Cast</h2>
 
     <p class="description">
-      Create a coloured shadow while preserving the object's hue
-      and perceived lightness.
+      Create a coloured shadow while preserving the object's
+      hue and perceived lightness.
     </p>
 
     <div class="controls">
@@ -1243,66 +999,46 @@ footer a {
       <div class="color-controls">
 
         <div class="control">
-
-          <label for="shadow-1">
-            Peak light
-          </label>
+          <label for="shadow-1">Peak light</label>
 
           <input
             type="color"
             id="shadow-1"
             value="#ffffff"
           >
-
         </div>
 
-
         <div class="control">
-
-          <label for="shadow-3">
-            Object colour
-          </label>
+          <label for="shadow-3">Object colour</label>
 
           <input
             type="color"
             id="shadow-3"
             value="#ff6b97"
           >
-
         </div>
 
-
         <div class="control">
-
-          <label for="shadow-4">
-            Shadow influence
-          </label>
+          <label for="shadow-4">Shadow influence</label>
 
           <input
             type="color"
             id="shadow-4"
             value="#001b87"
           >
-
         </div>
 
-
         <div class="control">
-
-          <label for="shadow-5">
-            Peak shadow
-          </label>
+          <label for="shadow-5">Peak shadow</label>
 
           <input
             type="color"
             id="shadow-5"
             value="#000000"
           >
-
         </div>
 
       </div>
-
 
       <div class="control">
 
@@ -1329,7 +1065,6 @@ footer a {
 
       </div>
 
-
       <div class="control">
 
         <label for="shadow-light-strength">
@@ -1354,7 +1089,6 @@ footer a {
         </div>
 
       </div>
-
 
       <div class="control">
 
@@ -1381,7 +1115,6 @@ footer a {
 
       </div>
 
-
       <div class="actions">
 
         <button data-generate="shadow">
@@ -1397,52 +1130,29 @@ footer a {
 
       </div>
 
-
-      <div
-        class="palette"
-        id="palette-shadow"
-        aria-live="polite"
-      ></div>
-
+      <div class="palette" id="palette-shadow"></div>
 
       <div class="export-bar">
 
-        <button
-          class="secondary"
-          data-copy="shadow"
-        >
+        <button class="secondary" data-copy="shadow">
           Copy HEX
         </button>
 
-        <button
-          class="secondary"
-          data-css="shadow"
-        >
+        <button class="secondary" data-css="shadow">
           Copy CSS
         </button>
 
-        <button
-          class="secondary"
-          data-json="shadow"
-        >
+        <button class="secondary" data-json="shadow">
           Copy JSON
         </button>
 
-        <button
-          class="secondary"
-          data-download="shadow"
-        >
+        <button class="secondary" data-download="shadow">
           Download
         </button>
 
       </div>
 
-
-      <div
-        class="status"
-        id="status-shadow"
-        aria-live="polite"
-      ></div>
+      <div class="status" id="status-shadow"></div>
 
     </div>
 
@@ -1454,16 +1164,13 @@ footer a {
 <footer>
 
   <small>
-
     Color Waves by
 
     <a
       href="https://github.com/git2358"
       target="_blank"
       rel="noopener noreferrer"
-    >
-      2358
-    </a>
+    >2358</a>
 
     ·
 
@@ -1471,27 +1178,10 @@ footer a {
       href="https://github.com/git2358/Color-Waves"
       target="_blank"
       rel="noopener noreferrer"
-    >
-      GitHub
-    </a>
-
+    >GitHub</a>
   </small>
 
 </footer>
-
-
-<!-- =====================================================
-     CHROMA.JS
-
-     IMPORTANT:
-     This is the browser build. The previous
-     unpkg path did not expose the global `chroma`
-     function correctly.
-====================================================== -->
-
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/3.1.2/chroma.min.js"
-></script>
 
 
 <script>
@@ -1501,36 +1191,11 @@ footer a {
 
 
   /* =====================================================
-     SAFETY CHECK
-  ====================================================== */
-
-  if (typeof window.chroma !== "function") {
-
-    console.error(
-      "Color Waves: chroma.js failed to load."
-    );
-
-    document.querySelectorAll(".status").forEach(status => {
-
-      status.textContent =
-        "Colour engine failed to load. Please reload the page.";
-
-    });
-
-    return;
-  }
-
-
-  /* =====================================================
      STATE
   ====================================================== */
 
   const palettes = {};
 
-
-  /* =====================================================
-     HELPERS
-  ====================================================== */
 
   const $ = id =>
     document.getElementById(id);
@@ -1540,63 +1205,691 @@ footer a {
     $(id).value;
 
 
+  /* =====================================================
+     BASIC HELPERS
+  ====================================================== */
+
+  function clamp(n, min, max) {
+    return Math.min(max, Math.max(min, n));
+  }
+
+
+  function lerp(a, b, t) {
+    return a + (b - a) * t;
+  }
+
+
   function randomHex() {
 
-    return "#"
-      + Math.floor(Math.random() * 0xffffff)
+    return "#" +
+      Math.floor(Math.random() * 0xffffff)
         .toString(16)
         .padStart(6, "0");
 
   }
 
 
-  function clamp(number, min, max) {
+  function parseHex(hex) {
 
-    return Math.min(
-      max,
-      Math.max(min, number)
-    );
+    hex = hex.replace("#", "");
 
-  }
-
-
-  /* =====================================================
-     STATUS
-  ====================================================== */
-
-  const statusTimers = {};
-
-
-  function setStatus(mode, message) {
-
-    const status =
-      $("status-" + mode);
-
-    if (!status) {
-      return;
+    if (hex.length === 3) {
+      hex =
+        hex[0] + hex[0] +
+        hex[1] + hex[1] +
+        hex[2] + hex[2];
     }
 
-    status.textContent =
-      message;
+    return {
+      r: parseInt(hex.substring(0, 2), 16),
+      g: parseInt(hex.substring(2, 4), 16),
+      b: parseInt(hex.substring(4, 6), 16)
+    };
+
+  }
 
 
-    clearTimeout(
-      statusTimers[mode]
-    );
+  function rgbToHex(r, g, b) {
 
-
-    statusTimers[mode] =
-      setTimeout(() => {
-
-        status.textContent = "";
-
-      }, 2200);
+    return "#" +
+      [r, g, b]
+        .map(v =>
+          Math.round(clamp(v, 0, 255))
+            .toString(16)
+            .padStart(2, "0")
+        )
+        .join("");
 
   }
 
 
   /* =====================================================
-     LCH COLOUR INFLUENCE
+     RGB
+  ====================================================== */
+
+  function hexToRgb(hex) {
+
+    const c = parseHex(hex);
+
+    return [
+      c.r,
+      c.g,
+      c.b
+    ];
+
+  }
+
+
+  function rgbMix(a, b, t) {
+
+    return [
+      lerp(a[0], b[0], t),
+      lerp(a[1], b[1], t),
+      lerp(a[2], b[2], t)
+    ];
+
+  }
+
+
+  /* =====================================================
+     HSL
+  ====================================================== */
+
+  function rgbToHsl(rgb) {
+
+    let r = rgb[0] / 255;
+    let g = rgb[1] / 255;
+    let b = rgb[2] / 255;
+
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+
+    let h = 0;
+    let s = 0;
+
+    const l = (max + min) / 2;
+
+    if (max !== min) {
+
+      const d = max - min;
+
+      s =
+        l > .5
+          ? d / (2 - max - min)
+          : d / (max + min);
+
+      switch (max) {
+
+        case r:
+          h =
+            (g - b) / d +
+            (g < b ? 6 : 0);
+          break;
+
+        case g:
+          h =
+            (b - r) / d +
+            2;
+          break;
+
+        case b:
+          h =
+            (r - g) / d +
+            4;
+          break;
+
+      }
+
+      h /= 6;
+
+    }
+
+    return [
+      h * 360,
+      s,
+      l
+    ];
+
+  }
+
+
+  function hue2rgb(p, q, t) {
+
+    if (t < 0) t += 1;
+    if (t > 1) t -= 1;
+
+    if (t < 1 / 6)
+      return p + (q - p) * 6 * t;
+
+    if (t < 1 / 2)
+      return q;
+
+    if (t < 2 / 3)
+      return p + (q - p) * (2 / 3 - t) * 6;
+
+    return p;
+
+  }
+
+
+  function hslToRgb(hsl) {
+
+    let h = hsl[0] / 360;
+    const s = hsl[1];
+    const l = hsl[2];
+
+    let r;
+    let g;
+    let b;
+
+    if (s === 0) {
+
+      r = g = b = l;
+
+    } else {
+
+      const q =
+        l < .5
+          ? l * (1 + s)
+          : l + s - l * s;
+
+      const p = 2 * l - q;
+
+      r = hue2rgb(p, q, h + 1 / 3);
+      g = hue2rgb(p, q, h);
+      b = hue2rgb(p, q, h - 1 / 3);
+
+    }
+
+    return [
+      r * 255,
+      g * 255,
+      b * 255
+    ];
+
+  }
+
+
+  /* =====================================================
+     RGB -> XYZ
+  ====================================================== */
+
+  function rgbToXyz(rgb) {
+
+    let r = rgb[0] / 255;
+    let g = rgb[1] / 255;
+    let b = rgb[2] / 255;
+
+    r = r > .04045
+      ? Math.pow((r + .055) / 1.055, 2.4)
+      : r / 12.92;
+
+    g = g > .04045
+      ? Math.pow((g + .055) / 1.055, 2.4)
+      : g / 12.92;
+
+    b = b > .04045
+      ? Math.pow((b + .055) / 1.055, 2.4)
+      : b / 12.92;
+
+    return [
+
+      (r * .4124564 +
+       g * .3575761 +
+       b * .1804375) * 100,
+
+      (r * .2126729 +
+       g * .7151522 +
+       b * .0721750) * 100,
+
+      (r * .0193339 +
+       g * .1191920 +
+       b * .9503041) * 100
+
+    ];
+
+  }
+
+
+  /* =====================================================
+     XYZ -> RGB
+  ====================================================== */
+
+  function xyzToRgb(xyz) {
+
+    let x = xyz[0] / 100;
+    let y = xyz[1] / 100;
+    let z = xyz[2] / 100;
+
+    let r =
+      x * 3.2404542 +
+      y * -1.5371385 +
+      z * -0.4985314;
+
+    let g =
+      x * -.9692660 +
+      y * 1.8760108 +
+      z * .0415560;
+
+    let b =
+      x * .0556434 +
+      y * -.2040259 +
+      z * 1.0572252;
+
+    r =
+      r > .0031308
+        ? 1.055 * Math.pow(r, 1 / 2.4) - .055
+        : 12.92 * r;
+
+    g =
+      g > .0031308
+        ? 1.055 * Math.pow(g, 1 / 2.4) - .055
+        : 12.92 * g;
+
+    b =
+      b > .0031308
+        ? 1.055 * Math.pow(b, 1 / 2.4) - .055
+        : 12.92 * b;
+
+    return [
+      clamp(r * 255, 0, 255),
+      clamp(g * 255, 0, 255),
+      clamp(b * 255, 0, 255)
+    ];
+
+  }
+
+
+  /* =====================================================
+     XYZ -> LAB
+  ====================================================== */
+
+  function xyzToLab(xyz) {
+
+    const refX = 95.047;
+    const refY = 100.000;
+    const refZ = 108.883;
+
+    let x = xyz[0] / refX;
+    let y = xyz[1] / refY;
+    let z = xyz[2] / refZ;
+
+    const f = n =>
+      n > .008856
+        ? Math.cbrt(n)
+        : (7.787 * n) + (16 / 116);
+
+    x = f(x);
+    y = f(y);
+    z = f(z);
+
+    return [
+      (116 * y) - 16,
+      500 * (x - y),
+      200 * (y - z)
+    ];
+
+  }
+
+
+  /* =====================================================
+     LAB -> XYZ
+  ====================================================== */
+
+  function labToXyz(lab) {
+
+    const refX = 95.047;
+    const refY = 100.000;
+    const refZ = 108.883;
+
+    const fy = (lab[0] + 16) / 116;
+    const fx = lab[1] / 500 + fy;
+    const fz = fy - lab[2] / 200;
+
+    const finv = n => {
+
+      const n3 = n * n * n;
+
+      return n3 > .008856
+        ? n3
+        : (n - 16 / 116) / 7.787;
+
+    };
+
+    return [
+      refX * finv(fx),
+      refY * finv(fy),
+      refZ * finv(fz)
+    ];
+
+  }
+
+
+  function rgbToLab(rgb) {
+
+    return xyzToLab(rgbToXyz(rgb));
+
+  }
+
+
+  function labToRgb(lab) {
+
+    return xyzToRgb(labToXyz(lab));
+
+  }
+
+
+  /* =====================================================
+     LAB <-> LCH
+  ====================================================== */
+
+  function labToLch(lab) {
+
+    const L = lab[0];
+    const a = lab[1];
+    const b = lab[2];
+
+    const C =
+      Math.sqrt(a * a + b * b);
+
+    let H =
+      Math.atan2(b, a) * 180 / Math.PI;
+
+    if (H < 0) H += 360;
+
+    return [
+      L,
+      C,
+      H
+    ];
+
+  }
+
+
+  function lchToLab(lch) {
+
+    const L = lch[0];
+    const C = lch[1];
+    const H = lch[2] * Math.PI / 180;
+
+    return [
+      L,
+      C * Math.cos(H),
+      C * Math.sin(H)
+    ];
+
+  }
+
+
+  function rgbToLch(rgb) {
+
+    return labToLch(rgbToLab(rgb));
+
+  }
+
+
+  function lchToRgb(lch) {
+
+    return labToRgb(lchToLab(lch));
+
+  }
+
+
+  /* =====================================================
+     COLOUR INTERPOLATION
+  ====================================================== */
+
+  function interpolateHsl(a, b, t) {
+
+    const A = rgbToHsl(a);
+    const B = rgbToHsl(b);
+
+    let h1 = A[0];
+    let h2 = B[0];
+
+    let dh = h2 - h1;
+
+    if (dh > 180) {
+      dh -= 360;
+    }
+
+    if (dh < -180) {
+      dh += 360;
+    }
+
+    let h =
+      h1 + dh * t;
+
+    if (h < 0) h += 360;
+    if (h >= 360) h -= 360;
+
+    return hslToRgb([
+      h,
+      lerp(A[1], B[1], t),
+      lerp(A[2], B[2], t)
+    ]);
+
+  }
+
+
+  function interpolateLab(a, b, t) {
+
+    const A = rgbToLab(a);
+    const B = rgbToLab(b);
+
+    return labToRgb([
+      lerp(A[0], B[0], t),
+      lerp(A[1], B[1], t),
+      lerp(A[2], B[2], t)
+    ]);
+
+  }
+
+
+  function interpolateLch(a, b, t) {
+
+    const A = rgbToLch(a);
+    const B = rgbToLch(b);
+
+    let h1 = A[2];
+    let h2 = B[2];
+
+    let dh = h2 - h1;
+
+    if (dh > 180) {
+      dh -= 360;
+    }
+
+    if (dh < -180) {
+      dh += 360;
+    }
+
+    let h =
+      h1 + dh * t;
+
+    if (h < 0) h += 360;
+    if (h >= 360) h -= 360;
+
+    return lchToRgb([
+      lerp(A[0], B[0], t),
+      lerp(A[1], B[1], t),
+      h
+    ]);
+
+  }
+
+
+  function interpolate(a, b, t, mode) {
+
+    if (mode === "rgb") {
+      return rgbMix(a, b, t);
+    }
+
+    if (mode === "hsl") {
+      return interpolateHsl(a, b, t);
+    }
+
+    if (mode === "lab") {
+      return interpolateLab(a, b, t);
+    }
+
+    if (mode === "lch") {
+      return interpolateLch(a, b, t);
+    }
+
+    return rgbMix(a, b, t);
+
+  }
+
+
+  /* =====================================================
+     SCALE
+  ====================================================== */
+
+  function generateScale(colors, count, mode) {
+
+    const parsed =
+      colors.map(hexToRgb);
+
+    const n =
+      Number(count);
+
+    if (n === 1) {
+      return [
+        rgbToHex(...parsed[0])
+      ];
+    }
+
+    const result = [];
+
+    for (let i = 0; i < n; i++) {
+
+      const globalT =
+        i / (n - 1);
+
+      const segmentCount =
+        parsed.length - 1;
+
+      const scaled =
+        globalT * segmentCount;
+
+      let segment =
+        Math.floor(scaled);
+
+      if (segment >= segmentCount) {
+        segment = segmentCount - 1;
+      }
+
+      const localT =
+        scaled - segment;
+
+      const rgb =
+        interpolate(
+          parsed[segment],
+          parsed[segment + 1],
+          localT,
+          mode
+        );
+
+      result.push(
+        rgbToHex(...rgb)
+      );
+
+    }
+
+    return result;
+
+  }
+
+
+  /* =====================================================
+     MONOCHROMATIC
+  ====================================================== */
+
+  function generateMono() {
+
+    const rgb =
+      hexToRgb(value("mono-color"));
+
+    const lab =
+      rgbToLab(rgb);
+
+    const count =
+      Number(value("mono-steps"));
+
+    const midpoint =
+      Math.floor(count / 2);
+
+    const colors = [];
+
+    for (let i = 0; i < count; i++) {
+
+      const delta =
+        i - midpoint;
+
+      const L =
+        clamp(
+          lab[0] - delta * 6,
+          0,
+          100
+        );
+
+      const rgb =
+        labToRgb([
+          L,
+          lab[1],
+          lab[2]
+        ]);
+
+      colors.push(
+        rgbToHex(...rgb)
+      );
+
+    }
+
+    createSwatches("mono", colors);
+
+  }
+
+
+  /* =====================================================
+     BLENDS
+  ====================================================== */
+
+  function generateBlend(mode, numberOfColors) {
+
+    const colors = [];
+
+    for (
+      let i = 1;
+      i <= numberOfColors;
+      i++
+    ) {
+      colors.push(
+        value(`${mode}-${i}`)
+      );
+    }
+
+    const interpolation =
+      value(`${mode}-mode`);
+
+    const count =
+      Number(value(`${mode}-steps`));
+
+    createSwatches(
+      mode,
+      generateScale(
+        colors,
+        count,
+        interpolation
+      )
+    );
+
+  }
+
+
+  /* =====================================================
+     LCH INFLUENCE
   ====================================================== */
 
   function influencedLch(
@@ -1607,148 +1900,310 @@ footer a {
   ) {
 
     const object =
-      chroma(objectHex).lch();
+      rgbToLch(hexToRgb(objectHex));
 
     const influence =
-      chroma(influenceHex).lch();
+      rgbToLch(hexToRgb(influenceHex));
 
     const t =
       clamp(amount, 0, 1);
 
-
     let hue;
 
+    let hueDifference =
+      influence[2] - object[2];
 
-    /*
-     * Handle greys, which have no meaningful hue.
-     */
-
-    if (
-      !Number.isFinite(object[2]) &&
-      Number.isFinite(influence[2])
-    ) {
-
-      hue =
-        influence[2];
-
-    } else if (
-      !Number.isFinite(influence[2])
-    ) {
-
-      hue =
-        object[2];
-
-    } else {
-
-      hue =
-        chroma
-          .average(
-            [
-              objectHex,
-              influenceHex
-            ],
-            "lch"
-          )
-          .lch()[2];
-
+    if (hueDifference > 180) {
+      hueDifference -= 360;
     }
 
+    if (hueDifference < -180) {
+      hueDifference += 360;
+    }
 
-    const lightness =
+    hue =
+      object[2] +
+      hueDifference * t;
+
+    if (hue < 0) hue += 360;
+    if (hue >= 360) hue -= 360;
+
+    const L =
       clamp(
-        object[0] + lightnessDelta,
+        object[0] +
+        lightnessDelta,
         0,
         100
       );
 
-
-    const chromaValue =
+    const C =
       clamp(
-        object[1] * (1 - t)
-        + influence[1] * t,
+        object[1] * (1 - t) +
+        influence[1] * t,
         0,
         150
       );
 
-
-    if (!Number.isFinite(hue)) {
-
-      hue =
-        Number.isFinite(object[2])
-          ? object[2]
-          : 0;
-
-    }
-
-
-    return chroma
-      .lch(
-        lightness,
-        chromaValue,
-        hue
-      )
-      .clipped();
+    return lchToRgb([
+      L,
+      C,
+      hue
+    ]);
 
   }
 
 
   /* =====================================================
-     CREATE PREVIEW SWATCHES
+     LIGHT CAST
+  ====================================================== */
+
+  function generateLight() {
+
+    const peakLight =
+      value("light-1");
+
+    const lightInfluence =
+      value("light-2");
+
+    const object =
+      value("light-3");
+
+    const peakShadow =
+      value("light-5");
+
+    const lightAmount =
+      Number(value("light-strength")) / 100;
+
+    const shadowAmount =
+      Number(value("light-shadow-strength")) / 100;
+
+    const count =
+      Number(value("light-steps"));
+
+
+    const lightSide =
+      rgbToHex(
+        ...influencedLch(
+          object,
+          lightInfluence,
+          lightAmount,
+          20 * lightAmount
+        )
+      );
+
+
+    const shadowInfluenced =
+      rgbToHex(
+        ...influencedLch(
+          object,
+          lightInfluence,
+          shadowAmount * .45,
+          -15 * shadowAmount
+        )
+      );
+
+
+    const shadowSide =
+      rgbToHex(
+        ...interpolate(
+          hexToRgb(shadowInfluenced),
+          hexToRgb(peakShadow),
+          shadowAmount,
+          "lch"
+        )
+      );
+
+
+    const colors =
+      generateScale(
+        [
+          peakLight,
+          lightSide,
+          object,
+          shadowSide,
+          peakShadow
+        ],
+        count,
+        "lch"
+      );
+
+
+    createSwatches(
+      "light",
+      colors
+    );
+
+  }
+
+
+  /* =====================================================
+     SHADOW CAST
+  ====================================================== */
+
+  function generateShadow() {
+
+    const peakLight =
+      value("shadow-1");
+
+    const object =
+      value("shadow-3");
+
+    const shadowInfluence =
+      value("shadow-4");
+
+    const peakShadow =
+      value("shadow-5");
+
+    const shadowAmount =
+      Number(value("shadow-strength")) / 100;
+
+    const lightAmount =
+      Number(value("shadow-light-strength")) / 100;
+
+    const count =
+      Number(value("shadow-steps"));
+
+
+    const lightSide =
+      rgbToHex(
+        ...influencedLch(
+          object,
+          peakLight,
+          lightAmount,
+          20 * lightAmount
+        )
+      );
+
+
+    const colouredShadow =
+      rgbToHex(
+        ...influencedLch(
+          object,
+          shadowInfluence,
+          shadowAmount,
+          -25 * shadowAmount
+        )
+      );
+
+
+    const shadowSide =
+      rgbToHex(
+        ...interpolate(
+          hexToRgb(colouredShadow),
+          hexToRgb(peakShadow),
+          shadowAmount,
+          "lch"
+        )
+      );
+
+
+    const colors =
+      generateScale(
+        [
+          peakLight,
+          lightSide,
+          object,
+          shadowSide,
+          peakShadow
+        ],
+        count,
+        "lch"
+      );
+
+
+    createSwatches(
+      "shadow",
+      colors
+    );
+
+  }
+
+
+  /* =====================================================
+     GENERATOR ROUTER
+  ====================================================== */
+
+  function generate(mode) {
+
+    try {
+
+      if (mode === "mono") {
+        generateMono();
+      }
+
+      if (mode === "blend2") {
+        generateBlend("blend2", 2);
+      }
+
+      if (mode === "blend3") {
+        generateBlend("blend3", 3);
+      }
+
+      if (mode === "blend5") {
+        generateBlend("blend5", 5);
+      }
+
+      if (mode === "light") {
+        generateLight();
+      }
+
+      if (mode === "shadow") {
+        generateShadow();
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Color Waves generation error:",
+        error
+      );
+
+      setStatus(
+        mode,
+        "Unable to generate palette."
+      );
+
+    }
+
+  }
+
+
+  /* =====================================================
+     PREVIEW / SWATCHES
   ====================================================== */
 
   function createSwatches(mode, colors) {
 
-    /*
-     * Convert everything to HEX first.
-     */
-
     palettes[mode] =
       colors.map(color =>
-        chroma(color).hex()
+        color.toLowerCase()
       );
-
 
     const output =
       $("palette-" + mode);
-
-
-    if (!output) {
-      return;
-    }
-
 
     output.innerHTML = "";
 
 
     palettes[mode].forEach(hex => {
 
-      const color =
-        chroma(hex);
-
-
       const rgb =
-        color.rgb();
-
+        hexToRgb(hex);
 
       const hsl =
-        color.hsl();
-
+        rgbToHsl(rgb);
 
       const swatch =
         document.createElement("button");
 
-
       swatch.type =
         "button";
-
 
       swatch.className =
         "swatch";
 
-
       swatch.style.backgroundColor =
         hex;
-
 
       swatch.setAttribute(
         "aria-label",
@@ -1761,21 +2216,14 @@ footer a {
           ? Math.round(hsl[0])
           : 0;
 
-
       const saturation =
-        Number.isFinite(hsl[1])
-          ? Math.round(hsl[1] * 100)
-          : 0;
-
+        Math.round(hsl[1] * 100);
 
       const lightness =
-        Number.isFinite(hsl[2])
-          ? Math.round(hsl[2] * 100)
-          : 0;
+        Math.round(hsl[2] * 100);
 
 
       swatch.innerHTML = `
-
         <span class="swatch-info">
 
           <strong>
@@ -1790,15 +2238,12 @@ footer a {
           </span>
 
           <span>
-            ${hue}°
-            ·
-            ${saturation}%
-            ·
+            ${hue}° ·
+            ${saturation}% ·
             ${lightness}%
           </span>
 
         </span>
-
       `;
 
 
@@ -1809,7 +2254,8 @@ footer a {
           copyText(
             hex,
             mode,
-            "Copied " + hex.toUpperCase()
+            "Copied " +
+            hex.toUpperCase()
           );
 
         }
@@ -1826,475 +2272,265 @@ footer a {
 
 
   /* =====================================================
-     GENERIC CHROMA SCALE
+     STATUS
   ====================================================== */
 
-  function generateScale(
+  function setStatus(
     mode,
-    colors,
-    count,
-    interpolation
+    message
   ) {
 
-    try {
+    const status =
+      $("status-" + mode);
 
-      const scale =
-        chroma
-          .scale(colors)
-          .mode(interpolation)
-          .colors(Number(count));
+    status.textContent =
+      message;
 
 
-      createSwatches(
-        mode,
-        scale
-      );
+    clearTimeout(
+      setStatus.timers?.[mode]
+    );
 
 
-      setStatus(
-        mode,
-        `${count} colours generated.`
-      );
+    setStatus.timers ??= {};
 
 
-    } catch (error) {
+    setStatus.timers[mode] =
+      setTimeout(() => {
 
-      console.error(
-        `Failed to generate ${mode}:`,
-        error
-      );
+        status.textContent =
+          "";
 
-
-      setStatus(
-        mode,
-        "Unable to generate palette."
-      );
-
-    }
+      }, 1800);
 
   }
 
 
   /* =====================================================
-     MONOCHROMATIC
+     CLIPBOARD
   ====================================================== */
 
-  function generateMono() {
-
-    try {
-
-      const base =
-        chroma(
-          value("mono-color")
-        );
-
-
-      const count =
-        Number(
-          value("mono-steps")
-        );
-
-
-      const midpoint =
-        Math.floor(
-          count / 2
-        );
-
-
-      const colors =
-        Array.from(
-          {
-            length: count
-          },
-          (_, index) =>
-
-            base
-              .darken(
-                index - midpoint
-              )
-              .hex()
-        );
-
-
-      createSwatches(
-        "mono",
-        colors
-      );
-
-
-      setStatus(
-        "mono",
-        `${count} colours generated.`
-      );
-
-
-    } catch (error) {
-
-      console.error(
-        "Monochromatic error:",
-        error
-      );
-
-
-      setStatus(
-        "mono",
-        "Unable to generate palette."
-      );
-
-    }
-
-  }
-
-
-  /* =====================================================
-     2 / 3 / 5 COLOUR BLENDS
-  ====================================================== */
-
-  function generateBlend(
+  async function copyText(
+    text,
     mode,
-    numberOfColors
+    message = "Copied"
   ) {
 
-    try {
-
-      const colors =
-        Array.from(
-          {
-            length: numberOfColors
-          },
-          (_, index) =>
-            value(
-              `${mode}-${index + 1}`
-            )
-        );
-
-
-      generateScale(
-        mode,
-        colors,
-        value(`${mode}-steps`),
-        value(`${mode}-mode`)
-      );
-
-    } catch (error) {
-
-      console.error(
-        `Blend error (${mode}):`,
-        error
-      );
-
+    if (!text) {
 
       setStatus(
         mode,
-        "Unable to generate palette."
+        "Generate a palette first."
       );
+
+      return;
 
     }
 
-  }
-
-
-  /* =====================================================
-     LIGHT CAST
-  ====================================================== */
-
-  function generateLight() {
 
     try {
 
-      const peakLight =
-        value("light-1");
+      if (
+        navigator.clipboard &&
+        window.isSecureContext
+      ) {
 
-
-      const lightInfluence =
-        value("light-2");
-
-
-      const object =
-        value("light-3");
-
-
-      const peakShadow =
-        value("light-5");
-
-
-      const lightAmount =
-        Number(
-          value("light-strength")
-        ) / 100;
-
-
-      const shadowAmount =
-        Number(
-          value("light-shadow-strength")
-        ) / 100;
-
-
-      const count =
-        Number(
-          value("light-steps")
+        await navigator.clipboard.writeText(
+          text
         );
 
+      } else {
 
-      /*
-       * Light side:
-       *
-       * Start with the object and push it toward
-       * the selected light influence colour.
-       */
+        fallbackCopy(text);
 
-      const lightSide =
-        influencedLch(
-          object,
-          lightInfluence,
-          lightAmount,
-          20 * lightAmount
-        );
-
-
-      /*
-       * Shadow side:
-       *
-       * Retain some of the light influence so the
-       * shadow doesn't simply become a neutral black.
-       */
-
-      const shadowBase =
-        influencedLch(
-          object,
-          lightInfluence,
-          shadowAmount * .45,
-          -15 * shadowAmount
-        );
-
-
-      const shadowSide =
-        chroma.mix(
-          shadowBase,
-          peakShadow,
-          shadowAmount,
-          "lch"
-        );
-
-
-      /*
-       * Five-point preview scale:
-       *
-       * peak light
-       * light influence
-       * object
-       * coloured shadow
-       * peak shadow
-       */
-
-      const colors =
-        chroma
-          .scale([
-            peakLight,
-            lightSide,
-            object,
-            shadowSide,
-            peakShadow
-          ])
-          .mode("lch")
-          .colors(count);
-
-
-      createSwatches(
-        "light",
-        colors
-      );
+      }
 
 
       setStatus(
-        "light",
-        `${count} colours generated.`
+        mode,
+        message
       );
-
 
     } catch (error) {
 
       console.error(
-        "Light Cast error:",
+        "Clipboard error:",
         error
       );
 
+      try {
 
-      setStatus(
-        "light",
-        "Unable to generate palette."
-      );
+        fallbackCopy(text);
+
+        setStatus(
+          mode,
+          message
+        );
+
+      } catch {
+
+        setStatus(
+          mode,
+          "Copy failed."
+        );
+
+      }
 
     }
 
   }
 
 
-  /* =====================================================
-     SHADOW CAST
-  ====================================================== */
+  function fallbackCopy(text) {
 
-  function generateShadow() {
+    const textarea =
+      document.createElement("textarea");
 
-    try {
+    textarea.value =
+      text;
 
-      const peakLight =
-        value("shadow-1");
+    textarea.style.position =
+      "fixed";
 
+    textarea.style.left =
+      "-9999px";
 
-      const object =
-        value("shadow-3");
+    textarea.style.top =
+      "0";
 
+    document.body.appendChild(
+      textarea
+    );
 
-      const shadowInfluence =
-        value("shadow-4");
+    textarea.focus();
 
+    textarea.select();
 
-      const peakShadow =
-        value("shadow-5");
+    textarea.setSelectionRange(
+      0,
+      textarea.value.length
+    );
 
-
-      const shadowAmount =
-        Number(
-          value("shadow-strength")
-        ) / 100;
-
-
-      const lightAmount =
-        Number(
-          value("shadow-light-strength")
-        ) / 100;
-
-
-      const count =
-        Number(
-          value("shadow-steps")
-        );
-
-
-      /*
-       * Light side.
-       */
-
-      const lightSide =
-        influencedLch(
-          object,
-          peakLight,
-          lightAmount,
-          20 * lightAmount
-        );
-
-
-      /*
-       * Coloured shadow.
-       */
-
-      const colouredShadow =
-        influencedLch(
-          object,
-          shadowInfluence,
-          shadowAmount,
-          -25 * shadowAmount
-        );
-
-
-      /*
-       * Move the coloured shadow toward
-       * the selected peak shadow.
-       */
-
-      const shadowSide =
-        chroma.mix(
-          colouredShadow,
-          peakShadow,
-          shadowAmount,
-          "lch"
-        );
-
-
-      const colors =
-        chroma
-          .scale([
-            peakLight,
-            lightSide,
-            object,
-            shadowSide,
-            peakShadow
-          ])
-          .mode("lch")
-          .colors(count);
-
-
-      createSwatches(
-        "shadow",
-        colors
+    const successful =
+      document.execCommand(
+        "copy"
       );
 
+    textarea.remove();
 
-      setStatus(
-        "shadow",
-        `${count} colours generated.`
+
+    if (!successful) {
+      throw new Error(
+        "Fallback copy failed"
       );
-
-
-    } catch (error) {
-
-      console.error(
-        "Shadow Cast error:",
-        error
-      );
-
-
-      setStatus(
-        "shadow",
-        "Unable to generate palette."
-      );
-
     }
 
   }
 
 
   /* =====================================================
-     GENERATE DISPATCHER
+     EXPORT FORMATS
   ====================================================== */
 
-  function generate(mode) {
+  function cssVariables(colors) {
 
-    if (mode === "mono") {
-      generateMono();
+    return colors
+      .map(
+        (color, i) =>
+          `--color-${i + 1}: ${color};`
+      )
+      .join("\n");
+
+  }
+
+
+  function jsonPalette(colors) {
+
+    return JSON.stringify(
+      {
+        colors: colors
+      },
+      null,
+      2
+    );
+
+  }
+
+
+  /* =====================================================
+     DOWNLOAD
+  ====================================================== */
+
+  function download(mode) {
+
+    const colors =
+      palettes[mode] || [];
+
+
+    if (!colors.length) {
+
+      setStatus(
+        mode,
+        "Generate a palette first."
+      );
+
       return;
+
     }
 
 
-    if (mode === "blend2") {
-      generateBlend("blend2", 2);
-      return;
-    }
+    const text =
+      colors.join("\n");
 
 
-    if (mode === "blend3") {
-      generateBlend("blend3", 3);
-      return;
-    }
+    const blob =
+      new Blob(
+        [text],
+        {
+          type: "text/plain;charset=utf-8"
+        }
+      );
 
 
-    if (mode === "blend5") {
-      generateBlend("blend5", 5);
-      return;
-    }
+    const url =
+      URL.createObjectURL(
+        blob
+      );
 
 
-    if (mode === "light") {
-      generateLight();
-      return;
-    }
+    const link =
+      document.createElement("a");
 
 
-    if (mode === "shadow") {
-      generateShadow();
-      return;
-    }
+    link.href =
+      url;
+
+    link.download =
+      `color-waves-${mode}.txt`;
+
+
+    document.body.appendChild(
+      link
+    );
+
+
+    link.click();
+
+
+    link.remove();
+
+
+    setTimeout(
+      () =>
+        URL.revokeObjectURL(url),
+      100
+    );
+
+
+    setStatus(
+      mode,
+      "Palette downloaded."
+    );
 
   }
 
@@ -2396,273 +2632,6 @@ footer a {
 
 
   /* =====================================================
-     CLIPBOARD
-  ====================================================== */
-
-  async function copyText(
-    text,
-    mode,
-    message = "Copied"
-  ) {
-
-    if (!text) {
-
-      setStatus(
-        mode,
-        "Generate a palette first."
-      );
-
-      return;
-
-    }
-
-
-    /*
-     * Modern Clipboard API.
-     */
-
-    if (
-      navigator.clipboard &&
-      window.isSecureContext
-    ) {
-
-      try {
-
-        await navigator.clipboard.writeText(
-          text
-        );
-
-
-        setStatus(
-          mode,
-          message
-        );
-
-
-        return;
-
-      } catch (error) {
-
-        console.warn(
-          "Clipboard API failed; using fallback.",
-          error
-        );
-
-      }
-
-    }
-
-
-    /*
-     * Fallback for browsers that don't expose
-     * navigator.clipboard.
-     */
-
-    try {
-
-      const textarea =
-        document.createElement(
-          "textarea"
-        );
-
-
-      textarea.value =
-        text;
-
-
-      textarea.style.position =
-        "fixed";
-
-      textarea.style.left =
-        "-9999px";
-
-      textarea.style.top =
-        "0";
-
-
-      document.body.appendChild(
-        textarea
-      );
-
-
-      textarea.focus();
-
-      textarea.select();
-
-
-      const successful =
-        document.execCommand(
-          "copy"
-        );
-
-
-      textarea.remove();
-
-
-      if (!successful) {
-        throw new Error(
-          "document.execCommand(copy) failed"
-        );
-      }
-
-
-      setStatus(
-        mode,
-        message
-      );
-
-
-    } catch (error) {
-
-      console.error(
-        "Copy failed:",
-        error
-      );
-
-
-      setStatus(
-        mode,
-        "Copy failed. Please copy manually."
-      );
-
-    }
-
-  }
-
-
-  /* =====================================================
-     CSS EXPORT
-  ====================================================== */
-
-  function cssVariables(colors) {
-
-    if (!colors.length) {
-      return "";
-    }
-
-
-    return colors
-      .map(
-        (color, index) =>
-          `--color-${index + 1}: ${color};`
-      )
-      .join("\n");
-
-  }
-
-
-  /* =====================================================
-     JSON EXPORT
-  ====================================================== */
-
-  function jsonPalette(colors) {
-
-    return JSON.stringify(
-      {
-        colors
-      },
-      null,
-      2
-    );
-
-  }
-
-
-  /* =====================================================
-     DOWNLOAD
-  ====================================================== */
-
-  function download(mode) {
-
-    const colors =
-      palettes[mode] || [];
-
-
-    if (!colors.length) {
-
-      setStatus(
-        mode,
-        "Generate a palette first."
-      );
-
-      return;
-
-    }
-
-
-    /*
-     * Download a useful text file containing
-     * the palette.
-     */
-
-    const text =
-      colors.join("\n");
-
-
-    const blob =
-      new Blob(
-        [text],
-        {
-          type: "text/plain;charset=utf-8"
-        }
-      );
-
-
-    const url =
-      URL.createObjectURL(
-        blob
-      );
-
-
-    const link =
-      document.createElement(
-        "a"
-      );
-
-
-    link.href =
-      url;
-
-
-    link.download =
-      `color-waves-${mode}.txt`;
-
-
-    link.style.display =
-      "none";
-
-
-    document.body.appendChild(
-      link
-    );
-
-
-    link.click();
-
-
-    link.remove();
-
-
-    /*
-     * Give the browser a moment to process
-     * the download before releasing the URL.
-     */
-
-    setTimeout(
-      () => URL.revokeObjectURL(url),
-      1000
-    );
-
-
-    setStatus(
-      mode,
-      "Palette downloaded."
-    );
-
-  }
-
-
-  /* =====================================================
      RANGE INPUTS
   ====================================================== */
 
@@ -2676,21 +2645,25 @@ footer a {
         $(range.id + "-value");
 
 
-      if (!output) {
-        return;
-      }
-
-
       range.addEventListener(
         "input",
         () => {
 
-          output.textContent =
+          if (
             range.id.includes(
               "strength"
             )
-              ? range.value + "%"
-              : range.value;
+          ) {
+
+            output.textContent =
+              range.value + "%";
+
+          } else {
+
+            output.textContent =
+              range.value;
+
+          }
 
         }
       );
@@ -2747,7 +2720,7 @@ footer a {
 
 
   /* =====================================================
-     COPY HEX BUTTONS
+     COPY HEX
   ====================================================== */
 
   document
@@ -2763,9 +2736,9 @@ footer a {
           const mode =
             button.dataset.copy;
 
-
           copyText(
-            (palettes[mode] || []).join("\n"),
+            (palettes[mode] || [])
+              .join("\n"),
             mode,
             "HEX palette copied."
           );
@@ -2777,7 +2750,7 @@ footer a {
 
 
   /* =====================================================
-     COPY CSS BUTTONS
+     COPY CSS
   ====================================================== */
 
   document
@@ -2793,11 +2766,12 @@ footer a {
           const mode =
             button.dataset.css;
 
+          const colors =
+            palettes[mode] || [];
+
 
           copyText(
-            cssVariables(
-              palettes[mode] || []
-            ),
+            cssVariables(colors),
             mode,
             "CSS variables copied."
           );
@@ -2809,7 +2783,7 @@ footer a {
 
 
   /* =====================================================
-     COPY JSON BUTTONS
+     COPY JSON
   ====================================================== */
 
   document
@@ -2825,11 +2799,12 @@ footer a {
           const mode =
             button.dataset.json;
 
+          const colors =
+            palettes[mode] || [];
+
 
           copyText(
-            jsonPalette(
-              palettes[mode] || []
-            ),
+            jsonPalette(colors),
             mode,
             "JSON copied."
           );
@@ -2865,7 +2840,7 @@ footer a {
 
 
   /* =====================================================
-     INITIAL GENERATION
+     GENERATE INITIAL PREVIEWS
   ====================================================== */
 
   [
@@ -2878,7 +2853,6 @@ footer a {
   ].forEach(
     generate
   );
-
 
 })();
 </script>
