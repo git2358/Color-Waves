@@ -1,4 +1,4 @@
-# Color Waves
+# [Color Waves](https://git2358.github.io/Color-Waves/)
 
 **Color Waves** is a simple browser-based colour palette generator for creating, exploring and exporting colour palettes, gradients, light variations and coloured shadows.
 
