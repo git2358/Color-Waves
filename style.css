@@ -249,7 +249,7 @@ footer a {
 
 .version {
   font-size: .5rem;
-  color: rgba(0,0,0,.45);
+  color: rgba(255,255,255,.45);
   text-align: center;
   text-shadow: 0 1px 4px rgba(0,0,0,.8);
   padding: 4em;
