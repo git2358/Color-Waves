@@ -12,6 +12,7 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   font-family:
     system-ui,
@@ -247,11 +248,38 @@ footer a {
   }
 }
 
-.version {
+.version,
+.version-right,
+.version-left {
+  position: absolute;
+  bottom: 10px;
+  font-family: monospace;
   font-size: .5rem;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.5);
+  text-shadow: 0 0 1px rgba(0,0,0,.5);
+  z-index: 9999;
+}
+
+.version {
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-  text-shadow: 0 1px 4px rgba(0,0,0,.8);
-  padding: 4em;
-  background: #111;
+}
+
+.version-right {
+  right: 12px;
+  text-align: right;
+}
+
+.version-left {
+  left: 12px;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .version,
+  .version-right,
+  .version-left {
+    position: fixed;
+  }
 }
